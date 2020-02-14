@@ -1,0 +1,19 @@
+os: osx
+language: swift
+osx_image: xcode11.3
+xcode_project: Complex.xcodeproj
+addons:
+  homebrew:
+    packages:
+      carthage
+
+script:
+  - carthage bootstrap
+  
+  - set -o pipefail && travis_retry xcodebuild -scheme "Complex" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - set -o pipefail && travis_retry xcodebuild -scheme "Complex macOS" -destination "platform=macOS" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - set -o pipefail && travis_retry xcodebuild -scheme "Complex tvOS" -destination "platform=tvOS Simulator,name=Apple TV 4K" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - set -o pipefail && travis_retry xcodebuild -scheme "Complex watchOS" -destination "platform=watchOS Simulator,name=Apple Watch Series 5 - 44mm" -configuration Debug ONLY_ACTIVE_ARCH=YES
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
