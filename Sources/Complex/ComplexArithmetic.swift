@@ -103,6 +103,87 @@ extension Complex where Scalar: SignedNumeric {
     }
 }
 
+extension Complex where Scalar: FixedWidthInteger {
+
+    @_transparent
+    public static func &+ (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real &+ rhs.real, imaginary: lhs.imaginary &+ rhs.imaginary)
+    }
+
+    @_transparent
+    public static func &+= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs &+ rhs
+    }
+
+    @_transparent
+    public static func &- (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real &- rhs.real, imaginary: lhs.imaginary &- rhs.imaginary)
+    }
+
+    @_transparent
+    public static func &-= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs &- rhs
+    }
+
+    //
+
+    @_transparent
+    public static func &+ (lhs: Complex<Scalar>, rhs: Scalar) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real &+ rhs, imaginary: lhs.imaginary)
+    }
+
+    @_transparent
+    public static func &+ (lhs: Scalar, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs &+ rhs.real, imaginary: rhs.imaginary)
+    }
+
+    @_transparent
+    public static func &+= (lhs: inout Complex<Scalar>, rhs: Scalar) {
+        lhs = lhs &+ rhs
+    }
+
+    //
+
+    @inlinable @inline(__always)
+    public static func .&+ (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return lhs &+ rhs
+    }
+
+    @inlinable @inline(__always)
+    public static func .&+= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs .&+ rhs
+    }
+
+    //
+
+    @_transparent
+    public static func &- (lhs: Complex<Scalar>, rhs: Scalar) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real &- rhs, imaginary: lhs.imaginary)
+    }
+
+    @_transparent
+    public static func &- (lhs: Scalar, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs &- rhs.real, imaginary: .zero &- rhs.imaginary)
+    }
+
+    @_transparent
+    public static func &-= (lhs: inout Complex<Scalar>, rhs: Scalar) {
+        lhs = lhs &- rhs
+    }
+
+    //
+
+    @inlinable @inline(__always)
+    public static func .&- (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return lhs &- rhs
+    }
+
+    @inlinable @inline(__always)
+    public static func .&-= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs .&- rhs
+    }
+}
+
 // MARK: - Multiplication
 
 extension Complex {
@@ -147,6 +228,51 @@ extension Complex {
     @_transparent
     public static func .*= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
         lhs = lhs .* rhs
+    }
+}
+
+extension Complex where Scalar: FixedWidthInteger {
+
+    @_transparent
+    public static func &* (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        let real = (lhs.real &* rhs.real) &- (lhs.imaginary &* rhs.imaginary)
+        let imaginary = (lhs.real &* rhs.imaginary) &+ (lhs.imaginary &* rhs.real)
+
+        return Complex<Scalar>(real: real, imaginary: imaginary)
+    }
+
+    @_transparent
+    public static func &*= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs &* rhs
+    }
+
+    //
+
+    @_transparent
+    public static func &* (lhs: Complex<Scalar>, rhs: Scalar) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real &* rhs, imaginary: lhs.imaginary &* rhs)
+    }
+
+    @_transparent
+    public static func &* (lhs: Scalar, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs &* rhs.real, imaginary: lhs &* rhs.imaginary)
+    }
+
+    @_transparent
+    public static func &*= (lhs: inout Complex<Scalar>, rhs: Scalar) {
+        lhs = lhs &* rhs
+    }
+
+    //
+
+    @_transparent
+    public static func .&* (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real &* rhs.real, imaginary: lhs.imaginary &* rhs.imaginary)
+    }
+
+    @_transparent
+    public static func .&*= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs .&* rhs
     }
 }
 

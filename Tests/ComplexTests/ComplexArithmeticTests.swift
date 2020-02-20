@@ -96,6 +96,19 @@ class ComplexArithmeticTests: XCTestCase {
         testAddition(Complex<Float80>(real: 1.0, imaginary: 2.0), 3.0, Complex<Float80>(real: 4.0, imaginary: 2.0))
     }
 
+    func testAdditionIgnoringOverflow() {
+        testAdditionIgnoringOverflow(forType: Int8.self)
+        testAdditionIgnoringOverflow(forType: Int16.self)
+        testAdditionIgnoringOverflow(forType: Int32.self)
+        testAdditionIgnoringOverflow(forType: Int64.self)
+        testAdditionIgnoringOverflow(forType: Int.self)
+        testAdditionIgnoringOverflow(forType: UInt8.self)
+        testAdditionIgnoringOverflow(forType: UInt16.self)
+        testAdditionIgnoringOverflow(forType: UInt32.self)
+        testAdditionIgnoringOverflow(forType: UInt64.self)
+        testAdditionIgnoringOverflow(forType: UInt.self)
+    }
+
     func testSubtraction() {
         testSubtraction(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 1, imaginary: 2), Complex<Int8>(real: 2, imaginary: 2))
         testSubtraction(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 1, imaginary: 2), Complex<Int16>(real: 2, imaginary: 2))
@@ -128,6 +141,19 @@ class ComplexArithmeticTests: XCTestCase {
         testSubtraction(Complex<Float80>(real: 3.0, imaginary: 4.0), 1.0, Complex<Float80>(real: 2.0, imaginary: 4.0))
     }
 
+    func testSubtractionIgnoringOverflow() {
+        testSubtractionIgnoringOverflow(forType: Int8.self)
+        testSubtractionIgnoringOverflow(forType: Int16.self)
+        testSubtractionIgnoringOverflow(forType: Int32.self)
+        testSubtractionIgnoringOverflow(forType: Int64.self)
+        testSubtractionIgnoringOverflow(forType: Int.self)
+        testSubtractionIgnoringOverflow(forType: UInt8.self)
+        testSubtractionIgnoringOverflow(forType: UInt16.self)
+        testSubtractionIgnoringOverflow(forType: UInt32.self)
+        testSubtractionIgnoringOverflow(forType: UInt64.self)
+        testSubtractionIgnoringOverflow(forType: UInt.self)
+    }
+
     func testMultiplication() {
         testMultiplication(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 1, imaginary: 2), Complex<Int8>(real: -5, imaginary: 10))
         testMultiplication(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 1, imaginary: 2), Complex<Int16>(real: -5, imaginary: 10))
@@ -158,6 +184,19 @@ class ComplexArithmeticTests: XCTestCase {
         testMultiplication(Complex<Float>(real: 3.0, imaginary: 4.0), 2.0)
         testMultiplication(Complex<Double>(real: 3.0, imaginary: 4.0), 2.0)
         testMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), 2.0)
+    }
+
+    func testMultiplicationIgnoringOverflow() {
+        testMultiplicationIgnoringOverflow(forType: Int8.self)
+        testMultiplicationIgnoringOverflow(forType: Int16.self)
+        testMultiplicationIgnoringOverflow(forType: Int32.self)
+        testMultiplicationIgnoringOverflow(forType: Int64.self)
+        testMultiplicationIgnoringOverflow(forType: Int.self)
+        testMultiplicationIgnoringOverflow(forType: UInt8.self)
+        testMultiplicationIgnoringOverflow(forType: UInt16.self)
+        testMultiplicationIgnoringOverflow(forType: UInt32.self)
+        testMultiplicationIgnoringOverflow(forType: UInt64.self)
+        testMultiplicationIgnoringOverflow(forType: UInt.self)
     }
 
     func testComponentwiseMultiplication() {
@@ -316,8 +355,62 @@ class ComplexArithmeticTests: XCTestCase {
         XCTAssertEqual(complex, result, file: file, line: line)
     }
 
+    private func testAdditionIgnoringOverflow<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
+        // The test is defined to "succeed" if it doesn't crash
+        let lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        let rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        let rhs2 = Scalar.max
+
+        _ = lhs &+ rhs
+        _ = rhs &+ lhs
+        _ = lhs .&+ rhs
+        _ = rhs .&+ lhs
+        _ = lhs &+ rhs2
+        _ = rhs2 &+ lhs
+
+        var complex = lhs
+        complex &+= rhs
+
+        complex = rhs
+        complex &+= lhs
+
+        complex = lhs
+        complex .&+= rhs
+
+        complex = rhs
+        complex .&+= lhs
+
+        if Scalar.isSigned {
+            // If the scalar is signed each min is the smallest negative number. Adding these
+            // two together would overflow.
+            let lhs = Complex<Scalar>(real: Scalar.min, imaginary: Scalar.min)
+            let rhs = Complex<Scalar>(real: Scalar.min, imaginary: Scalar.min)
+
+            _ = lhs &+ rhs
+            _ = rhs &+ lhs
+            _ = lhs .&+ rhs
+            _ = rhs .&+ lhs
+
+            var complex = lhs
+            complex &+= rhs
+
+            complex = lhs
+            complex &+= rhs2
+
+            complex = rhs
+            complex &+= lhs
+
+            complex = lhs
+            complex .&+= rhs
+
+            complex = rhs
+            complex .&+= lhs
+        }
+    }
+
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(lhs - rhs, result, file: file, line: line)
+        XCTAssertEqual(lhs .- rhs, result, file: file, line: line)
 
         var complex = lhs
         complex -= rhs
@@ -368,6 +461,47 @@ class ComplexArithmeticTests: XCTestCase {
         XCTAssertEqual(complex, result, file: file, line: line)
     }
 
+    private func testSubtractionIgnoringOverflow<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
+        // The test is defined to "succeed" if it doesn't crash
+        let lhs = Complex<Scalar>(real: Scalar.min, imaginary: Scalar.min)
+        let rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        let rhs2 = Scalar.max
+        let rhs3 = Scalar.min
+
+        _ = lhs &- rhs
+        _ = lhs .&- rhs
+        _ = lhs &- rhs2
+        _ = rhs3 &- rhs
+
+        var complex = lhs
+        complex &-= rhs
+
+        complex = lhs
+        complex &-= rhs2
+
+        complex = lhs
+        complex .&-= rhs
+
+        if Scalar.isSigned {
+            // If the scalar is signed each min is the smallest negative number. Subtracting
+            // these from the max would overflow.
+            let lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+            let rhs = Complex<Scalar>(real: Scalar.min, imaginary: Scalar.min)
+
+            _ = lhs &- rhs
+            _ = lhs .&- rhs
+
+            var complex = lhs
+            complex &-= rhs
+
+            complex = lhs
+            complex &-= rhs3
+
+            complex = lhs
+            complex .&-= rhs
+        }
+    }
+
     private func testMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(lhs * rhs, result, file: file, line: line)
         XCTAssertEqual(rhs * lhs, result, file: file, line: line)
@@ -379,6 +513,35 @@ class ComplexArithmeticTests: XCTestCase {
         complex = rhs
         complex *= lhs
         XCTAssertEqual(complex, result, file: file, line: line)
+    }
+
+    private func testMultiplicationIgnoringOverflow<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
+        // The test is defined to "succeed" if it doesn't crash
+        let lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        let rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        let rhs2 = Scalar.max
+
+        _ = lhs &* rhs
+        _ = rhs &* lhs
+        _ = lhs .&* rhs
+        _ = rhs .&* lhs
+        _ = lhs &* rhs2
+        _ = rhs2 &* lhs
+
+        var complex = lhs
+        complex &*= rhs
+
+        complex = rhs
+        complex &*= lhs
+
+        complex = lhs
+        complex &*= rhs2
+
+        complex = lhs
+        complex .&*= rhs
+
+        complex = rhs
+        complex .&*= lhs
     }
 
     private func testMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, file: StaticString = #file, line: UInt = #line) {
