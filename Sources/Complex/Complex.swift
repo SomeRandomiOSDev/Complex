@@ -7,91 +7,149 @@
 
 import Foundation
 
-//swiftlint:disable shorthand_operator
-
 // MARK: - Complex Definition
 
-@frozen public struct Complex<FloatingPoint: BinaryFloatingPoint> {
+@frozen public struct Complex<Scalar: Numeric> {
 
     // MARK: Public Properties
 
-    public var real: FloatingPoint
-    public var imaginary: FloatingPoint
+    public var real: Scalar
+    public var imaginary: Scalar
 
     // MARK: Initialization
 
     @_transparent
-    public init(real: FloatingPoint = 0.0, imaginary: FloatingPoint = 0.0) {
+    public init(real: Scalar = .zero, imaginary: Scalar = .zero) {
         self.real = real
         self.imaginary = imaginary
     }
 
     @_transparent
-    public init<Source>(real: Source, imaginary: Source) where Source: BinaryFloatingPoint {
-        self.init(real: FloatingPoint(real), imaginary: FloatingPoint(imaginary))
-    }
-
-    @_transparent
-    public init<Source>(real: Source, imaginary: Source) where Source: BinaryInteger {
-        self.init(real: FloatingPoint(real), imaginary: FloatingPoint(imaginary))
-    }
-
-    @_transparent
-    public init<Source>(_ complex: Complex<Source>) where Source: BinaryFloatingPoint {
-        self.init(real: FloatingPoint(complex.real), imaginary: FloatingPoint(complex.imaginary))
+    public init(_ other: Complex<Scalar>) {
+        self.real = other.real
+        self.imaginary = other.imaginary
     }
 
     @_transparent
     public init() {
-        self.init(real: 0.0, imaginary: 0.0)
+        self.init(real: .zero, imaginary: .zero)
+    }
+}
+
+// MARK: - Complex Initialization Extensions
+
+extension Complex where Scalar: BinaryFloatingPoint {
+
+    @_transparent
+    public init<Source>(real: Source, imaginary: Source) where Source: BinaryFloatingPoint {
+        self.init(real: Scalar(real), imaginary: Scalar(imaginary))
+    }
+
+    @_transparent
+    public init<Source>(_ other: Complex<Source>) where Source: BinaryFloatingPoint {
+        self.init(real: Scalar(other.real), imaginary: Scalar(other.imaginary))
+    }
+}
+
+extension Complex where Scalar: FloatingPoint {
+
+    @_transparent
+    public init<Source>(real: Source, imaginary: Source) where Source: BinaryInteger {
+        self.init(real: Scalar(real), imaginary: Scalar(imaginary))
+    }
+
+    @_transparent
+    public init<Source>(_ other: Complex<Source>) where Source: BinaryInteger {
+        self.init(real: Scalar(other.real), imaginary: Scalar(other.imaginary))
+    }
+}
+
+extension Complex where Scalar: BinaryFloatingPoint, Scalar.RawSignificand: FixedWidthInteger {
+
+    @inlinable
+    public static func random<T>(in range: Range<Scalar>, using generator: inout T) -> Complex where T: RandomNumberGenerator {
+        return Complex(real: Scalar.random(in: range, using: &generator), imaginary: Scalar.random(in: range, using: &generator))
+    }
+
+    @inlinable
+    public static func random(in range: Range<Scalar>) -> Complex {
+        return Complex(real: Scalar.random(in: range), imaginary: Scalar.random(in: range))
+    }
+
+    @inlinable
+    public static func random<T>(in range: ClosedRange<Scalar>, using generator: inout T) -> Complex where T: RandomNumberGenerator {
+        return Complex(real: Scalar.random(in: range, using: &generator), imaginary: Scalar.random(in: range, using: &generator))
+    }
+
+    @inlinable
+    public static func random(in range: ClosedRange<Scalar>) -> Complex {
+        return Complex(real: Scalar.random(in: range), imaginary: Scalar.random(in: range))
+    }
+}
+
+extension Complex where Scalar: BinaryInteger {
+
+    @_transparent
+    public init<Source>(real: Source, imaginary: Source) where Source: BinaryFloatingPoint {
+        self.init(real: Scalar(real), imaginary: Scalar(imaginary))
+    }
+
+    @_transparent
+    public init<Source>(real: Source, imaginary: Source) where Source: BinaryInteger {
+        self.init(real: Scalar(real), imaginary: Scalar(imaginary))
+    }
+
+    //
+
+    @_transparent
+    public init<Source>(_ other: Complex<Source>) where Source: BinaryFloatingPoint {
+        self.init(real: Scalar(other.real), imaginary: Scalar(other.imaginary))
+    }
+
+    @_transparent
+    public init<Source>(_ other: Complex<Source>) where Source: BinaryInteger {
+        self.init(real: Scalar(other.real), imaginary: Scalar(other.imaginary))
+    }
+}
+
+extension Complex where Scalar: FixedWidthInteger {
+
+    @inlinable
+    public static func random<T>(in range: Range<Scalar>, using generator: inout T) -> Complex where T: RandomNumberGenerator {
+        return Complex(real: Scalar.random(in: range, using: &generator), imaginary: Scalar.random(in: range, using: &generator))
+    }
+
+    @inlinable
+    public static func random(in range: Range<Scalar>) -> Complex {
+        return Complex(real: Scalar.random(in: range), imaginary: Scalar.random(in: range))
+    }
+
+    @inlinable
+    public static func random<T>(in range: ClosedRange<Scalar>, using generator: inout T) -> Complex where T: RandomNumberGenerator {
+        return Complex(real: Scalar.random(in: range, using: &generator), imaginary: Scalar.random(in: range, using: &generator))
+    }
+
+    @inlinable
+    public static func random(in range: ClosedRange<Scalar>) -> Complex {
+        return Complex(real: Scalar.random(in: range), imaginary: Scalar.random(in: range))
     }
 }
 
 // MARK: - ExpressibleByArrayLiteral Protocol Conformance
 
-extension Complex: ExpressibleByArrayLiteral {
+extension Complex: ExpressibleByArrayLiteral where Scalar: AdditiveArithmetic {
 
     @_transparent
-    public init(arrayLiteral elements: FloatingPoint...) {
+    public init(arrayLiteral elements: Scalar...) {
         precondition(elements.count <= 2, "Expected at most two elements")
 
         if elements.isEmpty {
             self.init()
         } else if elements.count == 1 {
-            self.init(real: elements[0])
+            self.init(real: elements[0], imaginary: .zero)
         } else {
             self.init(real: elements[0], imaginary: elements[1])
         }
-    }
-}
-
-// MARK: - AdditiveArithmetic Protocol Conformance
-
-extension Complex: AdditiveArithmetic {
-
-    @_transparent
-    public static var zero: Complex {
-        return Complex(real: .zero, imaginary: .zero)
-    }
-
-    @_transparent
-    public static func + (lhs: Complex, rhs: Complex) -> Complex {
-        return Complex(real: lhs.real + rhs.real, imaginary: lhs.imaginary + rhs.imaginary)
-    }
-
-    @_transparent
-    public static func += (lhs: inout Complex, rhs: Complex) {
-        lhs = lhs + rhs
-    }
-
-    @_transparent
-    public static func - (lhs: Complex, rhs: Complex) -> Complex {
-        return Complex(real: lhs.real - rhs.real, imaginary: lhs.imaginary - rhs.imaginary)
-    }
-
-    @_transparent
-    public static func -= (lhs: inout Complex, rhs: Complex) {
-        lhs = lhs - rhs
     }
 }
 
@@ -99,6 +157,7 @@ extension Complex: AdditiveArithmetic {
 
 extension Complex: CustomStringConvertible {
 
+    @_transparent
     public var description: String {
         return "{ real: \(real), imaginary: \(imaginary) }"
     }
@@ -108,6 +167,7 @@ extension Complex: CustomStringConvertible {
 
 extension Complex: CustomDebugStringConvertible {
 
+    @_transparent
     public var debugDescription: String {
         return "{ real: \(real), imaginary: \(imaginary) }"
     }
@@ -115,7 +175,7 @@ extension Complex: CustomDebugStringConvertible {
 
 // MARK: - Hashable Protocol Conformance
 
-extension Complex: Hashable {
+extension Complex: Hashable where Scalar: Hashable {
 
     @inlinable
     public func hash(into hasher: inout Hasher) {
@@ -126,7 +186,7 @@ extension Complex: Hashable {
 
 // MARK: - Equatable Protocol Conformance
 
-extension Complex: Equatable {
+extension Complex: Equatable where Scalar: Equatable {
 
     @_transparent
     public static func == (lhs: Complex, rhs: Complex) -> Bool {
@@ -134,155 +194,52 @@ extension Complex: Equatable {
     }
 }
 
-// MARK: - Codable Protocol Conformance
+// MARK: - Encodable Protocol Conformance
 
-extension Complex: Codable where FloatingPoint: Codable {
+extension Complex: Encodable where Scalar: Encodable {
 
 }
 
-// MARK: - Complex Extension
+// MARK: - Decodable Protocol Conformance
 
-extension Complex {
+extension Complex: Decodable where Scalar: Decodable {
+
+}
+
+// MARK: - Complex BinaryInteger Extensions
+
+extension Complex where Scalar: BinaryInteger {
 
     @_transparent
-    public static func * (lhs: Complex, rhs: Complex) -> Complex {
-        let real = (lhs.real * rhs.real) - (lhs.imaginary * rhs.imaginary)
-        let imaginary = (lhs.real * rhs.imaginary) + (lhs.imaginary * rhs.real)
-
-        return Complex(real: real, imaginary: imaginary)
+    public var modulus: Scalar {
+        return Scalar(sqrt(Float80(real * real + imaginary * imaginary)))
     }
 
     @_transparent
-    public static func *= (lhs: inout Complex, rhs: Complex) {
-        lhs = lhs * rhs
+    public var angle: Scalar {
+        return Scalar(atan2(Float80(imaginary), Float80(real)))
     }
 
-    @_transparent
-    public static func / (lhs: Complex, rhs: Complex) -> Complex {
-        let numerator = lhs * rhs.conjugate()
-        let denominator = rhs * rhs.conjugate() // Multiplying the denominator by its conjugate cancels out its imaginary component
-
-        return Complex(real: numerator.real / denominator.real, imaginary: numerator.imaginary / denominator.real)
-    }
+    //
 
     @_transparent
-    public static func /= (lhs: inout Complex, rhs: Complex) {
-        lhs = lhs / rhs
+    public func string(withNotation notation: Notation) -> String {
+        let string: String
+
+        switch notation {
+        case .square:        string = "\(real) + \(imaginary)i"
+        case .trigonometric: string = "\(modulus) (cos(\(angle)) + i sin(\(angle)))"
+        case .euler:         string = "\(modulus) e ^ (i \(angle))"
+        case .angle:         string = "\(modulus) ⦣ \(angle)"
+        }
+
+        return string
     }
 }
 
-// MARK: - Complex Extension
+// MARK: - Complex FloatingPoint Extensions
 
-extension Complex {
-
-    @_transparent
-    public static func + (lhs: Complex, rhs: FloatingPoint) -> Complex {
-        return Complex(real: lhs.real + rhs, imaginary: lhs.imaginary)
-    }
-
-    @_transparent
-    public static func + (lhs: FloatingPoint, rhs: Complex) -> Complex {
-        return Complex(real: lhs + rhs.real, imaginary: rhs.imaginary)
-    }
-
-    @_transparent
-    public static func += (lhs: inout Complex, rhs: FloatingPoint) {
-        lhs = lhs + rhs
-    }
-
-    @_transparent
-    public static func - (lhs: Complex, rhs: FloatingPoint) -> Complex {
-        return Complex(real: lhs.real - rhs, imaginary: lhs.imaginary)
-    }
-
-    @_transparent
-    public static func - (lhs: FloatingPoint, rhs: Complex) -> Complex {
-        return Complex(real: lhs - rhs.real, imaginary: -rhs.imaginary)
-    }
-
-    @_transparent
-    public static func -= (lhs: inout Complex, rhs: FloatingPoint) {
-        lhs = lhs - rhs
-    }
-
-    @_transparent
-    public static func * (lhs: Complex, rhs: FloatingPoint) -> Complex {
-        return Complex(real: lhs.real * rhs, imaginary: lhs.imaginary * rhs)
-    }
-
-    @_transparent
-    public static func * (lhs: FloatingPoint, rhs: Complex) -> Complex {
-        return Complex(real: lhs * rhs.real, imaginary: lhs * rhs.imaginary)
-    }
-
-    @_transparent
-    public static func *= (lhs: inout Complex, rhs: FloatingPoint) {
-        lhs = lhs * rhs
-    }
-
-    @_transparent
-    public static func / (lhs: Complex, rhs: FloatingPoint) -> Complex {
-        return Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs)
-    }
-
-    @_transparent
-    public static func / (lhs: FloatingPoint, rhs: Complex) -> Complex {
-        return Complex(real: lhs, imaginary: 0.0) / rhs
-    }
-
-    @_transparent
-    public static func /= (lhs: inout Complex, rhs: FloatingPoint) {
-        lhs = lhs / rhs
-    }
-}
-
-// MARK: - Complex Extension
-
-extension Complex {
-
-    @_transparent
-    public mutating func negate() {
-        real.negate()
-        imaginary.negate()
-    }
-
-    @_transparent
-    public static prefix func - (complex: Complex) -> Complex {
-        var value = complex
-        value.negate()
-        return value
-    }
-
-    @_transparent
-    public static prefix func + (complex: Complex) -> Complex {
-        return complex
-    }
-}
-
-// MARK: - Complex Extension
-
-extension Complex {
-
-    @_transparent
-    public static prefix func ~ (complex: Complex) -> Complex {
-        return complex.conjugate()
-    }
-
-    @_transparent
-    public func conjugate() -> Complex {
-        var complex = self
-        complex.formConjugate()
-        return complex
-    }
-
-    public mutating func formConjugate() {
-        imaginary.negate()
-    }
-}
-
-// MARK: - Complex Extension
-
-extension Complex {
+extension Complex where Scalar: FloatingPoint {
 
     @_transparent
     public func rounded(_ rule: FloatingPointRoundingRule) -> Complex {
@@ -293,9 +250,7 @@ extension Complex {
 
     @_transparent
     public func rounded() -> Complex {
-        var complex = self
-        complex.round()
-        return complex
+        rounded(.toNearestOrAwayFromZero)
     }
 
     //
@@ -312,36 +267,24 @@ extension Complex {
     }
 }
 
-// MARK: - Complex Extension
-
-extension Complex {
+extension Complex where Scalar: FloatingPoint {
 
     @_transparent
-    public var modulus: FloatingPoint {
+    public var modulus: Scalar {
         return sqrt(real * real + imaginary * imaginary)
-    }
-
-    public var angle: FloatingPoint {
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        return FloatingPoint(atan2(Float80(imaginary), Float80(real)))
-#else
-        return FloatingPoint(atan2(Double(imaginary), Double(real)))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 }
 
-// MARK: - Complex Extension
+// MARK: - Complex BinaryFloatingPoint Extensions
 
-extension Complex {
+extension Complex where Scalar: BinaryFloatingPoint {
 
-    public enum Notation: String, Codable, Hashable {
-
-        case square
-        case trigonometric
-        case euler
-        case angle
+    @_transparent
+    public var angle: Scalar {
+        return Scalar(atan2(Float80(imaginary), Float80(real)))
     }
 
+    @_transparent
     public func string(withNotation notation: Notation) -> String {
         let string: String
 
@@ -353,5 +296,82 @@ extension Complex {
         }
 
         return string
+    }
+}
+
+// MARK: - Complex SignedNumeric Extensions
+
+extension Complex where Scalar: SignedNumeric {
+
+    @_transparent
+    public static prefix func ~ (complex: Complex) -> Complex {
+        return complex.conjugate()
+    }
+
+    @_transparent
+    public func conjugate() -> Complex {
+        var complex = self
+        complex.formConjugate()
+        return complex
+    }
+
+    @_transparent
+    public mutating func formConjugate() {
+        imaginary.negate()
+    }
+}
+
+extension Complex where Scalar: SignedNumeric {
+
+    @_transparent
+    public mutating func negate() {
+        real.negate()
+        imaginary.negate()
+    }
+
+    @_transparent
+    public static prefix func - (complex: Complex) -> Complex {
+        var value = complex
+        value.negate()
+        return value
+    }
+}
+
+// MARK: - Complex Extensions
+
+extension Complex {
+
+    @_transparent
+    public static var i: Complex {
+        return Complex(real: .zero, imaginary: 1)
+    }
+}
+
+extension Complex {
+
+    @_transparent
+    public static var one: Complex {
+        return Complex(real: 1, imaginary: .zero)
+    }
+}
+
+extension Complex {
+
+    @inlinable @inline(__always)
+    public static prefix func + (complex: Complex) -> Complex {
+        return complex
+    }
+}
+
+// MARK: - Complex.Notation Definition
+
+extension Complex {
+
+    public enum Notation: String, Codable, Hashable {
+
+        case square
+        case trigonometric
+        case euler
+        case angle
     }
 }

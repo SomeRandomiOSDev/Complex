@@ -23,10 +23,8 @@ class FunctionsTests: XCTestCase {
         XCTAssertEqual(csqrt(Double(-4.0)), Complex(real: 0.0, imaginary: 2.0))
         XCTAssertEqual(csqrt(Double(9.0)), Complex(real: 3.0, imaginary: 0.0))
 
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         XCTAssertEqual(csqrt(Float80(-4.0)), Complex(real: 0.0, imaginary: 2.0))
         XCTAssertEqual(csqrt(Float80(9.0)), Complex(real: 3.0, imaginary: 0.0))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
     func test_sqrt() {
@@ -51,41 +49,33 @@ class FunctionsTests: XCTestCase {
         XCTAssertEqual(sqrt(Complex<Double>(real: 3.0, imaginary: 4.0)), Complex(real: 2.0, imaginary: 1.0))
         XCTAssertEqual(sqrt(Complex<Double>(real: -3.0, imaginary: 4.0)), Complex(real: 1.0, imaginary: 2.0))
 
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         XCTAssertEqual(sqrt(Complex<Float80>(real: -4.0, imaginary: 0.0)), Complex(real: 0.0, imaginary: 2.0))
         XCTAssertEqual(sqrt(Complex<Float80>(real: 4.0, imaginary: 0.0)), Complex(real: 2.0, imaginary: 0.0))
         XCTAssertTrue((sqrt(Complex<Float80>(real: 0.0, imaginary: -4.0)) - Complex(real: 2.0.squareRoot(), imaginary: -2.0.squareRoot())).modulus < 0.0001)
         XCTAssertTrue((sqrt(Complex<Float80>(real: 0.0, imaginary: 4.0)) - Complex(real: 2.0.squareRoot(), imaginary: 2.0.squareRoot())).modulus < 0.0001)
         XCTAssertEqual(sqrt(Complex<Float80>(real: 3.0, imaginary: 4.0)), Complex(real: 2.0, imaginary: 1.0))
         XCTAssertEqual(sqrt(Complex<Float80>(real: -3.0, imaginary: 4.0)), Complex(real: 1.0, imaginary: 2.0))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
     func test_abs() {
         XCTAssertEqual(abs(Complex<Half>(real: -4.5, imaginary: 3.7)), Complex<Half>(real: 4.5, imaginary: 3.7))
         XCTAssertEqual(abs(Complex<Float>(real: -4.5, imaginary: 3.7)), Complex<Float>(real: 4.5, imaginary: 3.7))
         XCTAssertEqual(abs(Complex<Double>(real: -4.5, imaginary: 3.7)), Complex<Double>(real: 4.5, imaginary: 3.7))
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         XCTAssertEqual(abs(Complex<Float80>(real: -4.5, imaginary: 3.7)), Complex<Float80>(real: 4.5, imaginary: 3.7))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
     func test_min() {
         XCTAssertEqual(min(Complex<Half>(real: -4.5, imaginary: 3.7), Complex<Half>(real: 7.0, imaginary: 1.2)), Complex<Half>(real: -4.5, imaginary: 1.2))
         XCTAssertEqual(min(Complex<Float>(real: -4.5, imaginary: 3.7), Complex<Float>(real: 7.0, imaginary: 1.2)), Complex<Float>(real: -4.5, imaginary: 1.2))
         XCTAssertEqual(min(Complex<Double>(real: -4.5, imaginary: 3.7), Complex<Double>(real: 7.0, imaginary: 1.2)), Complex<Double>(real: -4.5, imaginary: 1.2))
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         XCTAssertEqual(min(Complex<Float80>(real: -4.5, imaginary: 3.7), Complex<Float80>(real: 7.0, imaginary: 1.2)), Complex<Float80>(real: -4.5, imaginary: 1.2))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
     func test_max() {
         XCTAssertEqual(max(Complex<Half>(real: -4.5, imaginary: 3.7), Complex<Half>(real: 7.0, imaginary: 1.2)), Complex<Half>(real: 7.0, imaginary: 3.7))
         XCTAssertEqual(max(Complex<Float>(real: -4.5, imaginary: 3.7), Complex<Float>(real: 7.0, imaginary: 1.2)), Complex<Float>(real: 7.0, imaginary: 3.7))
         XCTAssertEqual(max(Complex<Double>(real: -4.5, imaginary: 3.7), Complex<Double>(real: 7.0, imaginary: 1.2)), Complex<Double>(real: 7.0, imaginary: 3.7))
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         XCTAssertEqual(max(Complex<Float80>(real: -4.5, imaginary: 3.7), Complex<Float80>(real: 7.0, imaginary: 1.2)), Complex<Float80>(real: 7.0, imaginary: 3.7))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
     func test_clamp() {
@@ -97,9 +87,7 @@ class FunctionsTests: XCTestCase {
 
         XCTAssertEqual(clamp(Complex<Double>(real: -4.5, imaginary: 3.7), -4.0, 4.0), Complex<Double>(real: -4.0, imaginary: 3.7))
         XCTAssertEqual(clamp(Complex<Double>(real: -4.5, imaginary: 3.7), Complex<Double>(real: 0.0, imaginary: 0.0), Complex<Double>(real: 2.0, imaginary: 4.0)), Complex<Double>(real: 0.0, imaginary: 3.7))
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         XCTAssertEqual(clamp(Complex<Float80>(real: -4.5, imaginary: 3.7), -4.0, 4.0), Complex<Float80>(real: -4.0, imaginary: 3.7))
         XCTAssertEqual(clamp(Complex<Float80>(real: -4.5, imaginary: 3.7), Complex<Float80>(real: 0.0, imaginary: 0.0), Complex<Float80>(real: 2.0, imaginary: 4.0)), Complex<Float80>(real: 0.0, imaginary: 3.7))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 }

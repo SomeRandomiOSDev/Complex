@@ -38,12 +38,40 @@
 		DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
 		DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
 		DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
+		DDB8126223F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
+		DDB8126323F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
+		DDB8126423F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
+		DDB8126523F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
+		DDB8126723F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */; };
+		DDB8126823F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */; };
+		DDB8126923F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */; };
 		DDFEEC3D23EF13910096015C /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFEEC3323EF13900096015C /* Complex.framework */; };
 		DDFEECC723F2001A0096015C /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFEECBE23F2001A0096015C /* Complex.framework */; };
 		DDFEECE323F2003E0096015C /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFEECDA23F2003E0096015C /* Complex.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DDB8127B23FA5C3E0079FEB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
+			remoteInfo = "Run SwiftLint";
+		};
+		DDB8127F23FA5C430079FEB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
+			remoteInfo = "Run SwiftLint";
+		};
+		DDB8128323FA5C480079FEB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
+			remoteInfo = "Run SwiftLint";
+		};
 		DDFEEC3E23EF13910096015C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
@@ -83,6 +111,8 @@
 		DDB8121B23F63B890079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/Mac/Half.framework; sourceTree = "<group>"; };
 		DDB8121C23F63B900079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/iOS/Half.framework; sourceTree = "<group>"; };
 		DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
+		DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexArithmetic.swift; sourceTree = "<group>"; };
+		DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArithmeticTests.swift; sourceTree = "<group>"; };
 		DDFEEC3323EF13900096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFEEC3723EF13900096015C /* Complex-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Complex-Info.plist"; path = "Info/Complex-Info.plist"; sourceTree = "<group>"; };
 		DDFEEC3C23EF13910096015C /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */,
+				DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */,
 				DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */,
 				DDFEEC4323EF13910096015C /* ComplexTests-Info.plist */,
 			);
@@ -247,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB8120623F59B760079FEB5 /* Complex.swift */,
+				DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */,
 				DDB8120B23F5A8E80079FEB5 /* Functions.swift */,
 			);
 			path = Complex;
@@ -335,6 +367,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDB8127C23FA5C3E0079FEB5 /* PBXTargetDependency */,
 			);
 			name = "Complex macOS";
 			productName = "Complex macOS";
@@ -371,6 +404,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDB8128023FA5C430079FEB5 /* PBXTargetDependency */,
 			);
 			name = "Complex tvOS";
 			productName = "Complex tvOS";
@@ -407,6 +441,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDB8128423FA5C480079FEB5 /* PBXTargetDependency */,
 			);
 			name = "Complex watchOS";
 			productName = "Complex watchOS";
@@ -559,6 +594,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126223F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
 				DDB8120723F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120C23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -568,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126723F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
 				DDB8121123F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
 				DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
 			);
@@ -577,6 +614,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126323F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
 				DDB8120823F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120D23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -586,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126823F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
 				DDB8121223F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
 				DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
 			);
@@ -595,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126423F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
 				DDB8120923F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120E23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -604,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126923F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
 				DDB8121323F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
 				DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
 			);
@@ -613,6 +654,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB8126523F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
 				DDB8120A23F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120F23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -621,6 +663,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DDB8127C23FA5C3E0079FEB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
+			targetProxy = DDB8127B23FA5C3E0079FEB5 /* PBXContainerItemProxy */;
+		};
+		DDB8128023FA5C430079FEB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
+			targetProxy = DDB8127F23FA5C430079FEB5 /* PBXContainerItemProxy */;
+		};
+		DDB8128423FA5C480079FEB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
+			targetProxy = DDB8128323FA5C480079FEB5 /* PBXContainerItemProxy */;
+		};
 		DDFEEC3F23EF13910096015C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DDFEEC3223EF13900096015C /* Complex */;
