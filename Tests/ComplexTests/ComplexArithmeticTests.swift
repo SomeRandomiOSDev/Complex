@@ -109,6 +109,19 @@ class ComplexArithmeticTests: XCTestCase {
         testAdditionIgnoringOverflow(forType: UInt.self)
     }
 
+    func testOverflowingAddition() {
+        testOverflowingAddition(forType: Int8.self)
+        testOverflowingAddition(forType: Int16.self)
+        testOverflowingAddition(forType: Int32.self)
+        testOverflowingAddition(forType: Int64.self)
+        testOverflowingAddition(forType: Int.self)
+        testOverflowingAddition(forType: UInt8.self)
+        testOverflowingAddition(forType: UInt16.self)
+        testOverflowingAddition(forType: UInt32.self)
+        testOverflowingAddition(forType: UInt64.self)
+        testOverflowingAddition(forType: UInt.self)
+    }
+
     func testSubtraction() {
         testSubtraction(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 1, imaginary: 2), Complex<Int8>(real: 2, imaginary: 2))
         testSubtraction(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 1, imaginary: 2), Complex<Int16>(real: 2, imaginary: 2))
@@ -152,6 +165,19 @@ class ComplexArithmeticTests: XCTestCase {
         testSubtractionIgnoringOverflow(forType: UInt32.self)
         testSubtractionIgnoringOverflow(forType: UInt64.self)
         testSubtractionIgnoringOverflow(forType: UInt.self)
+    }
+
+    func testOverflowingSubtraction() {
+        testOverflowingSubtraction(forType: Int8.self)
+        testOverflowingSubtraction(forType: Int16.self)
+        testOverflowingSubtraction(forType: Int32.self)
+        testOverflowingSubtraction(forType: Int64.self)
+        testOverflowingSubtraction(forType: Int.self)
+        testOverflowingSubtraction(forType: UInt8.self)
+        testOverflowingSubtraction(forType: UInt16.self)
+        testOverflowingSubtraction(forType: UInt32.self)
+        testOverflowingSubtraction(forType: UInt64.self)
+        testOverflowingSubtraction(forType: UInt.self)
     }
 
     func testMultiplication() {
@@ -216,6 +242,19 @@ class ComplexArithmeticTests: XCTestCase {
         testComponentwiseMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
     }
 
+    func testComponentwiseOverflowingMultiplication() {
+        testComponentwiseOverflowingMultiplication(forType: Int8.self)
+        testComponentwiseOverflowingMultiplication(forType: Int16.self)
+        testComponentwiseOverflowingMultiplication(forType: Int32.self)
+        testComponentwiseOverflowingMultiplication(forType: Int64.self)
+        testComponentwiseOverflowingMultiplication(forType: Int.self)
+        testComponentwiseOverflowingMultiplication(forType: UInt8.self)
+        testComponentwiseOverflowingMultiplication(forType: UInt16.self)
+        testComponentwiseOverflowingMultiplication(forType: UInt32.self)
+        testComponentwiseOverflowingMultiplication(forType: UInt64.self)
+        testComponentwiseOverflowingMultiplication(forType: UInt.self)
+    }
+
     func testDivision() {
         testDivision(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 2, imaginary: 1), Complex<Int8>(real: 2, imaginary: 1))
         testDivision(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 2, imaginary: 1), Complex<Int16>(real: 2, imaginary: 1))
@@ -263,6 +302,19 @@ class ComplexArithmeticTests: XCTestCase {
         testComponentwiseDivision(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0))
         testComponentwiseDivision(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0))
         testComponentwiseDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
+    }
+
+    func testComponentwiseOverflowingDivision() {
+        testComponentwiseOverflowingDivision(forType: Int8.self)
+        testComponentwiseOverflowingDivision(forType: Int16.self)
+        testComponentwiseOverflowingDivision(forType: Int32.self)
+        testComponentwiseOverflowingDivision(forType: Int64.self)
+        testComponentwiseOverflowingDivision(forType: Int.self)
+        testComponentwiseOverflowingDivision(forType: UInt8.self)
+        testComponentwiseOverflowingDivision(forType: UInt16.self)
+        testComponentwiseOverflowingDivision(forType: UInt32.self)
+        testComponentwiseOverflowingDivision(forType: UInt64.self)
+        testComponentwiseOverflowingDivision(forType: UInt.self)
     }
 
     // MARK: Private Methods
@@ -408,6 +460,58 @@ class ComplexArithmeticTests: XCTestCase {
         }
     }
 
+    private func testOverflowingAddition<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: UnsignedInteger {
+        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        var rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        var result = lhs.addingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, Scalar.max - 1, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, 0, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        result = lhs.addingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, 0, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        result = lhs.addingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, Scalar.max - 1, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
+    }
+
+    private func testOverflowingAddition<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: SignedInteger {
+        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        var rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        var result = lhs.addingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, -2, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, 0, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        result = lhs.addingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, 0, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, -2, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        result = lhs.addingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, -2, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, -2, file: file, line: line)
+    }
+
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(lhs - rhs, result, file: file, line: line)
         XCTAssertEqual(lhs .- rhs, result, file: file, line: line)
@@ -502,6 +606,32 @@ class ComplexArithmeticTests: XCTestCase {
         }
     }
 
+    private func testOverflowingSubtraction<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
+        var lhs = Complex<Scalar>(real: Scalar.min, imaginary: 0)
+        var rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        var result = lhs.subtractingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, 1, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, 0, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.min)
+        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        result = lhs.subtractingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, 0, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, 1, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: Scalar.min, imaginary: Scalar.min)
+        rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        result = lhs.subtractingReportingOverflow(rhs)
+
+        XCTAssertTrue(result.overflow, file: file, line: line)
+        XCTAssertEqual(result.partialValue.real, 1, file: file, line: line)
+        XCTAssertEqual(result.partialValue.imaginary, 1, file: file, line: line)
+    }
+
     private func testMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(lhs * rhs, result, file: file, line: line)
         XCTAssertEqual(rhs * lhs, result, file: file, line: line)
@@ -563,6 +693,70 @@ class ComplexArithmeticTests: XCTestCase {
         result .*= rhs
         XCTAssertEqual(result.real, lhs.real * rhs.real, file: file, line: line)
         XCTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary, file: file, line: line)
+    }
+
+    private func testComponentwiseOverflowingMultiplication<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: UnsignedInteger {
+        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        var rhs = Complex<Scalar>(real: 2, imaginary: 2)
+
+        let fullWidth = lhs.componentwiseMultipliedFullWidth(by: rhs)
+        XCTAssertEqual(fullWidth.high.real, 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.high.imaginary, 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.low.real, Scalar.Magnitude.max - 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.low.imaginary, Scalar.Magnitude.max - 1, file: file, line: line)
+
+        var overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, Scalar.max - 1, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        rhs = Complex<Scalar>(real: 2, imaginary: 0)
+        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
+
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, Scalar.max - 1, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, 0, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        rhs = Complex<Scalar>(real: 0, imaginary: 2)
+        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
+
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, 0, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
+    }
+
+    private func testComponentwiseOverflowingMultiplication<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: SignedInteger {
+        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        var rhs = Complex<Scalar>(real: 4, imaginary: 4)
+
+        let fullWidth = lhs.componentwiseMultipliedFullWidth(by: rhs)
+        XCTAssertEqual(fullWidth.high.real, 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.high.imaginary, 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.low.real, Scalar.Magnitude.max - 3, file: file, line: line)
+        XCTAssertEqual(fullWidth.low.imaginary, Scalar.Magnitude.max - 3, file: file, line: line)
+
+        var overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, -4, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, -4, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        rhs = Complex<Scalar>(real: 4, imaginary: 0)
+        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
+
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, -4, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, 0, file: file, line: line)
+
+        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        rhs = Complex<Scalar>(real: 0, imaginary: 4)
+        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
+
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, 0, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, -4, file: file, line: line)
     }
 
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
@@ -627,5 +821,32 @@ class ComplexArithmeticTests: XCTestCase {
         result ./= rhs
         XCTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
         XCTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+    }
+
+    private func testComponentwiseOverflowingDivision<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
+        let lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
+        var rhs = Complex<Scalar>(real: 0, imaginary: 0)
+
+        let fullWidth = lhs.componentwiseDividingFullWidth((high: Complex<Scalar>(real: 1, imaginary: 1), low: Complex<Scalar.Magnitude>.zero))
+        XCTAssertEqual(fullWidth.quotient.real, Scalar.isSigned ? 2 : 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.quotient.imaginary, Scalar.isSigned ? 2 : 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.remainder.real, Scalar.isSigned ? 2 : 1, file: file, line: line)
+        XCTAssertEqual(fullWidth.remainder.imaginary, Scalar.isSigned ? 2 : 1, file: file, line: line)
+
+        var overflow = lhs.componentwiseDividedReportingOverflow(by: rhs)
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue, lhs, file: file, line: line)
+
+        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
+        overflow = lhs.componentwiseDividedReportingOverflow(by: rhs)
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, lhs.real, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, 1, file: file, line: line)
+
+        rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
+        overflow = lhs.componentwiseDividedReportingOverflow(by: rhs)
+        XCTAssertTrue(overflow.overflow, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.real, 1, file: file, line: line)
+        XCTAssertEqual(overflow.partialValue.imaginary, lhs.imaginary, file: file, line: line)
     }
 }
