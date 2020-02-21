@@ -15,10 +15,14 @@ let package = Package(
         .library(name: "Complex", type: .dynamic, targets: ["Complex"])
     ],
 
-    targets: [
-        .target(name: "Complex"),
-        .testTarget(name: "ComplexTests", dependencies: ["Complex"])
+    dependencies: [
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.0.1")
     ],
 
-    swiftLanguageVersions: [.version("4.0"), .version("4.2"), .version("5.0")]
+    targets: [
+        .target(name: "Complex"),
+        .testTarget(name: "ComplexTests", dependencies: ["Complex", "Half"])
+    ],
+
+    swiftLanguageVersions: [.version("4"), .version("4.2"), .version("5")]
 )

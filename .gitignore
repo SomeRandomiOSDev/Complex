@@ -3,3 +3,5 @@ Complex.xcodeproj/xcuserdata
 .swiftpm
 Carthage
 gyb.pyc
+.build
+Package.resolved
