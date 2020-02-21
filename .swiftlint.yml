@@ -59,5 +59,6 @@ reporter: "xcode"
 
 identifier_name:
   excluded:
+    - i
     - pi
     - _value
