@@ -156,13 +156,31 @@ class FunctionsTests: XCTestCase {
 
     func test_asin() {
         for complex in sampleComplexNumbers(ofType: Float.self) {
-            XCTAssertEqual(asin(complex), -.i * log(.i * complex + sqrt(1.0 - complex * complex)), accuracy: 0.0001)
+            //swiftlint:disable identifier_name
+            let iz = .i * complex
+            let root = sqrt(1.0 - (complex * complex))
+            let result = -.i * log(iz + root)
+            //swiftlint:enable identifier_name
+
+            XCTAssertEqual(asin(complex), result, accuracy: 0.0001)
         }
         for complex in sampleComplexNumbers(ofType: Double.self) {
-            XCTAssertEqual(asin(complex), -.i * log(.i * complex + sqrt(1.0 - complex * complex)), accuracy: 0.0001)
+            //swiftlint:disable identifier_name
+            let iz = .i * complex
+            let root = sqrt(1.0 - (complex * complex))
+            let result = -.i * log(iz + root)
+            //swiftlint:enable identifier_name
+
+            XCTAssertEqual(asin(complex), result, accuracy: 0.0001)
         }
         for complex in sampleComplexNumbers(ofType: Float80.self) {
-            XCTAssertEqual(asin(complex), -.i * log(.i * complex + sqrt(1.0 - complex * complex)), accuracy: 0.0001)
+            //swiftlint:disable identifier_name
+            let iz = .i * complex
+            let root = sqrt(1.0 - (complex * complex))
+            let result = -.i * log(iz + root)
+            //swiftlint:enable identifier_name
+
+            XCTAssertEqual(asin(complex), result, accuracy: 0.0001)
         }
     }
 
@@ -192,13 +210,22 @@ class FunctionsTests: XCTestCase {
 
     func test_acos() {
         for complex in sampleComplexNumbers(ofType: Float.self) {
-            XCTAssertEqual(acos(complex), -.i * log(complex + sqrt(complex * complex - 1.0)), accuracy: 0.0001)
+            let root = sqrt((complex * complex) - 1.0)
+            let result = -.i * log(complex + root)
+
+            XCTAssertEqual(acos(complex), result, accuracy: 0.0001)
         }
         for complex in sampleComplexNumbers(ofType: Double.self) {
-            XCTAssertEqual(acos(complex), -.i * log(complex + sqrt(complex * complex - 1.0)), accuracy: 0.0001)
+            let root = sqrt((complex * complex) - 1.0)
+            let result = -.i * log(complex + root)
+
+            XCTAssertEqual(acos(complex), result, accuracy: 0.0001)
         }
         for complex in sampleComplexNumbers(ofType: Float80.self) {
-            XCTAssertEqual(acos(complex), -.i * log(complex + sqrt(complex * complex - 1.0)), accuracy: 0.0001)
+            let root = sqrt((complex * complex) - 1.0)
+            let result = -.i * log(complex + root)
+
+            XCTAssertEqual(acos(complex), result, accuracy: 0.0001)
         }
     }
 
@@ -228,13 +255,22 @@ class FunctionsTests: XCTestCase {
 
     func test_atan() {
         for complex in sampleComplexNumbers(ofType: Float.self) {
-            XCTAssertEqual(atan(complex), .i * 0.5 * log((.i + complex) / (.i - complex)), accuracy: 0.0001)
+            let quotient = (.i + complex) / (.i - complex)
+            let result = .i * 0.5 * log(quotient)
+
+            XCTAssertEqual(atan(complex), result, accuracy: 0.0001)
         }
         for complex in sampleComplexNumbers(ofType: Double.self) {
-            XCTAssertEqual(atan(complex), .i * 0.5 * log((.i + complex) / (.i - complex)), accuracy: 0.0001)
+            let quotient = (.i + complex) / (.i - complex)
+            let result = .i * 0.5 * log(quotient)
+
+            XCTAssertEqual(atan(complex), result, accuracy: 0.0001)
         }
         for complex in sampleComplexNumbers(ofType: Float80.self) {
-            XCTAssertEqual(atan(complex), .i * 0.5 * log((.i + complex) / (.i - complex)), accuracy: 0.0001)
+            let quotient = (.i + complex) / (.i - complex)
+            let result = .i * 0.5 * log(quotient)
+
+            XCTAssertEqual(atan(complex), result, accuracy: 0.0001)
         }
     }
 

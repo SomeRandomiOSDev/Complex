@@ -117,7 +117,12 @@ public func sin(_ value: Complex<${type}>) -> Complex<${type}> {
 % for type in ["Float", "Double", "Float80"]:
 @_transparent
 public func asin(_ value: Complex<${type}>) -> Complex<${type}> {
-    return -.i * log(.i * value + sqrt(1.0 - value * value))
+    //swiftlint:disable identifier_name
+    let iz = .i * value
+    let root = sqrt(1.0 - (value * value))
+
+    return -.i * log(iz + root)
+    //swiftlint:enable identifier_name
 }
 
 % end
@@ -147,7 +152,8 @@ public func cos(_ value: Complex<${type}>) -> Complex<${type}> {
 % for type in ["Float", "Double", "Float80"]:
 @_transparent
 public func acos(_ value: Complex<${type}>) -> Complex<${type}> {
-    return -.i * log(value + sqrt(value * value - 1.0))
+    let root = sqrt((value * value) - 1.0)
+    return -.i * log(value + root)
 }
 
 % end
@@ -176,7 +182,8 @@ public func tan(_ value: Complex<${type}>) -> Complex<${type}> {
 % for type in ["Float", "Double", "Float80"]:
 @_transparent
 public func atan(_ value: Complex<${type}>) -> Complex<${type}> {
-    return .i * 0.5 * log((.i + value) / (.i - value))
+    let quotient = (.i + value) / (.i - value)
+    return .i * 0.5 * log(quotient)
 }
 
 % end
