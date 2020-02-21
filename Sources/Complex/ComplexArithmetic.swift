@@ -60,6 +60,18 @@ extension Complex {
 
     //
 
+    @inlinable @inline(__always)
+    public static func .+ (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return lhs + rhs
+    }
+
+    @inlinable @inline(__always)
+    public static func .+= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs .+ rhs
+    }
+
+    //
+
     @_transparent
     public static func - (lhs: Complex<Scalar>, rhs: Scalar) -> Complex<Scalar> {
         return Complex<Scalar>(real: lhs.real - rhs, imaginary: lhs.imaginary)
@@ -68,6 +80,18 @@ extension Complex {
     @_transparent
     public static func -= (lhs: inout Complex<Scalar>, rhs: Scalar) {
         lhs = lhs - rhs
+    }
+
+    //
+
+    @inlinable @inline(__always)
+    public static func .- (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return lhs - rhs
+    }
+
+    @inlinable @inline(__always)
+    public static func .-= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs .- rhs
     }
 }
 
@@ -112,6 +136,18 @@ extension Complex {
     public static func *= (lhs: inout Complex<Scalar>, rhs: Scalar) {
         lhs = lhs * rhs
     }
+
+    //
+
+    @_transparent
+    public static func .* (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real * rhs.real, imaginary: lhs.imaginary * rhs.imaginary)
+    }
+
+    @_transparent
+    public static func .*= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs .* rhs
+    }
 }
 
 // MARK: - Division (BinaryInteger)
@@ -142,6 +178,18 @@ extension Complex where Scalar: BinaryInteger {
     @_transparent
     public static func /= (lhs: inout Complex<Scalar>, rhs: Scalar) {
         lhs = lhs / rhs
+    }
+
+    //
+
+    @_transparent
+    public static func ./ (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real / rhs.real, imaginary: lhs.imaginary / rhs.imaginary)
+    }
+
+    @_transparent
+    public static func ./= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs ./ rhs
     }
 }
 
@@ -187,5 +235,17 @@ extension Complex where Scalar: FloatingPoint {
     @_transparent
     public static func /= (lhs: inout Complex<Scalar>, rhs: Scalar) {
         lhs = lhs / rhs
+    }
+
+    //
+
+    @_transparent
+    public static func ./ (lhs: Complex<Scalar>, rhs: Complex<Scalar>) -> Complex<Scalar> {
+        return Complex<Scalar>(real: lhs.real / rhs.real, imaginary: lhs.imaginary / rhs.imaginary)
+    }
+
+    @_transparent
+    public static func ./= (lhs: inout Complex<Scalar>, rhs: Complex<Scalar>) {
+        lhs = lhs ./ rhs
     }
 }

@@ -160,6 +160,23 @@ class ComplexArithmeticTests: XCTestCase {
         testMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), 2.0)
     }
 
+    func testComponentwiseMultiplication() {
+        testComponentwiseMultiplication(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<Int32>(real: 3, imaginary: 4), Complex<Int32>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<Int64>(real: 3, imaginary: 4), Complex<Int64>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<Int>(real: 3, imaginary: 4), Complex<Int>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<UInt8>(real: 3, imaginary: 4), Complex<UInt8>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<UInt16>(real: 3, imaginary: 4), Complex<UInt16>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<UInt32>(real: 3, imaginary: 4), Complex<UInt32>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<UInt64>(real: 3, imaginary: 4), Complex<UInt64>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<UInt>(real: 3, imaginary: 4), Complex<UInt>(real: 1, imaginary: 2))
+        testComponentwiseMultiplication(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0))
+        testComponentwiseMultiplication(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0))
+        testComponentwiseMultiplication(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0))
+        testComponentwiseMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
+    }
+
     func testDivision() {
         testDivision(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 2, imaginary: 1), Complex<Int8>(real: 2, imaginary: 1))
         testDivision(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 2, imaginary: 1), Complex<Int16>(real: 2, imaginary: 1))
@@ -192,10 +209,28 @@ class ComplexArithmeticTests: XCTestCase {
         testDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), 2.0)
     }
 
+    func testComponentwiseDivision() {
+        testComponentwiseDivision(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<Int32>(real: 3, imaginary: 4), Complex<Int32>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<Int64>(real: 3, imaginary: 4), Complex<Int64>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<Int>(real: 3, imaginary: 4), Complex<Int>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<UInt8>(real: 3, imaginary: 4), Complex<UInt8>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<UInt16>(real: 3, imaginary: 4), Complex<UInt16>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<UInt32>(real: 3, imaginary: 4), Complex<UInt32>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<UInt64>(real: 3, imaginary: 4), Complex<UInt64>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<UInt>(real: 3, imaginary: 4), Complex<UInt>(real: 1, imaginary: 2))
+        testComponentwiseDivision(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0))
+        testComponentwiseDivision(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0))
+        testComponentwiseDivision(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0))
+        testComponentwiseDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
+    }
+
     // MARK: Private Methods
 
     private func testAdditionWithZero<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(complex, complex + .zero, file: file, line: line)
+        XCTAssertEqual(complex, complex .+ .zero, file: file, line: line)
         XCTAssertEqual(complex, complex + Scalar.zero, file: file, line: line)
         XCTAssertEqual(complex, Scalar.zero + complex, file: file, line: line)
 
@@ -204,6 +239,7 @@ class ComplexArithmeticTests: XCTestCase {
         XCTAssertEqual(result, complex, file: file, line: line)
 
         result = complex
+        result .+= .zero
         XCTAssertEqual(result, complex, file: file, line: line)
 
         result = complex
@@ -213,10 +249,15 @@ class ComplexArithmeticTests: XCTestCase {
 
     private func testSubtractionWithZero<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(complex, complex - .zero, file: file, line: line)
+        XCTAssertEqual(complex, complex .- .zero, file: file, line: line)
         XCTAssertEqual(complex, complex - Scalar.zero, file: file, line: line)
 
         var result = complex
         result -= .zero
+        XCTAssertEqual(result, complex, file: file, line: line)
+
+        result = complex
+        result .-= .zero
         XCTAssertEqual(result, complex, file: file, line: line)
 
         result = complex
@@ -226,11 +267,16 @@ class ComplexArithmeticTests: XCTestCase {
 
     private func testMultiplicationWithZero<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(.zero, complex * .zero, file: file, line: line)
+        XCTAssertEqual(.zero, complex .* .zero, file: file, line: line)
         XCTAssertEqual(.zero, complex * Scalar.zero, file: file, line: line)
         XCTAssertEqual(.zero, Scalar.zero * complex, file: file, line: line)
 
         var result = complex
         result *= .zero
+        XCTAssertEqual(result, .zero, file: file, line: line)
+
+        result = complex
+        result .*= .zero
         XCTAssertEqual(result, .zero, file: file, line: line)
 
         result = complex
@@ -241,6 +287,8 @@ class ComplexArithmeticTests: XCTestCase {
     private func testAddition<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         XCTAssertEqual(lhs + rhs, result, file: file, line: line)
         XCTAssertEqual(rhs + lhs, result, file: file, line: line)
+        XCTAssertEqual(lhs .+ rhs, result, file: file, line: line)
+        XCTAssertEqual(rhs .+ lhs, result, file: file, line: line)
 
         var complex = lhs
         complex += rhs
@@ -248,6 +296,14 @@ class ComplexArithmeticTests: XCTestCase {
 
         complex = rhs
         complex += lhs
+        XCTAssertEqual(complex, result, file: file, line: line)
+
+        complex = lhs
+        complex .+= rhs
+        XCTAssertEqual(complex, result, file: file, line: line)
+
+        complex = rhs
+        complex .+= lhs
         XCTAssertEqual(complex, result, file: file, line: line)
     }
 
@@ -266,11 +322,17 @@ class ComplexArithmeticTests: XCTestCase {
         var complex = lhs
         complex -= rhs
         XCTAssertEqual(complex, result, file: file, line: line)
+
+        complex = lhs
+        complex .-= rhs
+        XCTAssertEqual(complex, result, file: file, line: line)
     }
 
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
         XCTAssertEqual(lhs - rhs, result, file: file, line: line)
         XCTAssertEqual(rhs - lhs, -result, file: file, line: line)
+        XCTAssertEqual(lhs .- rhs, result, file: file, line: line)
+        XCTAssertEqual(rhs .- lhs, -result, file: file, line: line)
 
         var complex = lhs
         complex -= rhs
@@ -278,6 +340,14 @@ class ComplexArithmeticTests: XCTestCase {
 
         complex = rhs
         complex -= lhs
+        XCTAssertEqual(complex, -result, file: file, line: line)
+
+        complex = lhs
+        complex .-= rhs
+        XCTAssertEqual(complex, result, file: file, line: line)
+
+        complex = rhs
+        complex .-= lhs
         XCTAssertEqual(complex, -result, file: file, line: line)
     }
 
@@ -321,6 +391,17 @@ class ComplexArithmeticTests: XCTestCase {
         XCTAssertEqual(complex, result, file: file, line: line)
     }
 
+    private func testComponentwiseMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
+        var result = lhs .* rhs
+        XCTAssertEqual(result.real, lhs.real * rhs.real, file: file, line: line)
+        XCTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary, file: file, line: line)
+
+        result = lhs
+        result .*= rhs
+        XCTAssertEqual(result.real, lhs.real * rhs.real, file: file, line: line)
+        XCTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary, file: file, line: line)
+    }
+
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
         XCTAssertEqual(lhs / rhs, result, file: file, line: line)
 
@@ -361,5 +442,27 @@ class ComplexArithmeticTests: XCTestCase {
         var complex = lhs
         complex /= rhs
         XCTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
+    }
+
+    private func testComponentwiseDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
+        var result = lhs ./ rhs
+        XCTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
+        XCTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+
+        result = lhs
+        result ./= rhs
+        XCTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
+        XCTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+    }
+
+    private func testComponentwiseDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: FloatingPoint {
+        var result = lhs ./ rhs
+        XCTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
+        XCTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+
+        result = lhs
+        result ./= rhs
+        XCTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
+        XCTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
     }
 }

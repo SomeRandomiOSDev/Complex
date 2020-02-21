@@ -49,6 +49,10 @@
 		DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
 		DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
 		DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
+		DDB8125923F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
+		DDB8125A23F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
+		DDB8125B23F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
+		DDB8125C23F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
 		DDB8126223F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
 		DDB8126323F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
 		DDB8126423F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
@@ -150,6 +154,7 @@
 		DDB8121B23F63B890079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/Mac/Half.framework; sourceTree = "<group>"; };
 		DDB8121C23F63B900079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/iOS/Half.framework; sourceTree = "<group>"; };
 		DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
+		DDB8125823F707EE0079FEB5 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexArithmetic.swift; sourceTree = "<group>"; };
 		DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArithmeticTests.swift; sourceTree = "<group>"; };
 		DDB8126B23FA2B950079FEB5 /* gyb.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = gyb.py; sourceTree = "<group>"; };
@@ -337,6 +342,7 @@
 				DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */,
 				DDB8126F23FA2C210079FEB5 /* Functions.swift.gyb */,
 				DDB8120B23F5A8E80079FEB5 /* Functions.swift */,
+				DDB8125823F707EE0079FEB5 /* Operators.swift */,
 			);
 			path = Complex;
 			sourceTree = "<group>";
@@ -682,6 +688,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126223F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
+				DDB8125923F707EE0079FEB5 /* Operators.swift in Sources */,
 				DDB8120723F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120C23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -702,6 +709,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126323F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
+				DDB8125A23F707EE0079FEB5 /* Operators.swift in Sources */,
 				DDB8120823F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120D23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -722,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126423F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
+				DDB8125B23F707EE0079FEB5 /* Operators.swift in Sources */,
 				DDB8120923F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120E23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
@@ -742,6 +751,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126523F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
+				DDB8125C23F707EE0079FEB5 /* Operators.swift in Sources */,
 				DDB8120A23F59B760079FEB5 /* Complex.swift in Sources */,
 				DDB8120F23F5A8E80079FEB5 /* Functions.swift in Sources */,
 			);
