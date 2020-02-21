@@ -158,17 +158,32 @@ public func sin(_ value: Complex<Float80>) -> Complex<Float80> {
 
 @_transparent
 public func asin(_ value: Complex<Float>) -> Complex<Float> {
-    return -.i * log(.i * value + sqrt(1.0 - value * value))
+    //swiftlint:disable identifier_name
+    let iz = .i * value
+    let root = sqrt(1.0 - (value * value))
+
+    return -.i * log(iz + root)
+    //swiftlint:enable identifier_name
 }
 
 @_transparent
 public func asin(_ value: Complex<Double>) -> Complex<Double> {
-    return -.i * log(.i * value + sqrt(1.0 - value * value))
+    //swiftlint:disable identifier_name
+    let iz = .i * value
+    let root = sqrt(1.0 - (value * value))
+
+    return -.i * log(iz + root)
+    //swiftlint:enable identifier_name
 }
 
 @_transparent
 public func asin(_ value: Complex<Float80>) -> Complex<Float80> {
-    return -.i * log(.i * value + sqrt(1.0 - value * value))
+    //swiftlint:disable identifier_name
+    let iz = .i * value
+    let root = sqrt(1.0 - (value * value))
+
+    return -.i * log(iz + root)
+    //swiftlint:enable identifier_name
 }
 
 //
@@ -212,17 +227,20 @@ public func cos(_ value: Complex<Float80>) -> Complex<Float80> {
 
 @_transparent
 public func acos(_ value: Complex<Float>) -> Complex<Float> {
-    return -.i * log(value + sqrt(value * value - 1.0))
+    let root = sqrt((value * value) - 1.0)
+    return -.i * log(value + root)
 }
 
 @_transparent
 public func acos(_ value: Complex<Double>) -> Complex<Double> {
-    return -.i * log(value + sqrt(value * value - 1.0))
+    let root = sqrt((value * value) - 1.0)
+    return -.i * log(value + root)
 }
 
 @_transparent
 public func acos(_ value: Complex<Float80>) -> Complex<Float80> {
-    return -.i * log(value + sqrt(value * value - 1.0))
+    let root = sqrt((value * value) - 1.0)
+    return -.i * log(value + root)
 }
 
 //
@@ -265,17 +283,20 @@ public func tan(_ value: Complex<Float80>) -> Complex<Float80> {
 
 @_transparent
 public func atan(_ value: Complex<Float>) -> Complex<Float> {
-    return .i * 0.5 * log((.i + value) / (.i - value))
+    let quotient = (.i + value) / (.i - value)
+    return .i * 0.5 * log(quotient)
 }
 
 @_transparent
 public func atan(_ value: Complex<Double>) -> Complex<Double> {
-    return .i * 0.5 * log((.i + value) / (.i - value))
+    let quotient = (.i + value) / (.i - value)
+    return .i * 0.5 * log(quotient)
 }
 
 @_transparent
 public func atan(_ value: Complex<Float80>) -> Complex<Float80> {
-    return .i * 0.5 * log((.i + value) / (.i - value))
+    let quotient = (.i + value) / (.i - value)
+    return .i * 0.5 * log(quotient)
 }
 
 //
