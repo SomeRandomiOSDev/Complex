@@ -151,10 +151,10 @@ class ComplexTests: XCTestCase {
     }
 
     func testAdditiveArithmeticProtocolRequirements() {
-        XCTAssertEqual(Complex<Half>.zero, Complex(real: 0.0, imaginary: 0.0))
-        XCTAssertEqual(Complex<Float>.zero, Complex(real: 0.0, imaginary: 0.0))
-        XCTAssertEqual(Complex<Double>.zero, Complex(real: 0.0, imaginary: 0.0))
-        XCTAssertEqual(Complex<Float80>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Half>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Float>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Double>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Float80>.zero, Complex(real: 0.0, imaginary: 0.0))
 
         do {
             let lhs = Complex<Half>(real: 1.0, imaginary: 2.0)
@@ -162,16 +162,16 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
         do {
             let lhs = Complex<Float>(real: 1.0, imaginary: 2.0)
@@ -179,16 +179,16 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
         do {
             let lhs = Complex<Double>(real: 1.0, imaginary: 2.0)
@@ -196,16 +196,16 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
         do {
             let lhs = Complex<Float80>(real: 1.0, imaginary: 2.0)
@@ -213,16 +213,16 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
     }
 
@@ -230,86 +230,86 @@ class ComplexTests: XCTestCase {
 
     private func testInitialization<Scalar>(real: Scalar, imaginary: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
         let complex0 = Complex<Scalar>()
-        XCTAssertEqual(complex0.real, 0, file: file, line: line)
-        XCTAssertEqual(complex0.imaginary, 0, file: file, line: line)
+        CTAssertEqual(complex0.real, 0)
+        CTAssertEqual(complex0.imaginary, 0)
 
         let complex1 = Complex<Scalar>(real: real, imaginary: imaginary)
-        XCTAssertEqual(complex1.real, real, file: file, line: line)
-        XCTAssertEqual(complex1.imaginary, imaginary, file: file, line: line)
+        CTAssertEqual(complex1.real, real)
+        CTAssertEqual(complex1.imaginary, imaginary)
 
         let complex2 = Complex<Scalar>(complex1)
-        XCTAssertEqual(complex2.real, real, file: file, line: line)
-        XCTAssertEqual(complex2.imaginary, imaginary, file: file, line: line)
+        CTAssertEqual(complex2.real, real)
+        CTAssertEqual(complex2.imaginary, imaginary)
 
         let complex3 = Complex<Int64>(real: real, imaginary: imaginary)
-        XCTAssertEqual(complex3.real, Int64(real), file: file, line: line)
-        XCTAssertEqual(complex3.imaginary, Int64(imaginary), file: file, line: line)
+        CTAssertEqual(complex3.real, Int64(real))
+        CTAssertEqual(complex3.imaginary, Int64(imaginary))
 
         let complex4 = Complex<Int64>(complex1)
-        XCTAssertEqual(complex4.real, Int64(real), file: file, line: line)
-        XCTAssertEqual(complex4.imaginary, Int64(imaginary), file: file, line: line)
+        CTAssertEqual(complex4.real, Int64(real))
+        CTAssertEqual(complex4.imaginary, Int64(imaginary))
 
         let complex5 = Complex<Float80>(real: real, imaginary: imaginary)
-        XCTAssertEqual(complex5.real, Float80(real), file: file, line: line)
-        XCTAssertEqual(complex5.imaginary, Float80(imaginary), file: file, line: line)
+        CTAssertEqual(complex5.real, Float80(real))
+        CTAssertEqual(complex5.imaginary, Float80(imaginary))
 
         let complex6 = Complex<Float80>(complex1)
-        XCTAssertEqual(complex6.real, Float80(real), file: file, line: line)
-        XCTAssertEqual(complex6.imaginary, Float80(imaginary), file: file, line: line)
+        CTAssertEqual(complex6.real, Float80(real))
+        CTAssertEqual(complex6.imaginary, Float80(imaginary))
 
         let complex7: Complex<Scalar> = []
-        XCTAssertEqual(complex7.real, 0, file: file, line: line)
-        XCTAssertEqual(complex7.imaginary, 0, file: file, line: line)
+        CTAssertEqual(complex7.real, 0)
+        CTAssertEqual(complex7.imaginary, 0)
 
         let complex8: Complex<Scalar> = [real]
-        XCTAssertEqual(complex8.real, real, file: file, line: line)
-        XCTAssertEqual(complex8.imaginary, 0, file: file, line: line)
+        CTAssertEqual(complex8.real, real)
+        CTAssertEqual(complex8.imaginary, 0)
 
         let complex9: Complex<Scalar> = [real, imaginary]
-        XCTAssertEqual(complex9.real, real, file: file, line: line)
-        XCTAssertEqual(complex9.imaginary, imaginary, file: file, line: line)
+        CTAssertEqual(complex9.real, real)
+        CTAssertEqual(complex9.imaginary, imaginary)
     }
 
     private func testInitialization<Scalar>(real: Scalar, imaginary: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
         let complex0 = Complex<Scalar>()
-        XCTAssertEqual(complex0.real, 0.0, file: file, line: line)
-        XCTAssertEqual(complex0.imaginary, 0.0, file: file, line: line)
+        CTAssertEqual(complex0.real, 0.0)
+        CTAssertEqual(complex0.imaginary, 0.0)
 
         let complex1 = Complex<Scalar>(real: real, imaginary: imaginary)
-        XCTAssertEqual(complex1.real, real, file: file, line: line)
-        XCTAssertEqual(complex1.imaginary, imaginary, file: file, line: line)
+        CTAssertEqual(complex1.real, real)
+        CTAssertEqual(complex1.imaginary, imaginary)
 
         let complex2 = Complex<Scalar>(complex1)
-        XCTAssertEqual(complex2.real, real, file: file, line: line)
-        XCTAssertEqual(complex2.imaginary, imaginary, file: file, line: line)
+        CTAssertEqual(complex2.real, real)
+        CTAssertEqual(complex2.imaginary, imaginary)
 
         let complex3 = Complex<Int64>(real: real, imaginary: imaginary)
-        XCTAssertEqual(complex3.real, Int64(real), file: file, line: line)
-        XCTAssertEqual(complex3.imaginary, Int64(imaginary), file: file, line: line)
+        CTAssertEqual(complex3.real, Int64(real))
+        CTAssertEqual(complex3.imaginary, Int64(imaginary))
 
         let complex4 = Complex<Int64>(complex1)
-        XCTAssertEqual(complex4.real, Int64(real), file: file, line: line)
-        XCTAssertEqual(complex4.imaginary, Int64(imaginary), file: file, line: line)
+        CTAssertEqual(complex4.real, Int64(real))
+        CTAssertEqual(complex4.imaginary, Int64(imaginary))
 
         let complex5 = Complex<Float80>(real: real, imaginary: imaginary)
-        XCTAssertEqual(complex5.real, Float80(real), file: file, line: line)
-        XCTAssertEqual(complex5.imaginary, Float80(imaginary), file: file, line: line)
+        CTAssertEqual(complex5.real, Float80(real))
+        CTAssertEqual(complex5.imaginary, Float80(imaginary))
 
         let complex6 = Complex<Float80>(complex1)
-        XCTAssertEqual(complex6.real, Float80(real), file: file, line: line)
-        XCTAssertEqual(complex6.imaginary, Float80(imaginary), file: file, line: line)
+        CTAssertEqual(complex6.real, Float80(real))
+        CTAssertEqual(complex6.imaginary, Float80(imaginary))
 
         let complex7: Complex<Scalar> = []
-        XCTAssertEqual(complex7.real, 0.0, file: file, line: line)
-        XCTAssertEqual(complex7.imaginary, 0.0, file: file, line: line)
+        CTAssertEqual(complex7.real, 0.0)
+        CTAssertEqual(complex7.imaginary, 0.0)
 
         let complex8: Complex<Scalar> = [real]
-        XCTAssertEqual(complex8.real, real, file: file, line: line)
-        XCTAssertEqual(complex8.imaginary, 0.0, file: file, line: line)
+        CTAssertEqual(complex8.real, real)
+        CTAssertEqual(complex8.imaginary, 0.0)
 
         let complex9: Complex<Scalar> = [real, imaginary]
-        XCTAssertEqual(complex9.real, real, file: file, line: line)
-        XCTAssertEqual(complex9.imaginary, imaginary, file: file, line: line)
+        CTAssertEqual(complex9.real, real)
+        CTAssertEqual(complex9.imaginary, imaginary)
     }
 
     private func testRandomFactoryMethods<Scalar>(lowerBound: Scalar, upperBound: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
@@ -318,20 +318,20 @@ class ComplexTests: XCTestCase {
         let range: Range<Scalar> = lowerBound ..< upperBound
 
         let complex1 = Complex<Scalar>.random(in: range)
-        XCTAssertTrue(range.contains(complex1.real), file: file, line: line)
-        XCTAssertTrue(range.contains(complex1.imaginary), file: file, line: line)
+        CTAssertTrue(range.contains(complex1.real))
+        CTAssertTrue(range.contains(complex1.imaginary))
 
         let complex2 = Complex<Scalar>.random(in: range, using: &generator)
-        XCTAssertTrue(range.contains(complex2.real), file: file, line: line)
-        XCTAssertTrue(range.contains(complex2.imaginary), file: file, line: line)
+        CTAssertTrue(range.contains(complex2.real))
+        CTAssertTrue(range.contains(complex2.imaginary))
 
         let complex3 = Complex<Scalar>.random(in: closedRange)
-        XCTAssertTrue(closedRange.contains(complex3.real), file: file, line: line)
-        XCTAssertTrue(closedRange.contains(complex3.imaginary), file: file, line: line)
+        CTAssertTrue(closedRange.contains(complex3.real))
+        CTAssertTrue(closedRange.contains(complex3.imaginary))
 
         let complex4 = Complex<Scalar>.random(in: closedRange, using: &generator)
-        XCTAssertTrue(closedRange.contains(complex4.real), file: file, line: line)
-        XCTAssertTrue(closedRange.contains(complex4.imaginary), file: file, line: line)
+        CTAssertTrue(closedRange.contains(complex4.real))
+        CTAssertTrue(closedRange.contains(complex4.imaginary))
     }
 
     private func testRandomFactoryMethods<Scalar>(lowerBound: Scalar, upperBound: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint, Scalar.RawSignificand: FixedWidthInteger {
@@ -340,20 +340,20 @@ class ComplexTests: XCTestCase {
         let range: Range<Scalar> = lowerBound ..< upperBound
 
         let complex1 = Complex<Scalar>.random(in: range)
-        XCTAssertTrue(range.contains(complex1.real), file: file, line: line)
-        XCTAssertTrue(range.contains(complex1.imaginary), file: file, line: line)
+        CTAssertTrue(range.contains(complex1.real))
+        CTAssertTrue(range.contains(complex1.imaginary))
 
         let complex2 = Complex<Scalar>.random(in: range, using: &generator)
-        XCTAssertTrue(range.contains(complex2.real), file: file, line: line)
-        XCTAssertTrue(range.contains(complex2.imaginary), file: file, line: line)
+        CTAssertTrue(range.contains(complex2.real))
+        CTAssertTrue(range.contains(complex2.imaginary))
 
         let complex3 = Complex<Scalar>.random(in: closedRange)
-        XCTAssertTrue(closedRange.contains(complex3.real), file: file, line: line)
-        XCTAssertTrue(closedRange.contains(complex3.imaginary), file: file, line: line)
+        CTAssertTrue(closedRange.contains(complex3.real))
+        CTAssertTrue(closedRange.contains(complex3.imaginary))
 
         let complex4 = Complex<Scalar>.random(in: closedRange, using: &generator)
-        XCTAssertTrue(closedRange.contains(complex4.real), file: file, line: line)
-        XCTAssertTrue(closedRange.contains(complex4.imaginary), file: file, line: line)
+        CTAssertTrue(closedRange.contains(complex4.real))
+        CTAssertTrue(closedRange.contains(complex4.imaginary))
     }
 
     private func testDescriptionMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) throws where Scalar: BinaryInteger {
@@ -363,21 +363,21 @@ class ComplexTests: XCTestCase {
         let realRegex = try NSRegularExpression(pattern: "real:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.real)"))", options: [])
         let imaginaryRegex = try NSRegularExpression(pattern: "imaginary:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.imaginary)"))", options: [])
 
-        XCTAssertEqual(description, debugDescription, file: file, line: line)
-        XCTAssertTrue(realRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0, file: file, line: line)
-        XCTAssertTrue(imaginaryRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0, file: file, line: line)
+        CTAssertEqual(description, debugDescription)
+        CTAssertTrue(realRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
+        CTAssertTrue(imaginaryRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
 
-        XCTAssertTrue(complex.string(withNotation: .square).contains("\(complex.real)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .square).contains("\(complex.imaginary)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.real)"))
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.imaginary)"))
 
-        XCTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.modulus)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.angle)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.angle)"))
 
-        XCTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.modulus)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.angle)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.angle)"))
 
-        XCTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.modulus)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.angle)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.angle)"))
     }
 
     private func testDescriptionMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) throws where Scalar: BinaryFloatingPoint {
@@ -387,21 +387,21 @@ class ComplexTests: XCTestCase {
         let realRegex = try NSRegularExpression(pattern: "real:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.real)"))", options: [])
         let imaginaryRegex = try NSRegularExpression(pattern: "imaginary:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.imaginary)"))", options: [])
 
-        XCTAssertEqual(description, debugDescription, file: file, line: line)
-        XCTAssertTrue(realRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0, file: file, line: line)
-        XCTAssertTrue(imaginaryRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0, file: file, line: line)
+        CTAssertEqual(description, debugDescription)
+        CTAssertTrue(realRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
+        CTAssertTrue(imaginaryRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
 
-        XCTAssertTrue(complex.string(withNotation: .square).contains("\(complex.real)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .square).contains("\(complex.imaginary)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.real)"))
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.imaginary)"))
 
-        XCTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.modulus)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.angle)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.angle)"))
 
-        XCTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.modulus)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.angle)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.angle)"))
 
-        XCTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.modulus)"), file: file, line: line)
-        XCTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.angle)"), file: file, line: line)
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.angle)"))
     }
 
     private func testHashing<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: Hashable {
@@ -414,72 +414,72 @@ class ComplexTests: XCTestCase {
         hasher.combine(complex.imaginary)
         let value2 = hasher.finalize()
 
-        XCTAssertEqual(value1, value2, file: file, line: line)
+        CTAssertEqual(value1, value2)
     }
 
     private func testRounding<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: FloatingPoint {
-        XCTAssertEqual(complex.rounded(), Complex(real: complex.real.rounded(), imaginary: complex.imaginary.rounded()), file: file, line: line)
+        CTAssertEqual(complex.rounded(), Complex(real: complex.real.rounded(), imaginary: complex.imaginary.rounded()))
 
         var rounded = complex
         rounded.round()
-        XCTAssertEqual(rounded, complex.rounded(), file: file, line: line)
+        CTAssertEqual(rounded, complex.rounded())
 
         for rule in [FloatingPointRoundingRule.toNearestOrAwayFromZero, .toNearestOrEven, .up, .down, .towardZero, .awayFromZero] {
-            XCTAssertEqual(complex.rounded(rule), Complex(real: complex.real.rounded(rule), imaginary: complex.imaginary.rounded(rule)), file: file, line: line)
+            CTAssertEqual(complex.rounded(rule), Complex(real: complex.real.rounded(rule), imaginary: complex.imaginary.rounded(rule)))
 
             var rounded = complex
             rounded.round(rule)
-            XCTAssertEqual(rounded, complex.rounded(rule), file: file, line: line)
+            CTAssertEqual(rounded, complex.rounded(rule))
         }
     }
 
     private func testConjugateMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
         var conjugate = complex.conjugate()
-        XCTAssertEqual(complex.real, conjugate.real, file: file, line: line)
-        XCTAssertEqual(complex.imaginary, -conjugate.imaginary, file: file, line: line)
+        CTAssertEqual(complex.real, conjugate.real)
+        CTAssertEqual(complex.imaginary, -conjugate.imaginary)
 
         conjugate = ~complex
-        XCTAssertEqual(complex.real, conjugate.real, file: file, line: line)
-        XCTAssertEqual(complex.imaginary, -conjugate.imaginary, file: file, line: line)
+        CTAssertEqual(complex.real, conjugate.real)
+        CTAssertEqual(complex.imaginary, -conjugate.imaginary)
 
         conjugate = complex
         conjugate.formConjugate()
-        XCTAssertEqual(complex.real, conjugate.real, file: file, line: line)
-        XCTAssertEqual(complex.imaginary, -conjugate.imaginary, file: file, line: line)
+        CTAssertEqual(complex.real, conjugate.real)
+        CTAssertEqual(complex.imaginary, -conjugate.imaginary)
     }
 
     private func testNegationMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
         var negative = -complex
-        XCTAssertEqual(complex.real, -negative.real, file: file, line: line)
-        XCTAssertEqual(complex.imaginary, -negative.imaginary, file: file, line: line)
+        CTAssertEqual(complex.real, -negative.real)
+        CTAssertEqual(complex.imaginary, -negative.imaginary)
 
         negative = complex
         negative.negate()
-        XCTAssertEqual(complex.real, -negative.real, file: file, line: line)
-        XCTAssertEqual(complex.imaginary, -negative.imaginary, file: file, line: line)
+        CTAssertEqual(complex.real, -negative.real)
+        CTAssertEqual(complex.imaginary, -negative.imaginary)
     }
 
     private func testMultiplyByOne<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         let one = Complex<Scalar>.one
         let result = complex * one
 
-        XCTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
     }
 
     private func testMultiplyByI<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
         let i = Complex<Scalar>.i
         let result = complex * i
 
-        XCTAssertEqual(result.real, -complex.imaginary, file: file, line: line)
-        XCTAssertEqual(result.imaginary, complex.real, file: file, line: line)
+        CTAssertEqual(result.real, -complex.imaginary)
+        CTAssertEqual(result.imaginary, complex.real)
     }
 
     private func testPlusPrefixOperator<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        XCTAssertEqual(complex, +complex, file: file, line: line)
+        CTAssertEqual(complex, +complex)
     }
 
     private func testPolarComponents<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
-        XCTAssertEqual(complex.modulus, sqrt(complex.real * complex.real + complex.imaginary * complex.imaginary), file: file, line: line)
-        XCTAssertEqual(complex.angle, Scalar(atan2(Float80(complex.imaginary), Float80(complex.real))), file: file, line: line)
+        CTAssertEqual(complex.modulus, sqrt(complex.real * complex.real + complex.imaginary * complex.imaginary))
+        CTAssertEqual(complex.angle, Scalar(atan2(Float80(complex.imaginary), Float80(complex.real))))
     }
 }
