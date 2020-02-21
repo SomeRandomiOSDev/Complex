@@ -32,6 +32,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		DD6F08CD240077C300749359 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08CC240077C300749359 /* TestingBase.swift */; };
+		DD6F08CE240077C300749359 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08CC240077C300749359 /* TestingBase.swift */; };
+		DD6F08CF240077C300749359 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08CC240077C300749359 /* TestingBase.swift */; };
 		DDB8120723F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
 		DDB8120823F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
 		DDB8120923F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
@@ -146,6 +149,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD6F08CC240077C300749359 /* TestingBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingBase.swift; sourceTree = "<group>"; };
 		DDB8120623F59B760079FEB5 /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
 		DDB8120B23F5A8E80079FEB5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
@@ -302,6 +306,7 @@
 		DDFEEC4023EF13910096015C /* ComplexTests */ = {
 			isa = PBXGroup;
 			children = (
+				DD6F08CC240077C300749359 /* TestingBase.swift */,
 				DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */,
 				DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */,
 				DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */,
@@ -699,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126723F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
+				DD6F08CD240077C300749359 /* TestingBase.swift in Sources */,
 				DDB8121123F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
 				DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
 			);
@@ -720,6 +726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126823F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
+				DD6F08CE240077C300749359 /* TestingBase.swift in Sources */,
 				DDB8121223F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
 				DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
 			);
@@ -741,6 +748,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB8126923F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
+				DD6F08CF240077C300749359 /* TestingBase.swift in Sources */,
 				DDB8121323F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
 				DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
 			);
