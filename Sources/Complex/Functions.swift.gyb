@@ -66,55 +66,88 @@ public func clamp<F>(_ value: Complex<F>, _ minimum: Complex<F>, _ maximum: Comp
 // exp(a + bi) = exp(a) * (cos(b) + i * sin(b))
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func exp(_ value: Complex<${type}>) -> Complex<${type}> {
     let exp = Darwin.exp(value.real)
     return Complex<${type}>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // log(a + bi) = log(sqrt(a^2 + b^2)) + i * atan(b / a)
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func log(_ value: Complex<${type}>) -> Complex<${type}> {
     return Complex<${type}>(real: log(value.modulus), imaginary: value.angle)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func log10(_ value: Complex<${type}>) -> Complex<${type}> {
     return log(value) / log(10.0)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func log2(_ value: Complex<${type}>) -> Complex<${type}> {
     return log(value) / log(2.0)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // sin(a + bi) = sin(a) * cosh(b) + i * cos(a) * sinh(b)
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func sin(_ value: Complex<${type}>) -> Complex<${type}> {
     return Complex<${type}>(real: sin(value.real) * cosh(value.imaginary), imaginary: cos(value.real) * sinh(value.imaginary))
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // asin(z) = -i * ln(iz + sqrt(1 - z^2))
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func asin(_ value: Complex<${type}>) -> Complex<${type}> {
     //swiftlint:disable identifier_name
@@ -124,77 +157,122 @@ public func asin(_ value: Complex<${type}>) -> Complex<${type}> {
     return -.i * log(iz + root)
     //swiftlint:enable identifier_name
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // sinh(z) = -i * sin(iz)
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func sinh(_ value: Complex<${type}>) -> Complex<${type}> {
     return -.i * sin(.i * value)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // cos(a + bi) = cos(a) * cosh(b) - i * sin(a) * sinh(b)
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func cos(_ value: Complex<${type}>) -> Complex<${type}> {
     return Complex<${type}>(real: cos(value.real) * cosh(value.imaginary), imaginary: -sin(value.real) * sinh(value.imaginary))
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // acos(z) = -i * ln(z + sqrt(z^2 - 1))
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func acos(_ value: Complex<${type}>) -> Complex<${type}> {
     let root = sqrt((value * value) - 1.0)
     return -.i * log(value + root)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // cosh(z) = cos(iz)
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func cosh(_ value: Complex<${type}>) -> Complex<${type}> {
     return cos(.i * value)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func tan(_ value: Complex<${type}>) -> Complex<${type}> {
     return sin(value) / cos(value)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // atan(z) = (i / 2) * ln((i + z) / (i - z))
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func atan(_ value: Complex<${type}>) -> Complex<${type}> {
     let quotient = (.i + value) / (.i - value)
     return .i * 0.5 * log(quotient)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
 // tanh(z) = -i * tan(iz)
 
 % for type in ["Float", "Double", "Float80"]:
+% if type == "Float80":
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+% end
 @_transparent
 public func tanh(_ value: Complex<${type}>) -> Complex<${type}> {
     return -.i * tan(.i * value)
 }
+% if type == "Float80":
+#endif
+% end
 
 % end
 //
