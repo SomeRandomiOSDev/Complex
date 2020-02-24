@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   
   s.name         = "Complex"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "Swift Complex Number"
   s.description  = <<-DESC
                    A lightweight framework designed for representing and working with complex numbers for iOS, macOS, tvOS, and watchOS.

@@ -77,11 +77,13 @@ public func exp(_ value: Complex<Double>) -> Complex<Double> {
     return Complex<Double>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func exp(_ value: Complex<Float80>) -> Complex<Float80> {
     let exp = Darwin.exp(value.real)
     return Complex<Float80>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
 }
+#endif
 
 //
 // log(a + bi) = log(sqrt(a^2 + b^2)) + i * atan(b / a)
@@ -96,10 +98,12 @@ public func log(_ value: Complex<Double>) -> Complex<Double> {
     return Complex<Double>(real: log(value.modulus), imaginary: value.angle)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func log(_ value: Complex<Float80>) -> Complex<Float80> {
     return Complex<Float80>(real: log(value.modulus), imaginary: value.angle)
 }
+#endif
 
 //
 
@@ -113,10 +117,12 @@ public func log10(_ value: Complex<Double>) -> Complex<Double> {
     return log(value) / log(10.0)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func log10(_ value: Complex<Float80>) -> Complex<Float80> {
     return log(value) / log(10.0)
 }
+#endif
 
 //
 
@@ -130,10 +136,12 @@ public func log2(_ value: Complex<Double>) -> Complex<Double> {
     return log(value) / log(2.0)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func log2(_ value: Complex<Float80>) -> Complex<Float80> {
     return log(value) / log(2.0)
 }
+#endif
 
 //
 // sin(a + bi) = sin(a) * cosh(b) + i * cos(a) * sinh(b)
@@ -148,10 +156,12 @@ public func sin(_ value: Complex<Double>) -> Complex<Double> {
     return Complex<Double>(real: sin(value.real) * cosh(value.imaginary), imaginary: cos(value.real) * sinh(value.imaginary))
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func sin(_ value: Complex<Float80>) -> Complex<Float80> {
     return Complex<Float80>(real: sin(value.real) * cosh(value.imaginary), imaginary: cos(value.real) * sinh(value.imaginary))
 }
+#endif
 
 //
 // asin(z) = -i * ln(iz + sqrt(1 - z^2))
@@ -176,6 +186,7 @@ public func asin(_ value: Complex<Double>) -> Complex<Double> {
     //swiftlint:enable identifier_name
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func asin(_ value: Complex<Float80>) -> Complex<Float80> {
     //swiftlint:disable identifier_name
@@ -185,6 +196,7 @@ public func asin(_ value: Complex<Float80>) -> Complex<Float80> {
     return -.i * log(iz + root)
     //swiftlint:enable identifier_name
 }
+#endif
 
 //
 // sinh(z) = -i * sin(iz)
@@ -199,10 +211,12 @@ public func sinh(_ value: Complex<Double>) -> Complex<Double> {
     return -.i * sin(.i * value)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func sinh(_ value: Complex<Float80>) -> Complex<Float80> {
     return -.i * sin(.i * value)
 }
+#endif
 
 //
 // cos(a + bi) = cos(a) * cosh(b) - i * sin(a) * sinh(b)
@@ -217,10 +231,12 @@ public func cos(_ value: Complex<Double>) -> Complex<Double> {
     return Complex<Double>(real: cos(value.real) * cosh(value.imaginary), imaginary: -sin(value.real) * sinh(value.imaginary))
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func cos(_ value: Complex<Float80>) -> Complex<Float80> {
     return Complex<Float80>(real: cos(value.real) * cosh(value.imaginary), imaginary: -sin(value.real) * sinh(value.imaginary))
 }
+#endif
 
 //
 // acos(z) = -i * ln(z + sqrt(z^2 - 1))
@@ -237,11 +253,13 @@ public func acos(_ value: Complex<Double>) -> Complex<Double> {
     return -.i * log(value + root)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func acos(_ value: Complex<Float80>) -> Complex<Float80> {
     let root = sqrt((value * value) - 1.0)
     return -.i * log(value + root)
 }
+#endif
 
 //
 // cosh(z) = cos(iz)
@@ -256,10 +274,12 @@ public func cosh(_ value: Complex<Double>) -> Complex<Double> {
     return cos(.i * value)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func cosh(_ value: Complex<Float80>) -> Complex<Float80> {
     return cos(.i * value)
 }
+#endif
 
 //
 
@@ -273,10 +293,12 @@ public func tan(_ value: Complex<Double>) -> Complex<Double> {
     return sin(value) / cos(value)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func tan(_ value: Complex<Float80>) -> Complex<Float80> {
     return sin(value) / cos(value)
 }
+#endif
 
 //
 // atan(z) = (i / 2) * ln((i + z) / (i - z))
@@ -293,11 +315,13 @@ public func atan(_ value: Complex<Double>) -> Complex<Double> {
     return .i * 0.5 * log(quotient)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func atan(_ value: Complex<Float80>) -> Complex<Float80> {
     let quotient = (.i + value) / (.i - value)
     return .i * 0.5 * log(quotient)
 }
+#endif
 
 //
 // tanh(z) = -i * tan(iz)
@@ -312,9 +336,11 @@ public func tanh(_ value: Complex<Double>) -> Complex<Double> {
     return -.i * tan(.i * value)
 }
 
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func tanh(_ value: Complex<Float80>) -> Complex<Float80> {
     return -.i * tan(.i * value)
 }
+#endif
 
 //

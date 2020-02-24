@@ -208,16 +208,27 @@ extension Complex: Decodable where Scalar: Decodable {
 
 // MARK: - Complex BinaryInteger Extensions
 
+extension Complex {
+
+#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+    @usableFromInline
+    internal typealias LargestFloatType = Float80
+#else
+    @usableFromInline
+    internal typealias LargestFloatType = Double
+#endif
+}
+
 extension Complex where Scalar: BinaryInteger {
 
     @_transparent
     public var modulus: Scalar {
-        return Scalar(sqrt(Float80(real * real + imaginary * imaginary)))
+        return Scalar(sqrt(LargestFloatType(real * real + imaginary * imaginary)))
     }
 
     @_transparent
     public var angle: Scalar {
-        return Scalar(atan2(Float80(imaginary), Float80(real)))
+        return Scalar(atan2(LargestFloatType(imaginary), LargestFloatType(real)))
     }
 
     //
@@ -281,7 +292,7 @@ extension Complex where Scalar: BinaryFloatingPoint {
 
     @_transparent
     public var angle: Scalar {
-        return Scalar(atan2(Float80(imaginary), Float80(real)))
+        return Scalar(atan2(LargestFloatType(imaginary), LargestFloatType(real)))
     }
 
     @_transparent
