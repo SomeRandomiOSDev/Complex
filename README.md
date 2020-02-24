@@ -6,6 +6,7 @@ Complex
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 [![Platform](https://img.shields.io/cocoapods/p/Complex.svg)](https://cocoapods.org/pods/Complex)
 [![Build](https://travis-ci.com/SomeRandomiOSDev/Complex.svg?branch=master)](https://travis-ci.com/SomeRandomiOSDev/Complex)
+![Swift](https://github.com/SomeRandomiOSDev/Complex/workflows/Swift/badge.svg)
 [![Code Coverage](https://codecov.io/gh/SomeRandomiOSDev/Complex/branch/master/graph/badge.svg)](https://codecov.io/gh/SomeRandomiOSDev/Complex)
 [![Codacy](https://api.codacy.com/project/badge/Grade/8ad52c117e4a46d9aa4699d22fc0bf49)](https://app.codacy.com/app/SomeRandomiOSDev/Complex?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/Complex&utm_campaign=Badge_Grade_Dashboard)
 
