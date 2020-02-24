@@ -1,0 +1,200 @@
+//
+//  Functions.swift
+//  Complex
+//
+//  Copyright © 2020 SomeRandomiOSDev. All rights reserved.
+//
+
+import Foundation
+
+@_transparent
+public func csqrt<F>(_ value: F) -> Complex<F> where F: FloatingPoint {
+    let complex: Complex<F>
+    if value < 0 {
+        complex = Complex(real: .zero, imaginary: sqrt(-value))
+    } else {
+        complex = Complex(real: sqrt(value), imaginary: .zero)
+    }
+
+    return complex
+}
+
+@_transparent
+public func sqrt<F>(_ value: Complex<F>) -> Complex<F> where F: FloatingPoint {
+    //swiftlint:disable opening_brace statement_position
+    let sign = { (value: F) -> F in
+        let sign: F
+        if value < .zero { sign = -1 }
+        else             { sign = 1 }
+        return sign
+    }
+    //swiftlint:enable opening_brace statement_position
+
+    let modulus = value.modulus
+    let real = sqrt((value.real + modulus) / F(2))
+    let imaginary = sign(value.imaginary) * sqrt((modulus - value.real) / F(2))
+
+    return Complex(real: real, imaginary: imaginary)
+}
+
+@_transparent
+public func abs<F>(_ value: Complex<F>) -> Complex<F> where F: Comparable, F: SignedNumeric {
+    return Complex(real: abs(value.real), imaginary: abs(value.imaginary))
+}
+
+@_transparent
+public func min<F>(_ lhs: Complex<F>, _ rhs: Complex<F>) -> Complex<F> where F: Comparable {
+    return Complex(real: min(lhs.real, rhs.real), imaginary: min(lhs.imaginary, rhs.imaginary))
+}
+
+@_transparent
+public func max<F>(_ lhs: Complex<F>, _ rhs: Complex<F>) -> Complex<F> where F: Comparable {
+    return Complex(real: max(lhs.real, rhs.real), imaginary: max(lhs.imaginary, rhs.imaginary))
+}
+
+@_transparent
+public func clamp<F>(_ value: Complex<F>, _ minimum: F, _ maximum: F) -> Complex<F> where F: Comparable {
+    return Complex(real: max(minimum, min(value.real, maximum)), imaginary: max(minimum, min(value.imaginary, maximum)))
+}
+
+@_transparent
+public func clamp<F>(_ value: Complex<F>, _ minimum: Complex<F>, _ maximum: Complex<F>) -> Complex<F> where F: Comparable {
+    return Complex(real: max(minimum.real, min(value.real, maximum.real)), imaginary: max(minimum.imaginary, min(value.imaginary, maximum.imaginary)))
+}
+
+//
+// exp(a + bi) = exp(a) * (cos(b) + i * sin(b))
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func exp(_ value: Complex<${type}>) -> Complex<${type}> {
+    let exp = Darwin.exp(value.real)
+    return Complex<${type}>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
+}
+
+% end
+//
+// log(a + bi) = log(sqrt(a^2 + b^2)) + i * atan(b / a)
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func log(_ value: Complex<${type}>) -> Complex<${type}> {
+    return Complex<${type}>(real: log(value.modulus), imaginary: value.angle)
+}
+
+% end
+//
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func log10(_ value: Complex<${type}>) -> Complex<${type}> {
+    return log(value) / log(10.0)
+}
+
+% end
+//
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func log2(_ value: Complex<${type}>) -> Complex<${type}> {
+    return log(value) / log(2.0)
+}
+
+% end
+//
+// sin(a + bi) = sin(a) * cosh(b) + i * cos(a) * sinh(b)
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func sin(_ value: Complex<${type}>) -> Complex<${type}> {
+    return Complex<${type}>(real: sin(value.real) * cosh(value.imaginary), imaginary: cos(value.real) * sinh(value.imaginary))
+}
+
+% end
+//
+// asin(z) = -i * ln(iz + sqrt(1 - z^2))
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func asin(_ value: Complex<${type}>) -> Complex<${type}> {
+    //swiftlint:disable identifier_name
+    let iz = .i * value
+    let root = sqrt(1.0 - (value * value))
+
+    return -.i * log(iz + root)
+    //swiftlint:enable identifier_name
+}
+
+% end
+//
+// sinh(z) = -i * sin(iz)
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func sinh(_ value: Complex<${type}>) -> Complex<${type}> {
+    return -.i * sin(.i * value)
+}
+
+% end
+//
+// cos(a + bi) = cos(a) * cosh(b) - i * sin(a) * sinh(b)
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func cos(_ value: Complex<${type}>) -> Complex<${type}> {
+    return Complex<${type}>(real: cos(value.real) * cosh(value.imaginary), imaginary: -sin(value.real) * sinh(value.imaginary))
+}
+
+% end
+//
+// acos(z) = -i * ln(z + sqrt(z^2 - 1))
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func acos(_ value: Complex<${type}>) -> Complex<${type}> {
+    let root = sqrt((value * value) - 1.0)
+    return -.i * log(value + root)
+}
+
+% end
+//
+// cosh(z) = cos(iz)
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func cosh(_ value: Complex<${type}>) -> Complex<${type}> {
+    return cos(.i * value)
+}
+
+% end
+//
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func tan(_ value: Complex<${type}>) -> Complex<${type}> {
+    return sin(value) / cos(value)
+}
+
+% end
+//
+// atan(z) = (i / 2) * ln((i + z) / (i - z))
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func atan(_ value: Complex<${type}>) -> Complex<${type}> {
+    let quotient = (.i + value) / (.i - value)
+    return .i * 0.5 * log(quotient)
+}
+
+% end
+//
+// tanh(z) = -i * tan(iz)
+
+% for type in ["Float", "Double", "Float80"]:
+@_transparent
+public func tanh(_ value: Complex<${type}>) -> Complex<${type}> {
+    return -.i * tan(.i * value)
+}
+
+% end
+//

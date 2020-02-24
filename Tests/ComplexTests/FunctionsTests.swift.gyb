@@ -92,70 +92,49 @@ class FunctionsTests: XCTestCase {
     }
 
     func test_exp() {
-        CTAssertEqual(exp(Complex<Float>(real: 2.0, imaginary: 0.0)), Complex<Float>(real: exp(2.0), imaginary: 0.0), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float>(real: 2.0, imaginary: .pi * 0.5)), Complex<Float>(real: 0.0, imaginary: exp(2.0)), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float>(real: 2.0, imaginary: .pi)), Complex<Float>(real: -exp(2.0), imaginary: 0.0), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float>(real: 2.0, imaginary: .pi * 1.5)), Complex<Float>(real: 0.0, imaginary: -exp(2.0)), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Double>(real: 2.0, imaginary: 0.0)), Complex<Double>(real: exp(2.0), imaginary: 0.0), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Double>(real: 2.0, imaginary: .pi * 0.5)), Complex<Double>(real: 0.0, imaginary: exp(2.0)), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Double>(real: 2.0, imaginary: .pi)), Complex<Double>(real: -exp(2.0), imaginary: 0.0), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Double>(real: 2.0, imaginary: .pi * 1.5)), Complex<Double>(real: 0.0, imaginary: -exp(2.0)), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float80>(real: 2.0, imaginary: 0.0)), Complex<Float80>(real: exp(2.0), imaginary: 0.0), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float80>(real: 2.0, imaginary: .pi * 0.5)), Complex<Float80>(real: 0.0, imaginary: exp(2.0)), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float80>(real: 2.0, imaginary: .pi)), Complex<Float80>(real: -exp(2.0), imaginary: 0.0), accuracy: 0.0001)
-        CTAssertEqual(exp(Complex<Float80>(real: 2.0, imaginary: .pi * 1.5)), Complex<Float80>(real: 0.0, imaginary: -exp(2.0)), accuracy: 0.0001)
+        % for type in ["Float", "Double", "Float80"]:
+        CTAssertEqual(exp(Complex<${type}>(real: 2.0, imaginary: 0.0)), Complex<${type}>(real: exp(2.0), imaginary: 0.0), accuracy: 0.0001)
+        CTAssertEqual(exp(Complex<${type}>(real: 2.0, imaginary: .pi * 0.5)), Complex<${type}>(real: 0.0, imaginary: exp(2.0)), accuracy: 0.0001)
+        CTAssertEqual(exp(Complex<${type}>(real: 2.0, imaginary: .pi)), Complex<${type}>(real: -exp(2.0), imaginary: 0.0), accuracy: 0.0001)
+        CTAssertEqual(exp(Complex<${type}>(real: 2.0, imaginary: .pi * 1.5)), Complex<${type}>(real: 0.0, imaginary: -exp(2.0)), accuracy: 0.0001)
+        % end
     }
 
     func test_log() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
-            CTAssertEqual(log(complex), Complex<Float>(real: log(complex.modulus), imaginary: complex.angle), accuracy: 0.0001)
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
+            CTAssertEqual(log(complex), Complex<${type}>(real: log(complex.modulus), imaginary: complex.angle), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(log(complex), Complex<Double>(real: log(complex.modulus), imaginary: complex.angle), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(log(complex), Complex<Float80>(real: log(complex.modulus), imaginary: complex.angle), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_log10() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             CTAssertEqual(log10(complex), log(complex) / log(10), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(log10(complex), log(complex) / log(10), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(log10(complex), log(complex) / log(10), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_log2() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             CTAssertEqual(log2(complex), log(complex) / log(2), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(log2(complex), log(complex) / log(2), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(log2(complex), log(complex) / log(2), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_sin() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
-            CTAssertEqual(sin(complex), Complex<Float>(real: sin(complex.real) * cosh(complex.imaginary), imaginary: cos(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
+            CTAssertEqual(sin(complex), Complex<${type}>(real: sin(complex.real) * cosh(complex.imaginary), imaginary: cos(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(sin(complex), Complex<Double>(real: sin(complex.real) * cosh(complex.imaginary), imaginary: cos(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(sin(complex), Complex<Float80>(real: sin(complex.real) * cosh(complex.imaginary), imaginary: cos(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_asin() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             //swiftlint:disable identifier_name
             let iz = .i * complex
             let root = sqrt(1.0 - (complex * complex))
@@ -164,126 +143,69 @@ class FunctionsTests: XCTestCase {
 
             CTAssertEqual(asin(complex), result, accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            //swiftlint:disable identifier_name
-            let iz = .i * complex
-            let root = sqrt(1.0 - (complex * complex))
-            let result = -.i * log(iz + root)
-            //swiftlint:enable identifier_name
-
-            CTAssertEqual(asin(complex), result, accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            //swiftlint:disable identifier_name
-            let iz = .i * complex
-            let root = sqrt(1.0 - (complex * complex))
-            let result = -.i * log(iz + root)
-            //swiftlint:enable identifier_name
-
-            CTAssertEqual(asin(complex), result, accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_sinh() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             CTAssertEqual(sinh(complex), -.i * sin(.i * complex), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(sinh(complex), -.i * sin(.i * complex), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(sinh(complex), -.i * sin(.i * complex), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_cos() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
-            CTAssertEqual(cos(complex), Complex<Float>(real: cos(complex.real) * cosh(complex.imaginary), imaginary: -sin(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
+            CTAssertEqual(cos(complex), Complex<${type}>(real: cos(complex.real) * cosh(complex.imaginary), imaginary: -sin(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(cos(complex), Complex<Double>(real: cos(complex.real) * cosh(complex.imaginary), imaginary: -sin(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(cos(complex), Complex<Float80>(real: cos(complex.real) * cosh(complex.imaginary), imaginary: -sin(complex.real) * sinh(complex.imaginary)), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_acos() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             let root = sqrt((complex * complex) - 1.0)
             let result = -.i * log(complex + root)
 
             CTAssertEqual(acos(complex), result, accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            let root = sqrt((complex * complex) - 1.0)
-            let result = -.i * log(complex + root)
-
-            CTAssertEqual(acos(complex), result, accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            let root = sqrt((complex * complex) - 1.0)
-            let result = -.i * log(complex + root)
-
-            CTAssertEqual(acos(complex), result, accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_cosh() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             CTAssertEqual(cosh(complex), cos(.i * complex), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(cosh(complex), cos(.i * complex), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(cosh(complex), cos(.i * complex), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_tan() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             CTAssertEqual(tan(complex), sin(complex) / cos(complex), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(tan(complex), sin(complex) / cos(complex), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(tan(complex), sin(complex) / cos(complex), accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_atan() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             let quotient = (.i + complex) / (.i - complex)
             let result = .i * 0.5 * log(quotient)
 
             CTAssertEqual(atan(complex), result, accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            let quotient = (.i + complex) / (.i - complex)
-            let result = .i * 0.5 * log(quotient)
-
-            CTAssertEqual(atan(complex), result, accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            let quotient = (.i + complex) / (.i - complex)
-            let result = .i * 0.5 * log(quotient)
-
-            CTAssertEqual(atan(complex), result, accuracy: 0.0001)
-        }
+        % end
     }
 
     func test_tanh() {
-        for complex in sampleComplexNumbers(ofType: Float.self) {
+        % for type in ["Float", "Double", "Float80"]:
+        for complex in sampleComplexNumbers(ofType: ${type}.self) {
             CTAssertEqual(tanh(complex), -.i * tan(.i * complex), accuracy: 0.0001)
         }
-        for complex in sampleComplexNumbers(ofType: Double.self) {
-            CTAssertEqual(tanh(complex), -.i * tan(.i * complex), accuracy: 0.0001)
-        }
-        for complex in sampleComplexNumbers(ofType: Float80.self) {
-            CTAssertEqual(tanh(complex), -.i * tan(.i * complex), accuracy: 0.0001)
-        }
+        % end
     }
 
     // MARK: Private Methods

@@ -13,172 +13,148 @@ class ComplexTests: XCTestCase {
 
     // MARK: Test Methods
 
-    func testComplexInitialization() {
-        do {
-            var complex = Complex<Half>(real: -1.0, imaginary: 2.5)
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
+    func testInitialization() {
+        testInitialization(real: Int8(1), imaginary: Int8(-4))
+        testInitialization(real: Int16(1), imaginary: Int16(-4))
+        testInitialization(real: Int32(1), imaginary: Int32(-4))
+        testInitialization(real: Int64(1), imaginary: Int64(-4))
+        testInitialization(real: UInt8(7), imaginary: UInt8(13))
+        testInitialization(real: UInt16(7), imaginary: UInt16(13))
+        testInitialization(real: UInt32(7), imaginary: UInt32(13))
+        testInitialization(real: UInt64(7), imaginary: UInt64(13))
+        testInitialization(real: Half(1.2), imaginary: Half(-7.4))
+        testInitialization(real: Float(-0.123), imaginary: Float(3.0))
+        testInitialization(real: Double(8.9), imaginary: Double(10.8))
+        testInitialization(real: Float80(11.1), imaginary: Float80(-0.9))
+    }
 
-            complex = Complex<Half>(real: Float(-1.0), imaginary: Float(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
+    func testRandomFactoryMethods() {
+        testRandomFactoryMethods(lowerBound: Int8(-4), upperBound: Int8(8))
+        testRandomFactoryMethods(lowerBound: Int16(-4), upperBound: Int16(8))
+        testRandomFactoryMethods(lowerBound: Int32(-4), upperBound: Int32(8))
+        testRandomFactoryMethods(lowerBound: Int64(-4), upperBound: Int64(8))
+        testRandomFactoryMethods(lowerBound: UInt8(7), upperBound: UInt8(43))
+        testRandomFactoryMethods(lowerBound: UInt16(7), upperBound: UInt16(43))
+        testRandomFactoryMethods(lowerBound: UInt32(7), upperBound: UInt32(43))
+        testRandomFactoryMethods(lowerBound: UInt64(7), upperBound: UInt64(43))
+        testRandomFactoryMethods(lowerBound: Half(-1.2), upperBound: Half(7.4))
+        testRandomFactoryMethods(lowerBound: Float(-0.123), upperBound: Float(3.0))
+        testRandomFactoryMethods(lowerBound: Double(8.9), upperBound: Double(10.8))
+        testRandomFactoryMethods(lowerBound: Float80(-11.1), upperBound: Float80(0.9))
+    }
 
-            complex = Complex<Half>(real: Double(-1.0), imaginary: Double(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
+    func testDescriptionMethods() throws {
+        try testDescriptionMethods(Complex(real: Int8(1), imaginary: Int8(-4)))
+        try testDescriptionMethods(Complex(real: Int16(1), imaginary: Int16(-4)))
+        try testDescriptionMethods(Complex(real: Int32(1), imaginary: Int32(-4)))
+        try testDescriptionMethods(Complex(real: Int64(1), imaginary: Int64(-4)))
+        try testDescriptionMethods(Complex(real: UInt8(7), imaginary: UInt8(13)))
+        try testDescriptionMethods(Complex(real: UInt16(7), imaginary: UInt16(13)))
+        try testDescriptionMethods(Complex(real: UInt32(7), imaginary: UInt32(13)))
+        try testDescriptionMethods(Complex(real: UInt64(7), imaginary: UInt64(13)))
+        try testDescriptionMethods(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        try testDescriptionMethods(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        try testDescriptionMethods(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        try testDescriptionMethods(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-            complex = Complex<Half>(real: Float80(-1.0), imaginary: Float80(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+    func testHashing() {
+        testHashing(Complex(real: Int8(1), imaginary: Int8(-4)))
+        testHashing(Complex(real: Int16(1), imaginary: Int16(-4)))
+        testHashing(Complex(real: Int32(1), imaginary: Int32(-4)))
+        testHashing(Complex(real: Int64(1), imaginary: Int64(-4)))
+        testHashing(Complex(real: UInt8(7), imaginary: UInt8(13)))
+        testHashing(Complex(real: UInt16(7), imaginary: UInt16(13)))
+        testHashing(Complex(real: UInt32(7), imaginary: UInt32(13)))
+        testHashing(Complex(real: UInt64(7), imaginary: UInt64(13)))
+        testHashing(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testHashing(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testHashing(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testHashing(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-            complex = Complex<Half>(real: Int(-4), imaginary: Int(67))
-            XCTAssertEqual(complex.real, -4.0)
-            XCTAssertEqual(complex.imaginary, 67.0)
+    func testRounding() {
+        testRounding(Complex<Half>(real: 1.5, imaginary: -4.5))
+        testRounding(Complex<Float>(real: 1.5, imaginary: -4.5))
+        testRounding(Complex<Double>(real: 1.5, imaginary: -4.5))
+        testRounding(Complex<Float80>(real: 1.5, imaginary: -4.5))
+    }
 
-            complex = Complex<Half>(Complex(real: 9.0, imaginary: 4.0))
-            XCTAssertEqual(complex.real, 9.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
+    func testConjugateMethods() {
+        testConjugateMethods(Complex(real: Int8(1), imaginary: Int8(-4)))
+        testConjugateMethods(Complex(real: Int16(1), imaginary: Int16(-4)))
+        testConjugateMethods(Complex(real: Int32(1), imaginary: Int32(-4)))
+        testConjugateMethods(Complex(real: Int64(1), imaginary: Int64(-4)))
+        testConjugateMethods(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testConjugateMethods(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testConjugateMethods(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testConjugateMethods(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-            complex = []
-            XCTAssertEqual(complex.real, 0.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
+    func testNegationMethods() {
+        testNegationMethods(Complex(real: Int8(1), imaginary: Int8(-4)))
+        testNegationMethods(Complex(real: Int16(1), imaginary: Int16(-4)))
+        testNegationMethods(Complex(real: Int32(1), imaginary: Int32(-4)))
+        testNegationMethods(Complex(real: Int64(1), imaginary: Int64(-4)))
+        testNegationMethods(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testNegationMethods(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testNegationMethods(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testNegationMethods(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-            complex = [-1.0]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
+    func testMultiplyByOne() {
+        testMultiplyByOne(Complex(real: Int8(1), imaginary: Int8(-4)))
+        testMultiplyByOne(Complex(real: Int16(1), imaginary: Int16(-4)))
+        testMultiplyByOne(Complex(real: Int32(1), imaginary: Int32(-4)))
+        testMultiplyByOne(Complex(real: Int64(1), imaginary: Int64(-4)))
+        testMultiplyByOne(Complex(real: UInt8(7), imaginary: UInt8(13)))
+        testMultiplyByOne(Complex(real: UInt16(7), imaginary: UInt16(13)))
+        testMultiplyByOne(Complex(real: UInt32(7), imaginary: UInt32(13)))
+        testMultiplyByOne(Complex(real: UInt64(7), imaginary: UInt64(13)))
+        testMultiplyByOne(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testMultiplyByOne(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testMultiplyByOne(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testMultiplyByOne(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-            complex = [-1.0, 2.5]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-        }
-        do {
-            var complex = Complex<Float>(real: -1.0, imaginary: 2.5)
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
+    func testMultiplyByI() {
+        testMultiplyByI(Complex(real: Int8(1), imaginary: Int8(-4)))
+        testMultiplyByI(Complex(real: Int16(1), imaginary: Int16(-4)))
+        testMultiplyByI(Complex(real: Int32(1), imaginary: Int32(-4)))
+        testMultiplyByI(Complex(real: Int64(1), imaginary: Int64(-4)))
+        testMultiplyByI(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testMultiplyByI(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testMultiplyByI(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testMultiplyByI(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-            complex = Complex<Float>(real: Half(-1.0), imaginary: Half(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
+    func testPlusPrefixOperator() {
+        testPlusPrefixOperator(Complex(real: Int8(1), imaginary: Int8(-4)))
+        testPlusPrefixOperator(Complex(real: Int16(1), imaginary: Int16(-4)))
+        testPlusPrefixOperator(Complex(real: Int32(1), imaginary: Int32(-4)))
+        testPlusPrefixOperator(Complex(real: Int64(1), imaginary: Int64(-4)))
+        testPlusPrefixOperator(Complex(real: UInt8(7), imaginary: UInt8(13)))
+        testPlusPrefixOperator(Complex(real: UInt16(7), imaginary: UInt16(13)))
+        testPlusPrefixOperator(Complex(real: UInt32(7), imaginary: UInt32(13)))
+        testPlusPrefixOperator(Complex(real: UInt64(7), imaginary: UInt64(13)))
+        testPlusPrefixOperator(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testPlusPrefixOperator(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testPlusPrefixOperator(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testPlusPrefixOperator(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+    }
 
-            complex = Complex<Float>(real: Double(-1.0), imaginary: Double(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-            complex = Complex<Float>(real: Float80(-1.0), imaginary: Float80(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-
-            complex = Complex<Float>(real: Int(-4), imaginary: Int(67))
-            XCTAssertEqual(complex.real, -4.0)
-            XCTAssertEqual(complex.imaginary, 67.0)
-
-            complex = Complex<Float>(Complex(real: 9.0, imaginary: 4.0))
-            XCTAssertEqual(complex.real, 9.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = []
-            XCTAssertEqual(complex.real, 0.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
-
-            complex = [-1.0]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
-
-            complex = [-1.0, 2.5]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-        }
-        do {
-            var complex = Complex<Double>(real: -1.0, imaginary: 2.5)
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-            complex = Complex<Double>(real: Half(-1.0), imaginary: Half(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-            complex = Complex<Double>(real: Float(-1.0), imaginary: Float(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-            complex = Complex<Double>(real: Float80(-1.0), imaginary: Float80(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-
-            complex = Complex<Double>(real: Int(-4), imaginary: Int(67))
-            XCTAssertEqual(complex.real, -4.0)
-            XCTAssertEqual(complex.imaginary, 67.0)
-
-            complex = Complex<Double>(Complex(real: 9.0, imaginary: 4.0))
-            XCTAssertEqual(complex.real, 9.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = []
-            XCTAssertEqual(complex.real, 0.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
-
-            complex = [-1.0]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
-
-            complex = [-1.0, 2.5]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            var complex = Complex<Float80>(real: -1.0, imaginary: 2.5)
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-            complex = Complex<Float80>(real: Half(-1.0), imaginary: Half(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-            complex = Complex<Float80>(real: Float(-1.0), imaginary: Float(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-            complex = Complex<Float80>(real: Double(-1.0), imaginary: Double(2.5))
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-
-            complex = Complex<Float80>(real: Int(-4), imaginary: Int(67))
-            XCTAssertEqual(complex.real, -4.0)
-            XCTAssertEqual(complex.imaginary, 67.0)
-
-            complex = Complex<Float80>(Complex(real: 9.0, imaginary: 4.0))
-            XCTAssertEqual(complex.real, 9.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = []
-            XCTAssertEqual(complex.real, 0.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
-
-            complex = [-1.0]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 0.0)
-
-            complex = [-1.0, 2.5]
-            XCTAssertEqual(complex.real, -1.0)
-            XCTAssertEqual(complex.imaginary, 2.5)
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+    func testPolarComponents() {
+        testPolarComponents(Complex(real: Half(1.2), imaginary: Half(-7.4)))
+        testPolarComponents(Complex(real: Float(-0.123), imaginary: Float(3.0)))
+        testPolarComponents(Complex(real: Double(8.9), imaginary: Double(10.8)))
+        testPolarComponents(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
     }
 
     func testAdditiveArithmeticProtocolRequirements() {
-        XCTAssertEqual(Complex<Half>.zero, Complex(real: 0.0, imaginary: 0.0))
-        XCTAssertEqual(Complex<Float>.zero, Complex(real: 0.0, imaginary: 0.0))
-        XCTAssertEqual(Complex<Double>.zero, Complex(real: 0.0, imaginary: 0.0))
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        XCTAssertEqual(Complex<Float80>.zero, Complex(real: 0.0, imaginary: 0.0))
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        CTAssertEqual(Complex<Half>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Float>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Double>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Float80>.zero, Complex(real: 0.0, imaginary: 0.0))
 
         do {
             let lhs = Complex<Half>(real: 1.0, imaginary: 2.0)
@@ -186,16 +162,16 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
         do {
             let lhs = Complex<Float>(real: 1.0, imaginary: 2.0)
@@ -203,16 +179,16 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
         do {
             let lhs = Complex<Double>(real: 1.0, imaginary: 2.0)
@@ -220,653 +196,290 @@ class ComplexTests: XCTestCase {
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
         do {
             let lhs = Complex<Float80>(real: 1.0, imaginary: 2.0)
             let rhs = Complex<Float80>(real: 3.0, imaginary: 4.0)
             var value = lhs
             value += rhs
 
-            XCTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
-            XCTAssertEqual(value, lhs + rhs)
+            CTAssertEqual(lhs + rhs, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, Complex(real: 4.0, imaginary: 6.0))
+            CTAssertEqual(value, lhs + rhs)
 
             value = lhs
             value -= rhs
 
-            XCTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
-            XCTAssertEqual(value, lhs - rhs)
+            CTAssertEqual(lhs - rhs, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, Complex(real: -2.0, imaginary: -2.0))
+            CTAssertEqual(value, lhs - rhs)
         }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
-    func testCustomStrings() {
-        let half = Complex<Half>(real: 1.0, imaginary: 2.0)
-        _ = half.description
-        _ = half.debugDescription
-        _ = half.string(withNotation: .square)
-        _ = half.string(withNotation: .trigonometric)
-        _ = half.string(withNotation: .euler)
-        _ = half.string(withNotation: .angle)
+    // MARK: Private Methods
 
-        let float = Complex<Float>(real: 1.0, imaginary: 2.0)
-        _ = float.description
-        _ = float.debugDescription
-        _ = float.string(withNotation: .square)
-        _ = float.string(withNotation: .trigonometric)
-        _ = float.string(withNotation: .euler)
-        _ = float.string(withNotation: .angle)
+    private func testInitialization<Scalar>(real: Scalar, imaginary: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
+        let complex0 = Complex<Scalar>()
+        CTAssertEqual(complex0.real, 0)
+        CTAssertEqual(complex0.imaginary, 0)
 
-        let double = Complex<Double>(real: 1.0, imaginary: 2.0)
-        _ = double.description
-        _ = double.debugDescription
-        _ = double.string(withNotation: .square)
-        _ = double.string(withNotation: .trigonometric)
-        _ = double.string(withNotation: .euler)
-        _ = double.string(withNotation: .angle)
+        let complex1 = Complex<Scalar>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex1.real, real)
+        CTAssertEqual(complex1.imaginary, imaginary)
 
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        let float80 = Complex<Float80>(real: 1.0, imaginary: 2.0)
-        _ = float80.description
-        _ = float80.debugDescription
-        _ = float80.string(withNotation: .square)
-        _ = float80.string(withNotation: .trigonometric)
-        _ = float80.string(withNotation: .euler)
-        _ = float80.string(withNotation: .angle)
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        let complex2 = Complex<Scalar>(complex1)
+        CTAssertEqual(complex2.real, real)
+        CTAssertEqual(complex2.imaginary, imaginary)
+
+        let complex3 = Complex<Int64>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex3.real, Int64(real))
+        CTAssertEqual(complex3.imaginary, Int64(imaginary))
+
+        let complex4 = Complex<Int64>(complex1)
+        CTAssertEqual(complex4.real, Int64(real))
+        CTAssertEqual(complex4.imaginary, Int64(imaginary))
+
+        let complex5 = Complex<Float80>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex5.real, Float80(real))
+        CTAssertEqual(complex5.imaginary, Float80(imaginary))
+
+        let complex6 = Complex<Float80>(complex1)
+        CTAssertEqual(complex6.real, Float80(real))
+        CTAssertEqual(complex6.imaginary, Float80(imaginary))
+
+        let complex7: Complex<Scalar> = []
+        CTAssertEqual(complex7.real, 0)
+        CTAssertEqual(complex7.imaginary, 0)
+
+        let complex8: Complex<Scalar> = [real]
+        CTAssertEqual(complex8.real, real)
+        CTAssertEqual(complex8.imaginary, 0)
+
+        let complex9: Complex<Scalar> = [real, imaginary]
+        CTAssertEqual(complex9.real, real)
+        CTAssertEqual(complex9.imaginary, imaginary)
     }
 
-    func testHashing() {
-        let half = Complex<Half>(real: 1.0, imaginary: 2.0)
+    private func testInitialization<Scalar>(real: Scalar, imaginary: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
+        let complex0 = Complex<Scalar>()
+        CTAssertEqual(complex0.real, 0.0)
+        CTAssertEqual(complex0.imaginary, 0.0)
+
+        let complex1 = Complex<Scalar>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex1.real, real)
+        CTAssertEqual(complex1.imaginary, imaginary)
+
+        let complex2 = Complex<Scalar>(complex1)
+        CTAssertEqual(complex2.real, real)
+        CTAssertEqual(complex2.imaginary, imaginary)
+
+        let complex3 = Complex<Int64>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex3.real, Int64(real))
+        CTAssertEqual(complex3.imaginary, Int64(imaginary))
+
+        let complex4 = Complex<Int64>(complex1)
+        CTAssertEqual(complex4.real, Int64(real))
+        CTAssertEqual(complex4.imaginary, Int64(imaginary))
+
+        let complex5 = Complex<Float80>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex5.real, Float80(real))
+        CTAssertEqual(complex5.imaginary, Float80(imaginary))
+
+        let complex6 = Complex<Float80>(complex1)
+        CTAssertEqual(complex6.real, Float80(real))
+        CTAssertEqual(complex6.imaginary, Float80(imaginary))
+
+        let complex7: Complex<Scalar> = []
+        CTAssertEqual(complex7.real, 0.0)
+        CTAssertEqual(complex7.imaginary, 0.0)
+
+        let complex8: Complex<Scalar> = [real]
+        CTAssertEqual(complex8.real, real)
+        CTAssertEqual(complex8.imaginary, 0.0)
+
+        let complex9: Complex<Scalar> = [real, imaginary]
+        CTAssertEqual(complex9.real, real)
+        CTAssertEqual(complex9.imaginary, imaginary)
+    }
+
+    private func testRandomFactoryMethods<Scalar>(lowerBound: Scalar, upperBound: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
+        var generator = SystemRandomNumberGenerator()
+        let closedRange: ClosedRange<Scalar> = lowerBound ... upperBound
+        let range: Range<Scalar> = lowerBound ..< upperBound
+
+        let complex1 = Complex<Scalar>.random(in: range)
+        CTAssertTrue(range.contains(complex1.real))
+        CTAssertTrue(range.contains(complex1.imaginary))
+
+        let complex2 = Complex<Scalar>.random(in: range, using: &generator)
+        CTAssertTrue(range.contains(complex2.real))
+        CTAssertTrue(range.contains(complex2.imaginary))
+
+        let complex3 = Complex<Scalar>.random(in: closedRange)
+        CTAssertTrue(closedRange.contains(complex3.real))
+        CTAssertTrue(closedRange.contains(complex3.imaginary))
+
+        let complex4 = Complex<Scalar>.random(in: closedRange, using: &generator)
+        CTAssertTrue(closedRange.contains(complex4.real))
+        CTAssertTrue(closedRange.contains(complex4.imaginary))
+    }
+
+    private func testRandomFactoryMethods<Scalar>(lowerBound: Scalar, upperBound: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint, Scalar.RawSignificand: FixedWidthInteger {
+        var generator = SystemRandomNumberGenerator()
+        let closedRange: ClosedRange<Scalar> = lowerBound ... upperBound
+        let range: Range<Scalar> = lowerBound ..< upperBound
+
+        let complex1 = Complex<Scalar>.random(in: range)
+        CTAssertTrue(range.contains(complex1.real))
+        CTAssertTrue(range.contains(complex1.imaginary))
+
+        let complex2 = Complex<Scalar>.random(in: range, using: &generator)
+        CTAssertTrue(range.contains(complex2.real))
+        CTAssertTrue(range.contains(complex2.imaginary))
+
+        let complex3 = Complex<Scalar>.random(in: closedRange)
+        CTAssertTrue(closedRange.contains(complex3.real))
+        CTAssertTrue(closedRange.contains(complex3.imaginary))
+
+        let complex4 = Complex<Scalar>.random(in: closedRange, using: &generator)
+        CTAssertTrue(closedRange.contains(complex4.real))
+        CTAssertTrue(closedRange.contains(complex4.imaginary))
+    }
+
+    private func testDescriptionMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) throws where Scalar: BinaryInteger {
+        let description = complex.description
+        let debugDescription = complex.debugDescription
+
+        let realRegex = try NSRegularExpression(pattern: "real:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.real)"))", options: [])
+        let imaginaryRegex = try NSRegularExpression(pattern: "imaginary:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.imaginary)"))", options: [])
+
+        CTAssertEqual(description, debugDescription)
+        CTAssertTrue(realRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
+        CTAssertTrue(imaginaryRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
+
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.real)"))
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.imaginary)"))
+
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.angle)"))
+
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.angle)"))
+
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.angle)"))
+    }
+
+    private func testDescriptionMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) throws where Scalar: BinaryFloatingPoint {
+        let description = complex.description
+        let debugDescription = complex.debugDescription
+
+        let realRegex = try NSRegularExpression(pattern: "real:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.real)"))", options: [])
+        let imaginaryRegex = try NSRegularExpression(pattern: "imaginary:[ ]*\(NSRegularExpression.escapedPattern(for: "\(complex.imaginary)"))", options: [])
+
+        CTAssertEqual(description, debugDescription)
+        CTAssertTrue(realRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
+        CTAssertTrue(imaginaryRegex.numberOfMatches(in: description, options: [], range: NSRange(location: 0, length: description.count)) > 0)
+
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.real)"))
+        CTAssertTrue(complex.string(withNotation: .square).contains("\(complex.imaginary)"))
+
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .trigonometric).contains("\(complex.angle)"))
+
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .euler).contains("\(complex.angle)"))
+
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.modulus)"))
+        CTAssertTrue(complex.string(withNotation: .angle).contains("\(complex.angle)"))
+    }
+
+    private func testHashing<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: Hashable {
         var hasher = Hasher()
-        hasher.combine(half)
-        _ = hasher.finalize()
+        hasher.combine(complex)
+        let value1 = hasher.finalize()
 
-        let float = Complex<Float>(real: 1.0, imaginary: 2.0)
         hasher = Hasher()
-        hasher.combine(float)
-        _ = hasher.finalize()
+        hasher.combine(complex.real)
+        hasher.combine(complex.imaginary)
+        let value2 = hasher.finalize()
 
-        let double = Complex<Double>(real: 1.0, imaginary: 2.0)
-        hasher = Hasher()
-        hasher.combine(double)
-        _ = hasher.finalize()
-
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        let float80 = Complex<Float80>(real: 1.0, imaginary: 2.0)
-        hasher = Hasher()
-        hasher.combine(float80)
-        _ = hasher.finalize()
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        CTAssertEqual(value1, value2)
     }
 
-    func testMultiplicationAndDivision() {
-        do {
-            let lhs = Complex<Half>(real: 3.0, imaginary: 2.0)
-            let rhs = Complex<Half>(real: 1.0, imaginary: 7.0)
-            var value = lhs
-            value *= rhs
+    private func testRounding<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: FloatingPoint {
+        CTAssertEqual(complex.rounded(), Complex(real: complex.real.rounded(), imaginary: complex.imaginary.rounded()))
 
-            XCTAssertEqual(lhs * rhs, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, lhs * rhs)
+        var rounded = complex
+        rounded.round()
+        CTAssertEqual(rounded, complex.rounded())
 
-            value = lhs
-            value /= rhs
+        for rule in [FloatingPointRoundingRule.toNearestOrAwayFromZero, .toNearestOrEven, .up, .down, .towardZero, .awayFromZero] {
+            CTAssertEqual(complex.rounded(rule), Complex(real: complex.real.rounded(rule), imaginary: complex.imaginary.rounded(rule)))
 
-            XCTAssertEqual(lhs / rhs, Complex(real: 0.34, imaginary: -0.38))
-            XCTAssertEqual(value, Complex(real: 0.34, imaginary: -0.38))
-            XCTAssertEqual(value, lhs / rhs)
+            var rounded = complex
+            rounded.round(rule)
+            CTAssertEqual(rounded, complex.rounded(rule))
         }
-        do {
-            let lhs = Complex<Float>(real: 3.0, imaginary: 2.0)
-            let rhs = Complex<Float>(real: 1.0, imaginary: 7.0)
-            var value = lhs
-            value *= rhs
-
-            XCTAssertEqual(lhs * rhs, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, lhs * rhs)
-
-            value = lhs
-            value /= rhs
-
-            XCTAssertEqual(lhs / rhs, Complex(real: 0.34, imaginary: -0.38))
-            XCTAssertEqual(value, Complex(real: 0.34, imaginary: -0.38))
-            XCTAssertEqual(value, lhs / rhs)
-        }
-        do {
-            let lhs = Complex<Double>(real: 3.0, imaginary: 2.0)
-            let rhs = Complex<Double>(real: 1.0, imaginary: 7.0)
-            var value = lhs
-            value *= rhs
-
-            XCTAssertEqual(lhs * rhs, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, lhs * rhs)
-
-            value = lhs
-            value /= rhs
-
-            XCTAssertEqual(lhs / rhs, Complex(real: 0.34, imaginary: -0.38))
-            XCTAssertEqual(value, Complex(real: 0.34, imaginary: -0.38))
-            XCTAssertEqual(value, lhs / rhs)
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            let lhs = Complex<Float80>(real: 3.0, imaginary: 2.0)
-            let rhs = Complex<Float80>(real: 1.0, imaginary: 7.0)
-            var value = lhs
-            value *= rhs
-
-            XCTAssertEqual(lhs * rhs, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, Complex(real: -11.0, imaginary: 23.0))
-            XCTAssertEqual(value, lhs * rhs)
-
-            value = lhs
-            value /= rhs
-
-            XCTAssertTrue(((lhs / rhs) - Complex(real: 0.34, imaginary: -0.38)).modulus < 0.0001)
-            XCTAssertTrue((value - Complex(real: 0.34, imaginary: -0.38)).modulus < 0.0001)
-            XCTAssertEqual(value, lhs / rhs)
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
     }
 
-    func testComplexArithmeticWithRealNumbers() {
-        do {
-            let complex = Complex<Half>(real: 3.0, imaginary: 2.0)
-            let real: Half = 5.0
-            var value = complex
-            value += real
+    private func testConjugateMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
+        var conjugate = complex.conjugate()
+        CTAssertEqual(complex.real, conjugate.real)
+        CTAssertEqual(complex.imaginary, -conjugate.imaginary)
 
-            XCTAssertEqual(complex + real, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(real + complex, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex + real)
-            XCTAssertEqual(value, real + complex)
+        conjugate = ~complex
+        CTAssertEqual(complex.real, conjugate.real)
+        CTAssertEqual(complex.imaginary, -conjugate.imaginary)
 
-            value = complex
-            value -= real
-
-            XCTAssertEqual(complex - real, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(real - complex, Complex(real: 2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex - real)
-            XCTAssertEqual(-value, real - complex)
-
-            value = complex
-            value *= real
-
-            XCTAssertEqual(complex * real, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(real * complex, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, complex * real)
-            XCTAssertEqual(value, real * complex)
-
-            value = complex
-            value /= real
-
-            XCTAssertEqual(complex / real, Complex(real: 0.6, imaginary: 0.4))
-            XCTAssertEqual(real / complex, Complex(real: 1.1542969, imaginary: -0.76904297))
-            XCTAssertEqual(value, Complex(real: 0.6, imaginary: 0.4))
-            XCTAssertEqual(value, complex / real)
-        }
-        do {
-            let complex = Complex<Float>(real: 3.0, imaginary: 2.0)
-            let real: Float = 5.0
-            var value = complex
-            value += real
-
-            XCTAssertEqual(complex + real, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(real + complex, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex + real)
-            XCTAssertEqual(value, real + complex)
-
-            value = complex
-            value -= real
-
-            XCTAssertEqual(complex - real, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(real - complex, Complex(real: 2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex - real)
-            XCTAssertEqual(-value, real - complex)
-
-            value = complex
-            value *= real
-
-            XCTAssertEqual(complex * real, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(real * complex, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, complex * real)
-            XCTAssertEqual(value, real * complex)
-
-            value = complex
-            value /= real
-
-            XCTAssertEqual(complex / real, Complex(real: 0.6, imaginary: 0.4))
-            XCTAssertTrue(((real / complex) - Complex(real: 1.1542969, imaginary: -0.76904297)).modulus < 0.001)
-            XCTAssertEqual(value, Complex(real: 0.6, imaginary: 0.4))
-            XCTAssertEqual(value, complex / real)
-        }
-        do {
-            let complex = Complex<Double>(real: 3.0, imaginary: 2.0)
-            let real: Double = 5.0
-            var value = complex
-            value += real
-
-            XCTAssertEqual(complex + real, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(real + complex, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex + real)
-            XCTAssertEqual(value, real + complex)
-
-            value = complex
-            value -= real
-
-            XCTAssertEqual(complex - real, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(real - complex, Complex(real: 2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex - real)
-            XCTAssertEqual(-value, real - complex)
-
-            value = complex
-            value *= real
-
-            XCTAssertEqual(complex * real, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(real * complex, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, complex * real)
-            XCTAssertEqual(value, real * complex)
-
-            value = complex
-            value /= real
-
-            XCTAssertEqual(complex / real, Complex(real: 0.6, imaginary: 0.4))
-            XCTAssertTrue(((real / complex) - Complex(real: 1.1542969, imaginary: -0.76904297)).modulus < 0.001)
-            XCTAssertEqual(value, Complex(real: 0.6, imaginary: 0.4))
-            XCTAssertEqual(value, complex / real)
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            let complex = Complex<Float80>(real: 3.0, imaginary: 2.0)
-            let real: Float80 = 5.0
-            var value = complex
-            value += real
-
-            XCTAssertEqual(complex + real, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(real + complex, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, Complex(real: 8.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex + real)
-            XCTAssertEqual(value, real + complex)
-
-            value = complex
-            value -= real
-
-            XCTAssertEqual(complex - real, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(real - complex, Complex(real: 2.0, imaginary: -2.0))
-            XCTAssertEqual(value, Complex(real: -2.0, imaginary: 2.0))
-            XCTAssertEqual(value, complex - real)
-            XCTAssertEqual(-value, real - complex)
-
-            value = complex
-            value *= real
-
-            XCTAssertEqual(complex * real, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(real * complex, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, Complex(real: 15.0, imaginary: 10.0))
-            XCTAssertEqual(value, complex * real)
-            XCTAssertEqual(value, real * complex)
-
-            value = complex
-            value /= real
-
-            XCTAssertTrue(((complex / real) - Complex(real: 0.6, imaginary: 0.4)).modulus < 0.001)
-            XCTAssertTrue(((real / complex) - Complex(real: 1.1542969, imaginary: -0.76904297)).modulus < 0.001)
-            XCTAssertTrue((value - Complex(real: 0.6, imaginary: 0.4)).modulus < 0.001)
-            XCTAssertEqual(value, complex / real)
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        conjugate = complex
+        conjugate.formConjugate()
+        CTAssertEqual(complex.real, conjugate.real)
+        CTAssertEqual(complex.imaginary, -conjugate.imaginary)
     }
 
-    func testNegation() {
-        do {
-            var complex = Complex<Half>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
+    private func testNegationMethods<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
+        var negative = -complex
+        CTAssertEqual(complex.real, -negative.real)
+        CTAssertEqual(complex.imaginary, -negative.imaginary)
 
-            complex.negate()
-            XCTAssertEqual(complex.real, 7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = -complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = +complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-        }
-        do {
-            var complex = Complex<Float>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex.negate()
-            XCTAssertEqual(complex.real, 7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = -complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = +complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-        }
-        do {
-            var complex = Complex<Double>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex.negate()
-            XCTAssertEqual(complex.real, 7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = -complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = +complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            var complex = Complex<Float80>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex.negate()
-            XCTAssertEqual(complex.real, 7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = -complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = +complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        negative = complex
+        negative.negate()
+        CTAssertEqual(complex.real, -negative.real)
+        CTAssertEqual(complex.imaginary, -negative.imaginary)
     }
 
-    func testConjugates() {
-        do {
-            var complex = Complex<Half>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
+    private func testMultiplyByOne<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
+        let one = Complex<Scalar>.one
+        let result = complex * one
 
-            complex.formConjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = complex.conjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = ~complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-        }
-        do {
-            var complex = Complex<Float>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex.formConjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = complex.conjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = ~complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-        }
-        do {
-            var complex = Complex<Double>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex.formConjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = complex.conjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = ~complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            var complex = Complex<Float80>(real: -7.0, imaginary: 4.0)
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex.formConjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-
-            complex = complex.conjugate()
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, 4.0)
-
-            complex = ~complex
-            XCTAssertEqual(complex.real, -7.0)
-            XCTAssertEqual(complex.imaginary, -4.0)
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        CTAssertEqual(result, complex)
     }
 
-    func testRounding() {
-        do {
-            let complex = Complex<Half>(real: 1.5, imaginary: -4.5)
-            XCTAssertEqual(complex.rounded(), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrAwayFromZero), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrEven), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.up), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.down), Complex(real: 1.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.towardZero), Complex(real: 1.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.awayFromZero), Complex(real: 2.0, imaginary: -5.0))
+    private func testMultiplyByI<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
+        let i = Complex<Scalar>.i
+        let result = complex * i
 
-            var value = complex
-            value.round()
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrAwayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrEven)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.up)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.down)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.towardZero)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.awayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-        }
-        do {
-            let complex = Complex<Float>(real: 1.5, imaginary: -4.5)
-            XCTAssertEqual(complex.rounded(), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrAwayFromZero), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrEven), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.up), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.down), Complex(real: 1.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.towardZero), Complex(real: 1.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.awayFromZero), Complex(real: 2.0, imaginary: -5.0))
-
-            var value = complex
-            value.round()
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrAwayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrEven)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.up)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.down)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.towardZero)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.awayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-        }
-        do {
-            let complex = Complex<Double>(real: 1.5, imaginary: -4.5)
-            XCTAssertEqual(complex.rounded(), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrAwayFromZero), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrEven), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.up), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.down), Complex(real: 1.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.towardZero), Complex(real: 1.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.awayFromZero), Complex(real: 2.0, imaginary: -5.0))
-
-            var value = complex
-            value.round()
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrAwayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrEven)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.up)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.down)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.towardZero)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.awayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            let complex = Complex<Float80>(real: 1.5, imaginary: -4.5)
-            XCTAssertEqual(complex.rounded(), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrAwayFromZero), Complex(real: 2.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.toNearestOrEven), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.up), Complex(real: 2.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.down), Complex(real: 1.0, imaginary: -5.0))
-            XCTAssertEqual(complex.rounded(.towardZero), Complex(real: 1.0, imaginary: -4.0))
-            XCTAssertEqual(complex.rounded(.awayFromZero), Complex(real: 2.0, imaginary: -5.0))
-
-            var value = complex
-            value.round()
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrAwayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.toNearestOrEven)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.up)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.down)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -5.0))
-
-            value = complex
-            value.round(.towardZero)
-            XCTAssertEqual(value, Complex(real: 1.0, imaginary: -4.0))
-
-            value = complex
-            value.round(.awayFromZero)
-            XCTAssertEqual(value, Complex(real: 2.0, imaginary: -5.0))
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        CTAssertEqual(result.real, -complex.imaginary)
+        CTAssertEqual(result.imaginary, complex.real)
     }
 
-    func testPolarComponents() {
-        do {
-            let complex = Complex<Half>(real: 3.0, imaginary: 4.0)
-            XCTAssertEqual(complex.modulus, 5.0)
-            XCTAssertEqual(complex.angle, 0.9272461)
-        }
-        do {
-            let complex = Complex<Float>(real: 3.0, imaginary: 4.0)
-            XCTAssertEqual(complex.modulus, 5.0)
-            XCTAssertEqual(complex.angle, 0.9272952)
-        }
-        do {
-            let complex = Complex<Double>(real: 3.0, imaginary: 4.0)
-            XCTAssertEqual(complex.modulus, 5.0)
-            XCTAssertEqual(complex.angle, 0.9272952180016122)
-        }
-#if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
-        do {
-            let complex = Complex<Float80>(real: 3.0, imaginary: 4.0)
-            XCTAssertEqual(complex.modulus, 5.0)
-            XCTAssertEqual(complex.angle, 0.9272952180016122324)
-        }
-#endif // #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+    private func testPlusPrefixOperator<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
+        CTAssertEqual(complex, +complex)
+    }
+
+    private func testPolarComponents<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
+        CTAssertEqual(complex.modulus, sqrt(complex.real * complex.real + complex.imaginary * complex.imaginary))
+        CTAssertEqual(complex.angle, Scalar(atan2(Float80(complex.imaginary), Float80(complex.real))))
     }
 }
