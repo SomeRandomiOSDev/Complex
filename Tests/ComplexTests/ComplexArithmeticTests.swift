@@ -109,19 +109,6 @@ class ComplexArithmeticTests: XCTestCase {
         testAdditionIgnoringOverflow(forType: UInt.self)
     }
 
-    func testOverflowingAddition() {
-        testOverflowingAddition(forType: Int8.self)
-        testOverflowingAddition(forType: Int16.self)
-        testOverflowingAddition(forType: Int32.self)
-        testOverflowingAddition(forType: Int64.self)
-        testOverflowingAddition(forType: Int.self)
-        testOverflowingAddition(forType: UInt8.self)
-        testOverflowingAddition(forType: UInt16.self)
-        testOverflowingAddition(forType: UInt32.self)
-        testOverflowingAddition(forType: UInt64.self)
-        testOverflowingAddition(forType: UInt.self)
-    }
-
     func testSubtraction() {
         testSubtraction(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 1, imaginary: 2), Complex<Int8>(real: 2, imaginary: 2))
         testSubtraction(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 1, imaginary: 2), Complex<Int16>(real: 2, imaginary: 2))
@@ -165,19 +152,6 @@ class ComplexArithmeticTests: XCTestCase {
         testSubtractionIgnoringOverflow(forType: UInt32.self)
         testSubtractionIgnoringOverflow(forType: UInt64.self)
         testSubtractionIgnoringOverflow(forType: UInt.self)
-    }
-
-    func testOverflowingSubtraction() {
-        testOverflowingSubtraction(forType: Int8.self)
-        testOverflowingSubtraction(forType: Int16.self)
-        testOverflowingSubtraction(forType: Int32.self)
-        testOverflowingSubtraction(forType: Int64.self)
-        testOverflowingSubtraction(forType: Int.self)
-        testOverflowingSubtraction(forType: UInt8.self)
-        testOverflowingSubtraction(forType: UInt16.self)
-        testOverflowingSubtraction(forType: UInt32.self)
-        testOverflowingSubtraction(forType: UInt64.self)
-        testOverflowingSubtraction(forType: UInt.self)
     }
 
     func testMultiplication() {
@@ -242,19 +216,6 @@ class ComplexArithmeticTests: XCTestCase {
         testComponentwiseMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
     }
 
-    func testComponentwiseOverflowingMultiplication() {
-        testComponentwiseOverflowingMultiplication(forType: Int8.self)
-        testComponentwiseOverflowingMultiplication(forType: Int16.self)
-        testComponentwiseOverflowingMultiplication(forType: Int32.self)
-        testComponentwiseOverflowingMultiplication(forType: Int64.self)
-        testComponentwiseOverflowingMultiplication(forType: Int.self)
-        testComponentwiseOverflowingMultiplication(forType: UInt8.self)
-        testComponentwiseOverflowingMultiplication(forType: UInt16.self)
-        testComponentwiseOverflowingMultiplication(forType: UInt32.self)
-        testComponentwiseOverflowingMultiplication(forType: UInt64.self)
-        testComponentwiseOverflowingMultiplication(forType: UInt.self)
-    }
-
     func testDivision() {
         testDivision(Complex<Int8>(real: 3, imaginary: 4), Complex<Int8>(real: 2, imaginary: 1), Complex<Int8>(real: 2, imaginary: 1))
         testDivision(Complex<Int16>(real: 3, imaginary: 4), Complex<Int16>(real: 2, imaginary: 1), Complex<Int16>(real: 2, imaginary: 1))
@@ -304,107 +265,94 @@ class ComplexArithmeticTests: XCTestCase {
         testComponentwiseDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
     }
 
-    func testComponentwiseOverflowingDivision() {
-        testComponentwiseOverflowingDivision(forType: Int8.self)
-        testComponentwiseOverflowingDivision(forType: Int16.self)
-        testComponentwiseOverflowingDivision(forType: Int32.self)
-        testComponentwiseOverflowingDivision(forType: Int64.self)
-        testComponentwiseOverflowingDivision(forType: Int.self)
-        testComponentwiseOverflowingDivision(forType: UInt8.self)
-        testComponentwiseOverflowingDivision(forType: UInt16.self)
-        testComponentwiseOverflowingDivision(forType: UInt32.self)
-        testComponentwiseOverflowingDivision(forType: UInt64.self)
-        testComponentwiseOverflowingDivision(forType: UInt.self)
-    }
-
     // MARK: Private Methods
 
     private func testAdditionWithZero<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(complex, complex + .zero, file: file, line: line)
-        CTAssertEqual(complex, complex .+ .zero, file: file, line: line)
-        CTAssertEqual(complex, complex + Scalar.zero, file: file, line: line)
-        CTAssertEqual(complex, Scalar.zero + complex, file: file, line: line)
+        CTAssertEqual(complex, complex + .zero)
+        CTAssertEqual(complex, complex .+ .zero)
+        CTAssertEqual(complex, complex + Scalar.zero)
+        CTAssertEqual(complex, Scalar.zero + complex)
 
         var result = complex
         result += .zero
-        CTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
 
         result = complex
         result .+= .zero
-        CTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
 
         result = complex
         result += Scalar.zero
-        CTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
     }
 
     private func testSubtractionWithZero<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(complex, complex - .zero, file: file, line: line)
-        CTAssertEqual(complex, complex .- .zero, file: file, line: line)
-        CTAssertEqual(complex, complex - Scalar.zero, file: file, line: line)
+        CTAssertEqual(complex, complex - .zero)
+        CTAssertEqual(complex, complex .- .zero)
+        CTAssertEqual(complex, complex - Scalar.zero)
 
         var result = complex
         result -= .zero
-        CTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
 
         result = complex
         result .-= .zero
-        CTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
 
         result = complex
         result -= Scalar.zero
-        CTAssertEqual(result, complex, file: file, line: line)
+        CTAssertEqual(result, complex)
     }
 
     private func testMultiplicationWithZero<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(.zero, complex * .zero, file: file, line: line)
-        CTAssertEqual(.zero, complex .* .zero, file: file, line: line)
-        CTAssertEqual(.zero, complex * Scalar.zero, file: file, line: line)
-        CTAssertEqual(.zero, Scalar.zero * complex, file: file, line: line)
+        CTAssertEqual(.zero, complex * .zero)
+        CTAssertEqual(.zero, complex .* .zero)
+        CTAssertEqual(.zero, complex * Scalar.zero)
+        CTAssertEqual(.zero, Scalar.zero * complex)
 
         var result = complex
         result *= .zero
-        CTAssertEqual(result, .zero, file: file, line: line)
+        CTAssertEqual(result, .zero)
 
         result = complex
         result .*= .zero
-        CTAssertEqual(result, .zero, file: file, line: line)
+        CTAssertEqual(result, .zero)
 
         result = complex
         result *= Scalar.zero
-        CTAssertEqual(result, .zero, file: file, line: line)
+        CTAssertEqual(result, .zero)
     }
 
     private func testAddition<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(lhs + rhs, result, file: file, line: line)
-        CTAssertEqual(rhs + lhs, result, file: file, line: line)
-        CTAssertEqual(lhs .+ rhs, result, file: file, line: line)
-        CTAssertEqual(rhs .+ lhs, result, file: file, line: line)
+        CTAssertEqual(lhs + rhs, result)
+        CTAssertEqual(rhs + lhs, result)
+        CTAssertEqual(lhs .+ rhs, result)
+        CTAssertEqual(rhs .+ lhs, result)
 
         var complex = lhs
         complex += rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = rhs
         complex += lhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = lhs
         complex .+= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = rhs
         complex .+= lhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testAddition<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(lhs + rhs, result, file: file, line: line)
-        CTAssertEqual(rhs + lhs, result, file: file, line: line)
+        CTAssertEqual(lhs + rhs, result)
+        CTAssertEqual(rhs + lhs, result)
 
         var complex = lhs
         complex += rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testAdditionIgnoringOverflow<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
@@ -460,109 +408,57 @@ class ComplexArithmeticTests: XCTestCase {
         }
     }
 
-    private func testOverflowingAddition<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: UnsignedInteger {
-        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        var rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        var result = lhs.addingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, Scalar.max - 1, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, 0, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        result = lhs.addingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, 0, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        result = lhs.addingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, Scalar.max - 1, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
-    }
-
-    private func testOverflowingAddition<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: SignedInteger {
-        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        var rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        var result = lhs.addingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, -2, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, 0, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        result = lhs.addingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, 0, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, -2, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        result = lhs.addingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, -2, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, -2, file: file, line: line)
-    }
-
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(lhs - rhs, result, file: file, line: line)
-        CTAssertEqual(lhs .- rhs, result, file: file, line: line)
+        CTAssertEqual(lhs - rhs, result)
+        CTAssertEqual(lhs .- rhs, result)
 
         var complex = lhs
         complex -= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = lhs
         complex .-= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
-        CTAssertEqual(lhs - rhs, result, file: file, line: line)
-        CTAssertEqual(rhs - lhs, -result, file: file, line: line)
-        CTAssertEqual(lhs .- rhs, result, file: file, line: line)
-        CTAssertEqual(rhs .- lhs, -result, file: file, line: line)
+        CTAssertEqual(lhs - rhs, result)
+        CTAssertEqual(rhs - lhs, -result)
+        CTAssertEqual(lhs .- rhs, result)
+        CTAssertEqual(rhs .- lhs, -result)
 
         var complex = lhs
         complex -= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = rhs
         complex -= lhs
-        CTAssertEqual(complex, -result, file: file, line: line)
+        CTAssertEqual(complex, -result)
 
         complex = lhs
         complex .-= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = rhs
         complex .-= lhs
-        CTAssertEqual(complex, -result, file: file, line: line)
+        CTAssertEqual(complex, -result)
     }
 
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(lhs - rhs, result, file: file, line: line)
+        CTAssertEqual(lhs - rhs, result)
 
         var complex = lhs
         complex -= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testSubtraction<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: SignedNumeric {
-        CTAssertEqual(lhs - rhs, result, file: file, line: line)
-        CTAssertEqual(rhs - lhs, -result, file: file, line: line)
+        CTAssertEqual(lhs - rhs, result)
+        CTAssertEqual(rhs - lhs, -result)
 
         var complex = lhs
         complex -= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testSubtractionIgnoringOverflow<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
@@ -606,43 +502,17 @@ class ComplexArithmeticTests: XCTestCase {
         }
     }
 
-    private func testOverflowingSubtraction<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
-        var lhs = Complex<Scalar>(real: Scalar.min, imaginary: 0)
-        var rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        var result = lhs.subtractingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, 1, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, 0, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.min)
-        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        result = lhs.subtractingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, 0, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, 1, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: Scalar.min, imaginary: Scalar.min)
-        rhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        result = lhs.subtractingReportingOverflow(rhs)
-
-        CTAssertTrue(result.overflow, file: file, line: line)
-        CTAssertEqual(result.partialValue.real, 1, file: file, line: line)
-        CTAssertEqual(result.partialValue.imaginary, 1, file: file, line: line)
-    }
-
     private func testMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
-        CTAssertEqual(lhs * rhs, result, file: file, line: line)
-        CTAssertEqual(rhs * lhs, result, file: file, line: line)
+        CTAssertEqual(lhs * rhs, result)
+        CTAssertEqual(rhs * lhs, result)
 
         var complex = lhs
         complex *= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
 
         complex = rhs
         complex *= lhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testMultiplicationIgnoringOverflow<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
@@ -676,177 +546,86 @@ class ComplexArithmeticTests: XCTestCase {
 
     private func testMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, file: StaticString = #file, line: UInt = #line) {
         let result = Complex(real: lhs.real * rhs, imaginary: lhs.imaginary * rhs)
-        CTAssertEqual(lhs * rhs, result, file: file, line: line)
-        CTAssertEqual(rhs * lhs, result, file: file, line: line)
+        CTAssertEqual(lhs * rhs, result)
+        CTAssertEqual(rhs * lhs, result)
 
         var complex = lhs
         complex *= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testComponentwiseMultiplication<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) {
         var result = lhs .* rhs
-        CTAssertEqual(result.real, lhs.real * rhs.real, file: file, line: line)
-        CTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary, file: file, line: line)
+        CTAssertEqual(result.real, lhs.real * rhs.real)
+        CTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary)
 
         result = lhs
         result .*= rhs
-        CTAssertEqual(result.real, lhs.real * rhs.real, file: file, line: line)
-        CTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary, file: file, line: line)
-    }
-
-    private func testComponentwiseOverflowingMultiplication<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: UnsignedInteger {
-        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        var rhs = Complex<Scalar>(real: 2, imaginary: 2)
-
-        let fullWidth = lhs.componentwiseMultipliedFullWidth(by: rhs)
-        CTAssertEqual(fullWidth.high.real, 1, file: file, line: line)
-        CTAssertEqual(fullWidth.high.imaginary, 1, file: file, line: line)
-        CTAssertEqual(fullWidth.low.real, Scalar.Magnitude.max - 1, file: file, line: line)
-        CTAssertEqual(fullWidth.low.imaginary, Scalar.Magnitude.max - 1, file: file, line: line)
-
-        var overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, Scalar.max - 1, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        rhs = Complex<Scalar>(real: 2, imaginary: 0)
-        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
-
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, Scalar.max - 1, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, 0, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        rhs = Complex<Scalar>(real: 0, imaginary: 2)
-        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
-
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, 0, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, Scalar.max - 1, file: file, line: line)
-    }
-
-    private func testComponentwiseOverflowingMultiplication<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger, Scalar: SignedInteger {
-        var lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        var rhs = Complex<Scalar>(real: 4, imaginary: 4)
-
-        let fullWidth = lhs.componentwiseMultipliedFullWidth(by: rhs)
-        CTAssertEqual(fullWidth.high.real, 1, file: file, line: line)
-        CTAssertEqual(fullWidth.high.imaginary, 1, file: file, line: line)
-        CTAssertEqual(fullWidth.low.real, Scalar.Magnitude.max - 3, file: file, line: line)
-        CTAssertEqual(fullWidth.low.imaginary, Scalar.Magnitude.max - 3, file: file, line: line)
-
-        var overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, -4, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, -4, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        rhs = Complex<Scalar>(real: 4, imaginary: 0)
-        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
-
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, -4, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, 0, file: file, line: line)
-
-        lhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        rhs = Complex<Scalar>(real: 0, imaginary: 4)
-        overflow = lhs.componentwiseMultipliedReportingOverflow(by: rhs)
-
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, 0, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, -4, file: file, line: line)
+        CTAssertEqual(result.real, lhs.real * rhs.real)
+        CTAssertEqual(result.imaginary, lhs.imaginary * rhs.imaginary)
     }
 
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
-        CTAssertEqual(lhs / rhs, result, file: file, line: line)
+        CTAssertEqual(lhs / rhs, result)
 
         var complex = lhs
         complex /= rhs
-        CTAssertEqual(complex, result, file: file, line: line)
+        CTAssertEqual(complex, result)
     }
 
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, _ result: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
-        CTAssertTrue((lhs / rhs - result).modulus < 0.0001, file: file, line: line)
+        CTAssertTrue((lhs / rhs - result).modulus < 0.0001)
 
         var complex = lhs
         complex /= rhs
-        CTAssertTrue((complex - result).modulus < 0.0001, file: file, line: line)
+        CTAssertTrue((complex - result).modulus < 0.0001)
     }
 
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
-        CTAssertEqual(lhs / rhs, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
+        CTAssertEqual(lhs / rhs, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs))
 
         var complex = lhs
         complex /= rhs
-        CTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
+        CTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs))
     }
 
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: SignedInteger {
-        CTAssertEqual(lhs / rhs, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
-        CTAssertEqual(rhs / lhs, (Complex(real: rhs, imaginary: 0) / lhs), file: file, line: line)
+        CTAssertEqual(lhs / rhs, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs))
+        CTAssertEqual(rhs / lhs, (Complex(real: rhs, imaginary: 0) / lhs))
 
         var complex = lhs
         complex /= rhs
-        CTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
+        CTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs))
     }
 
     private func testDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Scalar, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
-        CTAssertEqual(lhs / rhs, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
-        CTAssertEqual(rhs / lhs, (Complex(real: rhs, imaginary: 0) / lhs), file: file, line: line)
+        CTAssertEqual(lhs / rhs, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs))
+        CTAssertEqual(rhs / lhs, (Complex(real: rhs, imaginary: 0) / lhs))
 
         var complex = lhs
         complex /= rhs
-        CTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs), file: file, line: line)
+        CTAssertEqual(complex, Complex(real: lhs.real / rhs, imaginary: lhs.imaginary / rhs))
     }
 
     private func testComponentwiseDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryInteger {
         var result = lhs ./ rhs
-        CTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
-        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+        CTAssertEqual(result.real, lhs.real / rhs.real)
+        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary)
 
         result = lhs
         result ./= rhs
-        CTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
-        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+        CTAssertEqual(result.real, lhs.real / rhs.real)
+        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary)
     }
 
     private func testComponentwiseDivision<Scalar>(_ lhs: Complex<Scalar>, _ rhs: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: FloatingPoint {
         var result = lhs ./ rhs
-        CTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
-        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
+        CTAssertEqual(result.real, lhs.real / rhs.real)
+        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary)
 
         result = lhs
         result ./= rhs
-        CTAssertEqual(result.real, lhs.real / rhs.real, file: file, line: line)
-        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary, file: file, line: line)
-    }
-
-    private func testComponentwiseOverflowingDivision<Scalar>(forType: Scalar.Type, file: StaticString = #file, line: UInt = #line) where Scalar: FixedWidthInteger {
-        let lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
-        var rhs = Complex<Scalar>(real: 0, imaginary: 0)
-
-        let fullWidth = lhs.componentwiseDividingFullWidth((high: Complex<Scalar>(real: 1, imaginary: 1), low: Complex<Scalar.Magnitude>.zero))
-        CTAssertEqual(fullWidth.quotient.real, Scalar.isSigned ? 2 : 1, file: file, line: line)
-        CTAssertEqual(fullWidth.quotient.imaginary, Scalar.isSigned ? 2 : 1, file: file, line: line)
-        CTAssertEqual(fullWidth.remainder.real, Scalar.isSigned ? 2 : 1, file: file, line: line)
-        CTAssertEqual(fullWidth.remainder.imaginary, Scalar.isSigned ? 2 : 1, file: file, line: line)
-
-        var overflow = lhs.componentwiseDividedReportingOverflow(by: rhs)
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue, lhs, file: file, line: line)
-
-        rhs = Complex<Scalar>(real: 0, imaginary: Scalar.max)
-        overflow = lhs.componentwiseDividedReportingOverflow(by: rhs)
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, lhs.real, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, 1, file: file, line: line)
-
-        rhs = Complex<Scalar>(real: Scalar.max, imaginary: 0)
-        overflow = lhs.componentwiseDividedReportingOverflow(by: rhs)
-        CTAssertTrue(overflow.overflow, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.real, 1, file: file, line: line)
-        CTAssertEqual(overflow.partialValue.imaginary, lhs.imaginary, file: file, line: line)
+        CTAssertEqual(result.real, lhs.real / rhs.real)
+        CTAssertEqual(result.imaginary, lhs.imaginary / rhs.imaginary)
     }
 }
