@@ -520,8 +520,8 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         var lhs = Complex<Scalar>(real: Scalar.max, imaginary: Scalar.max)
         var rhs = Complex<Scalar>(real: 8, imaginary: 4)
         var fullWidth = lhs.multipliedFullWidth(by: rhs)
-        var real = ((fullWidth.high.high.real, fullWidth.high.low.real), (fullWidth.low.high.real, fullWidth.low.low.real))
-        var imaginary = ((fullWidth.high.high.imaginary, fullWidth.high.low.imaginary), (fullWidth.low.high.imaginary, fullWidth.low.low.imaginary))
+        var real: Complex<Scalar>.ExtendedScalar = ((fullWidth.high.high.real, fullWidth.high.low.real), (fullWidth.low.high.real, fullWidth.low.low.real))
+        var imaginary: Complex<Scalar>.ExtendedScalar = ((fullWidth.high.high.imaginary, fullWidth.high.low.imaginary), (fullWidth.low.high.imaginary, fullWidth.low.low.imaginary))
 
         CTAssertEqual(real, ((0, 0), (1, Scalar.Magnitude.max &<< 2)))
         CTAssertEqual(imaginary, ((0, 0), (5, Scalar.max.multipliedFullWidth(by: 12).low)))
@@ -630,7 +630,7 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         extended = Complex<Scalar>.signExtend((0, 0))
         CTAssertEqual(extended, (high: (high: 0, low: 0), low: (high: 0, low: 0)))
 
-        extended = Complex<Scalar>.signExtend(Scalar.zero)
+        extended = Complex<Scalar>.signExtend(Scalar(0))
         CTAssertEqual(extended, (high: (high: 0, low: 0), low: (high: 0, low: 0)))
 
         value = (Scalar.max, Scalar.Magnitude.max)
@@ -709,7 +709,7 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         // Test overflow of `low.high`
         //
         nonextendedLHS = (high: 1, low: 0)
-        nonextendedRHS = (high: ~Scalar.zero, low: Scalar.Magnitude.max)
+        nonextendedRHS = (high: ~Scalar(0), low: Scalar.Magnitude.max)
         result = Complex<Scalar>.add(nonextendedLHS, nonextendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: Scalar.isSigned ? 0 : 1), low: (high: 0, low: Scalar.Magnitude.max)))
 
@@ -721,19 +721,19 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         // Test non-overflow of `low.high`
         //
         nonextendedLHS = (high: 1, low: 0)
-        nonextendedRHS = (high: ~Scalar.zero - 1, low: 0)
+        nonextendedRHS = (high: ~Scalar(0) - 1, low: 0)
         result = Complex<Scalar>.add(nonextendedLHS, nonextendedRHS)
-        CTAssertEqual(result, (high: (high: Scalar.isSigned ? ~Scalar.zero : 0, low: Scalar.isSigned ? ~Scalar.Magnitude.zero : 0), low: (high: ~Scalar.Magnitude.zero, low: 0)))
+        CTAssertEqual(result, (high: (high: Scalar.isSigned ? ~Scalar(0) : 0, low: Scalar.isSigned ? ~Scalar.Magnitude(0) : 0), low: (high: ~Scalar.Magnitude(0), low: 0)))
 
         extendedLHS = Complex<Scalar>.signExtend(nonextendedLHS)
         extendedRHS = Complex<Scalar>.signExtend(nonextendedRHS)
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
-        CTAssertEqual(result, (high: (high: Scalar.isSigned ? ~Scalar.zero : 0, low: Scalar.isSigned ? ~Scalar.Magnitude.zero : 0), low: (high: ~Scalar.Magnitude.zero, low: 0)))
+        CTAssertEqual(result, (high: (high: Scalar.isSigned ? ~Scalar(0) : 0, low: Scalar.isSigned ? ~Scalar.Magnitude(0) : 0), low: (high: ~Scalar.Magnitude(0), low: 0)))
 
         // Test overflow of `low.high` from overflow of `low.low`
         //
         nonextendedLHS = (high: 1, low: 1)
-        nonextendedRHS = (high: ~Scalar.zero - 1, low: Scalar.Magnitude.max)
+        nonextendedRHS = (high: ~Scalar(0) - 1, low: Scalar.Magnitude.max)
         result = Complex<Scalar>.add(nonextendedLHS, nonextendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: Scalar.isSigned ? 0 : 1), low: (high: 0, low: 0)))
 
@@ -773,35 +773,35 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         // Test overflow of `high.high`
         //
         extendedLHS = (high: (high: 1, low: 1), (high: 1, low: 1))
-        extendedRHS = (high: (high: ~Scalar.zero, low: 0), (high: 0, low: 0))
+        extendedRHS = (high: (high: ~Scalar(0), low: 0), (high: 0, low: 0))
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: 1), low: (high: 1, low: 1)))
 
         // Test non-overflow of `high.high`
         //
         extendedLHS = (high: (high: 1, low: 1), (high: 1, low: 1))
-        extendedRHS = (high: (high: ~Scalar.zero - 1, low: 0), (high: 0, low: 0))
+        extendedRHS = (high: (high: ~Scalar(0) - 1, low: 0), (high: 0, low: 0))
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
-        CTAssertEqual(result, (high: (high: ~Scalar.zero, low: 1), low: (high: 1, low: 1)))
+        CTAssertEqual(result, (high: (high: ~Scalar(0), low: 1), low: (high: 1, low: 1)))
 
         // Test overflow of `high.high` from overflow of `high.low`
         //
         extendedLHS = (high: (high: 1, low: 1), (high: 1, low: 1))
-        extendedRHS = (high: (high: ~Scalar.zero - 1, low: Scalar.Magnitude.max), (high: 0, low: 0))
+        extendedRHS = (high: (high: ~Scalar(0) - 1, low: Scalar.Magnitude.max), (high: 0, low: 0))
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: 1, low: 1)))
 
         // Test overflow of `high.high` from overflow of `high.low` from overflow of `low.high`
         //
         extendedLHS = (high: (high: 1, low: 1), (high: 1, low: 1))
-        extendedRHS = (high: (high: ~Scalar.zero - 1, low: Scalar.Magnitude.max - 1), (high: Scalar.Magnitude.max, low: 0))
+        extendedRHS = (high: (high: ~Scalar(0) - 1, low: Scalar.Magnitude.max - 1), (high: Scalar.Magnitude.max, low: 0))
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: 0, low: 1)))
 
         // Test overflow of `high.high` from overflow of `high.low` from overflow of `low.high` from overflow of `low.low`
         //
         extendedLHS = (high: (high: 1, low: 1), (high: 1, low: 1))
-        extendedRHS = (high: (high: ~Scalar.zero - 1, low: Scalar.Magnitude.max - 1), (high: Scalar.Magnitude.max - 1, low: Scalar.Magnitude.max))
+        extendedRHS = (high: (high: ~Scalar(0) - 1, low: Scalar.Magnitude.max - 1), (high: Scalar.Magnitude.max - 1, low: Scalar.Magnitude.max))
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: 0, low: 0)))
     }
@@ -845,31 +845,31 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
     }
 
     private func testLeftShiftExtendedScalars<Scalar>(forType: Scalar.Type) where Scalar: FixedWidthInteger {
-        let upperHalf = (~Scalar.Magnitude.zero) &<< (Scalar.Magnitude.bitWidth / 2)
-        let lowerHalf = (~Scalar.Magnitude.zero) &>> (Scalar.Magnitude.bitWidth / 2)
+        let upperHalf = (~Scalar.Magnitude(0)) &<< (Scalar.Magnitude.bitWidth / 2)
+        let lowerHalf = (~Scalar.Magnitude(0)) &>> (Scalar.Magnitude.bitWidth / 2)
         let shiftedUpperHalf = (upperHalf &<< 1) + 1
 
-        var value: Complex<Scalar>.ExtendedScalar = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        var value: Complex<Scalar>.ExtendedScalar = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         var result = Complex<Scalar>.leftShift(value, by: 1)
-        CTAssertEqual(result, (high: (high: ~Scalar.zero, low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: Scalar.Magnitude.max - 1)))
+        CTAssertEqual(result, (high: (high: ~Scalar(0), low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: Scalar.Magnitude.max - 1)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.leftShift(value, by: Scalar.Magnitude(Scalar.bitWidth))
-        CTAssertEqual(result, (high: (high: ~Scalar.zero, low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: 0)))
+        CTAssertEqual(result, (high: (high: ~Scalar(0), low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: 0)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.leftShift(value, by: Scalar.Magnitude(Scalar.bitWidth / 2))
-        CTAssertEqual(result, (high: (high: ~Scalar.zero, low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: upperHalf)))
+        CTAssertEqual(result, (high: (high: ~Scalar(0), low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: upperHalf)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.leftShift(value, by: Scalar.Magnitude(Scalar.bitWidth * 2))
-        CTAssertEqual(result, (high: (high: ~Scalar.zero, low: Scalar.Magnitude.max), low: (high: 0, low: 0)))
+        CTAssertEqual(result, (high: (high: ~Scalar(0), low: Scalar.Magnitude.max), low: (high: 0, low: 0)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.leftShift(value, by: Scalar.Magnitude(Scalar.bitWidth * 3))
-        CTAssertEqual(result, (high: (high: ~Scalar.zero, low: 0), low: (high: 0, low: 0)))
+        CTAssertEqual(result, (high: (high: ~Scalar(0), low: 0), low: (high: 0, low: 0)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.leftShift(value, by: Scalar.Magnitude(Scalar.bitWidth * 4))
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: 0, low: 0)))
 
@@ -887,31 +887,31 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
     }
 
     private func testRightShiftExtendedScalars<Scalar>(forType: Scalar.Type) where Scalar: FixedWidthInteger {
-        let upperHalf = (~Scalar.Magnitude.zero) &<< (Scalar.Magnitude.bitWidth / 2)
-        let lowerHalf = (~Scalar.Magnitude.zero) &>> (Scalar.Magnitude.bitWidth / 2)
+        let upperHalf = (~Scalar.Magnitude(0)) &<< (Scalar.Magnitude.bitWidth / 2)
+        let lowerHalf = (~Scalar.Magnitude(0)) &>> (Scalar.Magnitude.bitWidth / 2)
         let shiftedLowerHalf = (lowerHalf &>> 1) | upperHalf &<< ((Scalar.Magnitude.bitWidth / 2) - 1)
 
-        var value: Complex<Scalar>.ExtendedScalar = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        var value: Complex<Scalar>.ExtendedScalar = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         var result = Complex<Scalar>.rightShift(value, by: 1)
         CTAssertEqual(result, (high: (high: Scalar.max &>> (Scalar.isSigned ? 0 : 1), low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: Scalar.Magnitude.max)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.rightShift(value, by: Scalar.Magnitude(Scalar.bitWidth))
         CTAssertEqual(result, (high: (high: 0, low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: Scalar.Magnitude.max)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.rightShift(value, by: Scalar.Magnitude(Scalar.bitWidth / 2))
         CTAssertEqual(result, (high: (high: Scalar(truncatingIfNeeded: lowerHalf), low: Scalar.Magnitude.max), low: (high: Scalar.Magnitude.max, low: Scalar.Magnitude.max)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.rightShift(value, by: Scalar.Magnitude(Scalar.bitWidth * 2))
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: Scalar.Magnitude.max, low: Scalar.Magnitude.max)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.rightShift(value, by: Scalar.Magnitude(Scalar.bitWidth * 3))
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: 0, low: Scalar.Magnitude.max)))
 
-        value = ((~Scalar.zero, Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
+        value = ((~Scalar(0), Scalar.Magnitude.max), (Scalar.Magnitude.max, Scalar.Magnitude.max))
         result = Complex<Scalar>.rightShift(value, by: Scalar.Magnitude(Scalar.bitWidth * 4))
         CTAssertEqual(result, (high: (high: 0, low: 0), low: (high: 0, low: 0)))
 
@@ -1053,7 +1053,7 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         }
 
         if Scalar.isSigned {
-            value = randomValue() | (~Scalar.Magnitude.zero &<< (Scalar.bitWidth - 1)) // random value with the MSB set to 1
+            value = randomValue() | (~Scalar.Magnitude(0) &<< (Scalar.bitWidth - 1)) // random value with the MSB set to 1
             result = Complex<Scalar>.truncateAndReportOverflow(((0, 0), (0, value)))
             CTAssertEqual(result.partialValue, Scalar(truncatingIfNeeded: value))
             CTAssertTrue(result.overflow)

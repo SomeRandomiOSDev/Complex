@@ -5,17 +5,19 @@
 //  Copyright © 2020 SomeRandomiOSDev. All rights reserved.
 //
 
-import Foundation
-
 //swiftlint:disable shorthand_operator
 
 // MARK: - AdditiveArithmetic Protocol Conformance
 
-extension Complex: AdditiveArithmetic {
+#if swift(>=5.0)
+extension Complex: AdditiveArithmetic { }
+#endif
+
+extension Complex {
 
     @_transparent
     public static var zero: Complex<Scalar> {
-        return Complex<Scalar>(real: .zero, imaginary: .zero)
+        return Complex<Scalar>(real: 0, imaginary: 0)
     }
 
     @_transparent
@@ -163,7 +165,7 @@ extension Complex where Scalar: FixedWidthInteger {
 
     @_transparent
     public static func &- (lhs: Scalar, rhs: Complex<Scalar>) -> Complex<Scalar> {
-        return Complex<Scalar>(real: lhs &- rhs.real, imaginary: .zero &- rhs.imaginary)
+        return Complex<Scalar>(real: lhs &- rhs.real, imaginary: 0 &- rhs.imaginary)
     }
 
     @_transparent
@@ -325,7 +327,7 @@ extension Complex where Scalar: SignedInteger {
 
     @_transparent
     public static func / (lhs: Scalar, rhs: Complex<Scalar>) -> Complex<Scalar> {
-        return Complex<Scalar>(real: lhs, imaginary: .zero) / rhs
+        return Complex<Scalar>(real: lhs, imaginary: 0) / rhs
     }
 }
 
@@ -355,7 +357,7 @@ extension Complex where Scalar: FloatingPoint {
 
     @_transparent
     public static func / (lhs: Scalar, rhs: Complex<Scalar>) -> Complex<Scalar> {
-        return Complex<Scalar>(real: lhs, imaginary: .zero) / rhs
+        return Complex<Scalar>(real: lhs, imaginary: 0) / rhs
     }
 
     @_transparent

@@ -172,6 +172,7 @@
 		DDB8126F23FA2C210079FEB5 /* Functions.swift.gyb */ = {isa = PBXFileReference; explicitFileType = text.script.python; path = Functions.swift.gyb; sourceTree = "<group>"; };
 		DDB8127123FA4DA50079FEB5 /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = "<group>"; };
 		DDB8128523FB1A430079FEB5 /* FunctionsTests.swift.gyb */ = {isa = PBXFileReference; explicitFileType = text.script.python; path = FunctionsTests.swift.gyb; sourceTree = "<group>"; };
+		DDC7FF972412922500A5832A /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
 		DDFEEC3323EF13900096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFEEC3723EF13900096015C /* Complex-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Complex-Info.plist"; path = "Info/Complex-Info.plist"; sourceTree = "<group>"; };
 		DDFEEC3C23EF13910096015C /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,6 +326,7 @@
 			children = (
 				DDFEECAB23F1BA550096015C /* Complex.podspec */,
 				DDFEECAC23F1BA550096015C /* Package.swift */,
+				DDC7FF972412922500A5832A /* Package@swift-4.2.swift */,
 				DD6F08D02400808300749359 /* codecov.yml */,
 				DDFEECAE23F1BA5E0096015C /* .swiftlint.yml */,
 				DDFEECAD23F1BA5E0096015C /* .travis.yml */,

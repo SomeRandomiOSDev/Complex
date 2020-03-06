@@ -5,8 +5,6 @@
 //  Copyright © 2020 SomeRandomiOSDev. All rights reserved.
 //
 
-import Foundation
-
 // MARK: Overflowing Addition
 
 extension Complex where Scalar: FixedWidthInteger {
@@ -127,7 +125,7 @@ extension Complex where Scalar: FixedWidthInteger {
     //swiftlint:disable identifier_name
     public func dividedReportingOverflow(by rhs: Complex<Scalar>) -> (partialValue: Complex<Scalar>, overflow: Bool) {
         // (a + bi) / (c + di) -> ((ac + bd) + (bc - ad)i) / (c^2 + d^2)
-        guard rhs.real != .zero || rhs.imaginary != .zero else { return (rhs, true) }
+        guard rhs.real != 0 || rhs.imaginary != 0 else { return (rhs, true) }
 
         let ac = self.real.multipliedFullWidth(by: rhs.real)
         let ad = self.real.multipliedFullWidth(by: rhs.imaginary)
@@ -162,12 +160,12 @@ extension Complex where Scalar: FixedWidthInteger, Scalar: SignedInteger {
         let a = (high: (high: dividend.high.high.real, low: dividend.high.low.real), low: (high: dividend.low.high.real, low: dividend.low.low.real))
         let b = (high: (high: dividend.high.high.imaginary, low: dividend.high.low.imaginary), low: (high: dividend.low.high.imaginary, low: dividend.low.low.imaginary))
 
-        let ac = Complex<Scalar>.slowpathMultiply(real, a)
-        let ad = Complex<Scalar>.slowpathMultiply(imaginary, a)
-        let bc = Complex<Scalar>.slowpathMultiply(real, b)
-        let bd = Complex<Scalar>.slowpathMultiply(imaginary, b)
-        let cc = Complex<Scalar>.signExtend(real.multipliedFullWidth(by: real))
-        let dd = Complex<Scalar>.signExtend(imaginary.multipliedFullWidth(by: imaginary))
+        let ac = Complex<Scalar>.slowpathMultiply(self.real, a)
+        let ad = Complex<Scalar>.slowpathMultiply(self.imaginary, a)
+        let bc = Complex<Scalar>.slowpathMultiply(self.real, b)
+        let bd = Complex<Scalar>.slowpathMultiply(self.imaginary, b)
+        let cc = Complex<Scalar>.signExtend(self.real.multipliedFullWidth(by: self.real))
+        let dd = Complex<Scalar>.signExtend(self.imaginary.multipliedFullWidth(by: self.imaginary))
 
         let real = Complex<Scalar>.add(ac, bd)
         let imaginary = Complex<Scalar>.subtract(bc, ad)
@@ -197,7 +195,7 @@ extension Complex where Scalar: FixedWidthInteger {
     //
 
     internal static func signExtend(_ value: Scalar) -> ExtendedScalar {
-        let highHigh = (Scalar.isSigned && value.leadingZeroBitCount == 0) ? ~Scalar.zero : Scalar.zero
+        let highHigh = (Scalar.isSigned && value.leadingZeroBitCount == 0) ? ~Scalar(0) : Scalar(0)
         let highLow = Scalar.Magnitude(truncatingIfNeeded: highHigh)
         let lowHigh = Scalar.Magnitude(truncatingIfNeeded: highLow)
         let lowLow = Scalar.Magnitude(truncatingIfNeeded: value)
@@ -206,7 +204,7 @@ extension Complex where Scalar: FixedWidthInteger {
     }
 
     internal static func signExtend(_ value: (high: Scalar, low: Scalar.Magnitude)) -> ExtendedScalar {
-        let highHigh = (Scalar.isSigned && value.high.leadingZeroBitCount == 0) ? ~Scalar.zero : Scalar.zero
+        let highHigh = (Scalar.isSigned && value.high.leadingZeroBitCount == 0) ? ~Scalar(0) : Scalar(0)
         let highLow = Scalar.Magnitude(truncatingIfNeeded: highHigh)
         let lowHigh = Scalar.Magnitude(truncatingIfNeeded: value.high)
         let lowLow = value.low
@@ -276,10 +274,10 @@ extension Complex where Scalar: FixedWidthInteger {
     internal static func slowpathMultiply(_ lhs: ExtendedScalar, _ rhs: ExtendedScalar) -> ExtendedScalar {
         var result: ExtendedScalar = ((0, 0), (0, 0))
 
-        let lhsIsNegative = Scalar.isSigned && lhs.high.high < .zero
+        let lhsIsNegative = Scalar.isSigned && lhs.high.high < 0
         let left = lhsIsNegative ? twosComplement(of: lhs) : lhs
 
-        let rhsIsNegative = Scalar.isSigned && rhs.high.high < .zero
+        let rhsIsNegative = Scalar.isSigned && rhs.high.high < 0
         let right = rhsIsNegative ? twosComplement(of: rhs) : rhs
 
         let (leftIsPowerOfTwo, lhsShift) = isPowerOfTwo(left)
@@ -295,7 +293,7 @@ extension Complex where Scalar: FixedWidthInteger {
             var shifted = right
             var bits = left
 
-            while bits.low.low != .zero || bits.low.high != .zero || bits.high.low != .zero || bits.high.high != .zero {
+            while bits.low.low != 0 || bits.low.high != 0 || bits.high.low != 0 || bits.high.high != 0 {
                 if (bits.low.low & 1) == 1 {
                     shifted = leftShift(shifted, by: shift - lastShift)
                     result = add(result, shifted)
@@ -316,7 +314,7 @@ extension Complex where Scalar: FixedWidthInteger {
     }
 
     internal static func slowpathMultiply(_ lhs: Scalar, _ rhs: ExtendedScalar) -> ExtendedScalar {
-        let lhsIsNegative = lhs < .zero
+        let lhsIsNegative = lhs < 0
 
         let extended = signExtend(lhs)
         var result = slowpathMultiply(lhsIsNegative ? twosComplement(of: extended) : extended, rhs)
@@ -329,10 +327,10 @@ extension Complex where Scalar: FixedWidthInteger {
     }
 
     internal static func slowpathDivide(_ lhs: ExtendedScalar, _ rhs: ExtendedScalar) -> (quotient: ExtendedScalar, remainder: ExtendedScalar) {
-        let dividendIsNegative = Scalar.isSigned && lhs.high.high < .zero
+        let dividendIsNegative = Scalar.isSigned && lhs.high.high < 0
         var dividend = dividendIsNegative ? twosComplement(of: lhs) : lhs
 
-        let divisorIsNegative = Scalar.isSigned && rhs.high.high < .zero
+        let divisorIsNegative = Scalar.isSigned && rhs.high.high < 0
         var divisor = divisorIsNegative ? twosComplement(of: rhs) : rhs
 
         guard isLessThanOrEqual(divisor, to: dividend) else { return (quotient: ((0, 0), (0, 0)), remainder: lhs) }
@@ -469,7 +467,7 @@ extension Complex where Scalar: FixedWidthInteger {
             var bits = value
             var shift: Scalar.Magnitude = 0
 
-            while bits.low.low > 1 || bits.low.high != .zero || bits.high.low != .zero || bits.high.high != .zero {
+            while bits.low.low > 1 || bits.low.high != 0 || bits.high.low != 0 || bits.high.high != 0 {
                 bits = rightShift(bits, by: 1)
                 shift += 1
             }
@@ -520,13 +518,13 @@ extension Complex where Scalar: FixedWidthInteger {
             //           non-zero or if the most significant bit of the least significant word
             //           is 1.
 
-            if value.high.high < .zero {
+            if value.high.high < 0 {
                 if value.high.high.nonzeroBitCount != Scalar.bitWidth || value.high.low.nonzeroBitCount != Scalar.bitWidth || value.low.high.nonzeroBitCount != Scalar.bitWidth {
                     overflow = true
                 } else if value.low.low.leadingZeroBitCount > 0 {
                     overflow = true
                 }
-            } else if value.high.high != .zero || value.high.low != .zero || value.low.high != .zero {
+            } else if value.high.high != 0 || value.high.low != 0 || value.low.high != 0 {
                 overflow = true
             } else if value.low.low.leadingZeroBitCount == 0 {
                 overflow = true
@@ -535,7 +533,7 @@ extension Complex where Scalar: FixedWidthInteger {
             // For unsigned integers overflow occurs when the any of the three most significant
             // words are non-zero.
 
-            overflow = (value.high.high > .zero) || (value.high.low > .zero) || (value.low.high > .zero)
+            overflow = (value.high.high > 0) || (value.high.low > 0) || (value.low.high > 0)
         }
 
         return (partialValue, overflow)
