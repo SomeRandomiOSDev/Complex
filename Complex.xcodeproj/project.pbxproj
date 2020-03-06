@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -32,6 +32,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		DD0793442412F03000EF65B4 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD0793432412F03000EF65B4 /* Half */; };
+		DD0793462412F03400EF65B4 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD0793452412F03400EF65B4 /* Half */; };
+		DD0793482412F03700EF65B4 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD0793472412F03700EF65B4 /* Half */; };
 		DD6F08BE24001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
 		DD6F08BF24001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
 		DD6F08C024001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
@@ -53,9 +56,6 @@
 		DDB8121123F5AEB10079FEB5 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */; };
 		DDB8121223F5AEB10079FEB5 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */; };
 		DDB8121323F5AEB10079FEB5 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */; };
-		DDB8121D23F63B960079FEB5 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB8121C23F63B900079FEB5 /* Half.framework */; };
-		DDB8121E23F63BB60079FEB5 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB8121B23F63B890079FEB5 /* Half.framework */; };
-		DDB8121F23F63BBA0079FEB5 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB8121A23F63B800079FEB5 /* Half.framework */; };
 		DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
 		DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
 		DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
@@ -76,7 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DDB8127723FA5C380079FEB5 /* PBXContainerItemProxy */ = {
+		DD07933E2412E54500EF65B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
 			proxyType = 1;
@@ -163,10 +163,6 @@
 		DDB8120623F59B760079FEB5 /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
 		DDB8120B23F5A8E80079FEB5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
-		DDB8121423F634770079FEB5 /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
-		DDB8121A23F63B800079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/tvOS/Half.framework; sourceTree = "<group>"; };
-		DDB8121B23F63B890079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/Mac/Half.framework; sourceTree = "<group>"; };
-		DDB8121C23F63B900079FEB5 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/iOS/Half.framework; sourceTree = "<group>"; };
 		DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		DDB8125823F707EE0079FEB5 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexArithmetic.swift; sourceTree = "<group>"; };
@@ -176,6 +172,7 @@
 		DDB8126F23FA2C210079FEB5 /* Functions.swift.gyb */ = {isa = PBXFileReference; explicitFileType = text.script.python; path = Functions.swift.gyb; sourceTree = "<group>"; };
 		DDB8127123FA4DA50079FEB5 /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = "<group>"; };
 		DDB8128523FB1A430079FEB5 /* FunctionsTests.swift.gyb */ = {isa = PBXFileReference; explicitFileType = text.script.python; path = FunctionsTests.swift.gyb; sourceTree = "<group>"; };
+		DDC7FF972412922500A5832A /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
 		DDFEEC3323EF13900096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFEEC3723EF13900096015C /* Complex-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Complex-Info.plist"; path = "Info/Complex-Info.plist"; sourceTree = "<group>"; };
 		DDFEEC3C23EF13910096015C /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,7 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDFEEC3D23EF13910096015C /* Complex.framework in Frameworks */,
-				DDB8121D23F63B960079FEB5 /* Half.framework in Frameworks */,
+				DD0793442412F03000EF65B4 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDFEECC723F2001A0096015C /* Complex.framework in Frameworks */,
-				DDB8121E23F63BB60079FEB5 /* Half.framework in Frameworks */,
+				DD0793462412F03400EF65B4 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDFEECE323F2003E0096015C /* Complex.framework in Frameworks */,
-				DDB8121F23F63BBA0079FEB5 /* Half.framework in Frameworks */,
+				DD0793482412F03700EF65B4 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,16 +257,6 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		DDB8121523F63B2C0079FEB5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DDB8121C23F63B900079FEB5 /* Half.framework */,
-				DDB8121B23F63B890079FEB5 /* Half.framework */,
-				DDB8121A23F63B800079FEB5 /* Half.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		DDB8126A23FA2B810079FEB5 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,7 +271,6 @@
 			children = (
 				DDFEEC3523EF13900096015C /* Complex */,
 				DDFEEC3423EF13900096015C /* Products */,
-				DDB8121523F63B2C0079FEB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,8 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				DDFEECAB23F1BA550096015C /* Complex.podspec */,
-				DDB8121423F634770079FEB5 /* Cartfile.private */,
 				DDFEECAC23F1BA550096015C /* Package.swift */,
+				DDC7FF972412922500A5832A /* Package@swift-4.2.swift */,
 				DD6F08D02400808300749359 /* codecov.yml */,
 				DDFEECAE23F1BA5E0096015C /* .swiftlint.yml */,
 				DDFEECAD23F1BA5E0096015C /* .travis.yml */,
@@ -411,10 +397,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				DDB8127823FA5C380079FEB5 /* PBXTargetDependency */,
+				DD07933F2412E54500EF65B4 /* PBXTargetDependency */,
 				DDFEECB323F1BB5B0096015C /* PBXTargetDependency */,
 			);
 			name = Complex;
+			packageProductDependencies = (
+			);
 			productName = Complex;
 			productReference = DDFEEC3323EF13900096015C /* Complex.framework */;
 			productType = "com.apple.product-type.framework";
@@ -430,9 +418,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDB1DF8E240C520C00C20FED /* PBXTargetDependency */,
 				DDFEEC3F23EF13910096015C /* PBXTargetDependency */,
 			);
 			name = ComplexTests;
+			packageProductDependencies = (
+				DD0793432412F03000EF65B4 /* Half */,
+			);
 			productName = ComplexTests;
 			productReference = DDFEEC3C23EF13910096015C /* ComplexTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -468,9 +460,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDB1DF90240C521000C20FED /* PBXTargetDependency */,
 				DDFEECC923F2001A0096015C /* PBXTargetDependency */,
 			);
 			name = "Complex macOS Tests";
+			packageProductDependencies = (
+				DD0793452412F03400EF65B4 /* Half */,
+			);
 			productName = "Complex macOSTests";
 			productReference = DDFEECC623F2001A0096015C /* ComplexTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -506,9 +502,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				DDB1DF92240C521500C20FED /* PBXTargetDependency */,
 				DDFEECE523F2003E0096015C /* PBXTargetDependency */,
 			);
 			name = "Complex tvOS Tests";
+			packageProductDependencies = (
+				DD0793472412F03700EF65B4 /* Half */,
+			);
 			productName = "Complex tvOSTests";
 			productReference = DDFEECE223F2003E0096015C /* ComplexTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -588,6 +588,9 @@
 				Base,
 			);
 			mainGroup = DDFEEC2923EF13900096015C;
+			packageReferences = (
+				DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */,
+			);
 			productRefGroup = DDFEEC3423EF13900096015C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -675,6 +678,7 @@
 			outputPaths = (
 				"$(SRCROOT)/Sources/Complex/Functions.swift",
 				"$(SRCROOT)/Tests/ComplexTests/FunctionsTests.swift",
+				"$(SRCROOT)/Sources/Complex/Complex.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -788,10 +792,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DDB8127823FA5C380079FEB5 /* PBXTargetDependency */ = {
+		DD07933F2412E54500EF65B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DDB8127223FA5C0C0079FEB5 /* Generate Sources */;
-			targetProxy = DDB8127723FA5C380079FEB5 /* PBXContainerItemProxy */;
+			targetProxy = DD07933E2412E54500EF65B4 /* PBXContainerItemProxy */;
+		};
+		DDB1DF8E240C520C00C20FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DDB1DF8D240C520C00C20FED /* Half */;
+		};
+		DDB1DF90240C521000C20FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DDB1DF8F240C521000C20FED /* Half */;
+		};
+		DDB1DF92240C521500C20FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DDB1DF91240C521500C20FED /* Half */;
 		};
 		DDB8127A23FA5C3E0079FEB5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1047,16 +1063,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1071,16 +1082,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1162,16 +1168,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1187,16 +1188,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1261,16 +1257,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1286,16 +1277,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1451,6 +1437,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SomeRandomiOSDev/Half.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD0793432412F03000EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DD0793452412F03400EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DD0793472412F03700EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DDB1DF8D240C520C00C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DDB1DF8F240C521000C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DDB1DF91240C521500C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDFEEC2A23EF13900096015C /* Project object */;
 }
