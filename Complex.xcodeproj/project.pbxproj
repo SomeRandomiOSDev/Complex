@@ -1063,16 +1063,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1087,16 +1082,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1178,16 +1168,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1203,16 +1188,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1277,16 +1257,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
@@ -1302,16 +1277,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
 				PRODUCT_NAME = ComplexTests;
