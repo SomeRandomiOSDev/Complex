@@ -1,7 +1,7 @@
-Complex.xcodeproj/project.xcworkspace
+Complex.xcodeproj/project.xcworkspace/xcuserdata
 Complex.xcodeproj/xcuserdata
 .swiftpm
 Carthage
 gyb.pyc
 .build
-Package.resolved
+IDEWorkspaceChecks.plist
