@@ -25,7 +25,7 @@ class ComplexTests: XCTestCase {
         testInitialization(real: Half(1.2), imaginary: Half(-7.4))
         testInitialization(real: Float(-0.123), imaginary: Float(3.0))
         testInitialization(real: Double(8.9), imaginary: Double(10.8))
-        testInitialization(real: Float80(11.1), imaginary: Float80(-0.9))
+        testInitialization(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9))
     }
 
     func testRandomFactoryMethods() {
@@ -40,7 +40,7 @@ class ComplexTests: XCTestCase {
         testRandomFactoryMethods(lowerBound: Half(-1.2), upperBound: Half(7.4))
         testRandomFactoryMethods(lowerBound: Float(-0.123), upperBound: Float(3.0))
         testRandomFactoryMethods(lowerBound: Double(8.9), upperBound: Double(10.8))
-        testRandomFactoryMethods(lowerBound: Float80(-11.1), upperBound: Float80(0.9))
+        testRandomFactoryMethods(lowerBound: Complex.LargestFloatType(-11.1), upperBound: Complex.LargestFloatType(0.9))
     }
 
     func testDescriptionMethods() throws {
@@ -55,7 +55,7 @@ class ComplexTests: XCTestCase {
         try testDescriptionMethods(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         try testDescriptionMethods(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         try testDescriptionMethods(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        try testDescriptionMethods(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        try testDescriptionMethods(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testHashing() {
@@ -70,14 +70,14 @@ class ComplexTests: XCTestCase {
         testHashing(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testHashing(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testHashing(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testHashing(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testHashing(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testRounding() {
         testRounding(Complex<Half>(real: 1.5, imaginary: -4.5))
         testRounding(Complex<Float>(real: 1.5, imaginary: -4.5))
         testRounding(Complex<Double>(real: 1.5, imaginary: -4.5))
-        testRounding(Complex<Float80>(real: 1.5, imaginary: -4.5))
+        testRounding(Complex<Complex.LargestFloatType>(real: 1.5, imaginary: -4.5))
     }
 
     func testConjugateMethods() {
@@ -88,7 +88,7 @@ class ComplexTests: XCTestCase {
         testConjugateMethods(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testConjugateMethods(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testConjugateMethods(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testConjugateMethods(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testConjugateMethods(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testNegationMethods() {
@@ -99,7 +99,7 @@ class ComplexTests: XCTestCase {
         testNegationMethods(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testNegationMethods(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testNegationMethods(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testNegationMethods(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testNegationMethods(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testMultiplyByOne() {
@@ -114,7 +114,7 @@ class ComplexTests: XCTestCase {
         testMultiplyByOne(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testMultiplyByOne(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testMultiplyByOne(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testMultiplyByOne(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testMultiplyByOne(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testMultiplyByI() {
@@ -125,7 +125,7 @@ class ComplexTests: XCTestCase {
         testMultiplyByI(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testMultiplyByI(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testMultiplyByI(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testMultiplyByI(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testMultiplyByI(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testPlusPrefixOperator() {
@@ -140,21 +140,21 @@ class ComplexTests: XCTestCase {
         testPlusPrefixOperator(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testPlusPrefixOperator(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testPlusPrefixOperator(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testPlusPrefixOperator(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testPlusPrefixOperator(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testPolarComponents() {
         testPolarComponents(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testPolarComponents(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testPolarComponents(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testPolarComponents(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        testPolarComponents(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
     }
 
     func testAdditiveArithmeticProtocolRequirements() {
         CTAssertEqual(Complex<Half>.zero, Complex(real: 0.0, imaginary: 0.0))
         CTAssertEqual(Complex<Float>.zero, Complex(real: 0.0, imaginary: 0.0))
         CTAssertEqual(Complex<Double>.zero, Complex(real: 0.0, imaginary: 0.0))
-        CTAssertEqual(Complex<Float80>.zero, Complex(real: 0.0, imaginary: 0.0))
+        CTAssertEqual(Complex<Complex.LargestFloatType>.zero, Complex(real: 0.0, imaginary: 0.0))
 
         do {
             let lhs = Complex<Half>(real: 1.0, imaginary: 2.0)
@@ -208,8 +208,8 @@ class ComplexTests: XCTestCase {
             CTAssertEqual(value, lhs - rhs)
         }
         do {
-            let lhs = Complex<Float80>(real: 1.0, imaginary: 2.0)
-            let rhs = Complex<Float80>(real: 3.0, imaginary: 4.0)
+            let lhs = Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0)
+            let rhs = Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0)
             var value = lhs
             value += rhs
 
@@ -249,13 +249,13 @@ class ComplexTests: XCTestCase {
         CTAssertEqual(complex4.real, Int64(real))
         CTAssertEqual(complex4.imaginary, Int64(imaginary))
 
-        let complex5 = Complex<Float80>(real: real, imaginary: imaginary)
-        CTAssertEqual(complex5.real, Float80(real))
-        CTAssertEqual(complex5.imaginary, Float80(imaginary))
+        let complex5 = Complex<Complex.LargestFloatType>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex5.real, Complex.LargestFloatType(real))
+        CTAssertEqual(complex5.imaginary, Complex.LargestFloatType(imaginary))
 
-        let complex6 = Complex<Float80>(complex1)
-        CTAssertEqual(complex6.real, Float80(real))
-        CTAssertEqual(complex6.imaginary, Float80(imaginary))
+        let complex6 = Complex<Complex.LargestFloatType>(complex1)
+        CTAssertEqual(complex6.real, Complex.LargestFloatType(real))
+        CTAssertEqual(complex6.imaginary, Complex.LargestFloatType(imaginary))
 
         let complex7: Complex<Scalar> = []
         CTAssertEqual(complex7.real, 0)
@@ -291,13 +291,13 @@ class ComplexTests: XCTestCase {
         CTAssertEqual(complex4.real, Int64(real))
         CTAssertEqual(complex4.imaginary, Int64(imaginary))
 
-        let complex5 = Complex<Float80>(real: real, imaginary: imaginary)
-        CTAssertEqual(complex5.real, Float80(real))
-        CTAssertEqual(complex5.imaginary, Float80(imaginary))
+        let complex5 = Complex<Complex.LargestFloatType>(real: real, imaginary: imaginary)
+        CTAssertEqual(complex5.real, Complex.LargestFloatType(real))
+        CTAssertEqual(complex5.imaginary, Complex.LargestFloatType(imaginary))
 
-        let complex6 = Complex<Float80>(complex1)
-        CTAssertEqual(complex6.real, Float80(real))
-        CTAssertEqual(complex6.imaginary, Float80(imaginary))
+        let complex6 = Complex<Complex.LargestFloatType>(complex1)
+        CTAssertEqual(complex6.real, Complex.LargestFloatType(real))
+        CTAssertEqual(complex6.imaginary, Complex.LargestFloatType(imaginary))
 
         let complex7: Complex<Scalar> = []
         CTAssertEqual(complex7.real, 0.0)
@@ -480,6 +480,6 @@ class ComplexTests: XCTestCase {
 
     private func testPolarComponents<Scalar>(_ complex: Complex<Scalar>, file: StaticString = #file, line: UInt = #line) where Scalar: BinaryFloatingPoint {
         CTAssertEqual(complex.modulus, sqrt(complex.real * complex.real + complex.imaginary * complex.imaginary))
-        CTAssertEqual(complex.angle, Scalar(atan2(Float80(complex.imaginary), Float80(complex.real))))
+        CTAssertEqual(complex.angle, Scalar(atan2(Complex.LargestFloatType(complex.imaginary), Complex.LargestFloatType(complex.real))))
     }
 }

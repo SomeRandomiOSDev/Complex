@@ -18,8 +18,7 @@ Pod::Spec.new do |s|
 
   s.source            = { :git => "https://github.com/SomeRandomiOSDev/Complex.git", :tag => s.version.to_s }
   s.source_files      = 'Sources/**/*.swift'
-  s.frameworks        = 'Foundation'
-  s.swift_versions    = ['4.0', '4.2', '5.0']
+  s.swift_versions    = ['4.2', '5.0']
   s.cocoapods_version = '>= 1.7.3'
   
 end

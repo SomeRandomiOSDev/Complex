@@ -5,6 +5,7 @@ Complex
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Complex.svg)](https://cocoapods.org/pods/Complex) 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 [![Platform](https://img.shields.io/cocoapods/p/Complex.svg)](https://cocoapods.org/pods/Complex)
+![Linux](https://img.shields.io/badge/platform-linux-lightgrey)
 [![Build](https://travis-ci.com/SomeRandomiOSDev/Complex.svg?branch=master)](https://travis-ci.com/SomeRandomiOSDev/Complex)
 ![Swift](https://github.com/SomeRandomiOSDev/Complex/workflows/Swift/badge.svg)
 [![Code Coverage](https://codecov.io/gh/SomeRandomiOSDev/Complex/branch/master/graph/badge.svg)](https://codecov.io/gh/SomeRandomiOSDev/Complex)

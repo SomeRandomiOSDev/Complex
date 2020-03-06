@@ -9,6 +9,7 @@ import Foundation
 
 // MARK: - Complex Definition
 
+#if swift(>=5.1)
 @frozen public struct Complex<Scalar: Numeric> {
 
     // MARK: Public Properties
@@ -19,10 +20,30 @@ import Foundation
     // MARK: Initialization
 
     @_transparent
-    public init(real: Scalar = .zero, imaginary: Scalar = .zero) {
+    public init(real: Scalar = 0, imaginary: Scalar = 0) {
         self.real = real
         self.imaginary = imaginary
     }
+}
+#else
+public struct Complex<Scalar: Numeric> {
+
+    // MARK: Public Properties
+
+    public var real: Scalar
+    public var imaginary: Scalar
+
+    // MARK: Initialization
+
+    @_transparent
+    public init(real: Scalar = 0, imaginary: Scalar = 0) {
+        self.real = real
+        self.imaginary = imaginary
+    }
+}
+#endif // #if swift(>=5.1)
+
+extension Complex {
 
     @_transparent
     public init(_ other: Complex<Scalar>) {
@@ -32,7 +53,7 @@ import Foundation
 
     @_transparent
     public init() {
-        self.init(real: .zero, imaginary: .zero)
+        self.init(real: 0, imaginary: 0)
     }
 }
 
@@ -137,7 +158,7 @@ extension Complex where Scalar: FixedWidthInteger {
 
 // MARK: - ExpressibleByArrayLiteral Protocol Conformance
 
-extension Complex: ExpressibleByArrayLiteral where Scalar: AdditiveArithmetic {
+extension Complex: ExpressibleByArrayLiteral {
 
     @_transparent
     public init(arrayLiteral elements: Scalar...) {
@@ -146,7 +167,7 @@ extension Complex: ExpressibleByArrayLiteral where Scalar: AdditiveArithmetic {
         if elements.isEmpty {
             self.init()
         } else if elements.count == 1 {
-            self.init(real: elements[0], imaginary: .zero)
+            self.init(real: elements[0], imaginary: 0)
         } else {
             self.init(real: elements[0], imaginary: elements[1])
         }
@@ -261,7 +282,7 @@ extension Complex where Scalar: FloatingPoint {
 
     @_transparent
     public func rounded() -> Complex {
-        rounded(.toNearestOrAwayFromZero)
+        return rounded(.toNearestOrAwayFromZero)
     }
 
     //
@@ -354,7 +375,7 @@ extension Complex {
 
     @_transparent
     public static var i: Complex {
-        return Complex(real: .zero, imaginary: 1)
+        return Complex(real: 0, imaginary: 1)
     }
 }
 
@@ -362,7 +383,7 @@ extension Complex {
 
     @_transparent
     public static var one: Complex {
-        return Complex(real: 1, imaginary: .zero)
+        return Complex(real: 1, imaginary: 0)
     }
 }
 

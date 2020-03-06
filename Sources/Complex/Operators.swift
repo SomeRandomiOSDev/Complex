@@ -5,8 +5,6 @@
 //  Copyright © 2020 SomeRandomiOSDev. All rights reserved.
 //
 
-import Foundation
-
 /// Component-wise addition
 infix operator .+: AdditionPrecedence
 infix operator .+=: AssignmentPrecedence

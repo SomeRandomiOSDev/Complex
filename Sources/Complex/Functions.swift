@@ -5,15 +5,19 @@
 //  Copyright © 2020 SomeRandomiOSDev. All rights reserved.
 //
 
-import Foundation
+#if os(Linux)
+import Glibc
+#else
+import Darwin
+#endif
 
 @_transparent
 public func csqrt<F>(_ value: F) -> Complex<F> where F: FloatingPoint {
     let complex: Complex<F>
     if value < 0 {
-        complex = Complex(real: .zero, imaginary: sqrt(-value))
+        complex = Complex(real: 0, imaginary: sqrt(-value))
     } else {
-        complex = Complex(real: sqrt(value), imaginary: .zero)
+        complex = Complex(real: sqrt(value), imaginary: 0)
     }
 
     return complex
@@ -24,8 +28,8 @@ public func sqrt<F>(_ value: Complex<F>) -> Complex<F> where F: FloatingPoint {
     //swiftlint:disable opening_brace statement_position
     let sign = { (value: F) -> F in
         let sign: F
-        if value < .zero { sign = -1 }
-        else             { sign = 1 }
+        if value < 0 { sign = -1 }
+        else         { sign = 1 }
         return sign
     }
     //swiftlint:enable opening_brace statement_position
@@ -67,20 +71,32 @@ public func clamp<F>(_ value: Complex<F>, _ minimum: Complex<F>, _ maximum: Comp
 
 @_transparent
 public func exp(_ value: Complex<Float>) -> Complex<Float> {
+#if os(Linux)
+    let exp = Glibc.exp(value.real)
+#else
     let exp = Darwin.exp(value.real)
+#endif
     return Complex<Float>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
 }
 
 @_transparent
 public func exp(_ value: Complex<Double>) -> Complex<Double> {
+#if os(Linux)
+    let exp = Glibc.exp(value.real)
+#else
     let exp = Darwin.exp(value.real)
+#endif
     return Complex<Double>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
 }
 
 #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
 @_transparent
 public func exp(_ value: Complex<Float80>) -> Complex<Float80> {
+#if os(Linux)
+    let exp = Glibc.exp(value.real)
+#else
     let exp = Darwin.exp(value.real)
+#endif
     return Complex<Float80>(real: exp * cos(value.imaginary), imaginary: exp * sin(value.imaginary))
 }
 #endif
