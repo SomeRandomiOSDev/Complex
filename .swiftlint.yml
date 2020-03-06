@@ -57,9 +57,6 @@ opt_in_rules:
 
 reporter: "xcode"
 
-excluded:
-  - Carthage
-
 identifier_name:
   excluded:
     - i

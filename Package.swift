@@ -12,11 +12,11 @@ let package = Package(
     ],
 
     products: [
-        .library(name: "Complex", type: .dynamic, targets: ["Complex"])
+        .library(name: "Complex", targets: ["Complex"])
     ],
 
     dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.0.1")
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.2.0")
     ],
 
     targets: [
@@ -24,5 +24,5 @@ let package = Package(
         .testTarget(name: "ComplexTests", dependencies: ["Complex", "Half"])
     ],
 
-    swiftLanguageVersions: [.version("4"), .version("4.2"), .version("5")]
+    swiftLanguageVersions: [.version("4.2"), .version("5")]
 )
