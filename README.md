@@ -69,6 +69,11 @@ let (modulus, angle) = (complex.modulus, complex.angle)
 ...
 ```
 
+Note
+--------
+
+The Swift library team has released their own **Complex** type as part of the Swift Numerics library. This library is likely to be archived in the future unless there is a continued need for this library to continue to be maintained. You can find more information about the new **Complex** type [here](https://swift.org/blog/numerics/#complex-numbers)
+
 Contributing
 --------
 
