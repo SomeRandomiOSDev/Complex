@@ -14,7 +14,7 @@ import XCTest
 internal protocol XCTActivity {
 
     var name: String { get }
-    func add(_ attachment: Any) { }
+    func add(_ attachment: Any)
 }
 
 // MARK: - XCTContext Definition
