@@ -8,6 +8,44 @@
 @testable import Complex
 import XCTest
 
+#if os(Linux)
+// MARK: - XCTActivity Definition
+
+internal protocol XCTActivity {
+
+    var name: String { get }
+    func add(_ attachment: Any) { }
+}
+
+// MARK: - XCTContext Definition
+
+internal class XCTContext {
+
+    // MARK: XCTContext.Activity Definition
+
+    private class Activity: XCTActivity {
+
+        // MARK: Initialization
+
+        fileprivate init(name: String) {
+            self.name = name
+        }
+
+        // MARK: XCTActivity Protocol Requirements
+
+        let name: String
+
+        func add(_ attachment: Any) { /* noop */ }
+    }
+
+    // MARK: Internal Methods
+
+    internal class func runActivity<Result>(named name: String, block: (XCTActivity) throws -> Result) rethrows -> Result {
+        return try block(Activity(name: name))
+    }
+}
+#endif // #if os(Linux)
+
 // MARK: Internal Methods
 
 internal func CTAssertEqual<T>(_ expression1: @autoclosure () throws -> T, _ expression2: @autoclosure () throws -> T, _ message: @autoclosure () -> String = "", function: String = #function, file: StaticString = #file, line: UInt = #line) where T: Equatable {
