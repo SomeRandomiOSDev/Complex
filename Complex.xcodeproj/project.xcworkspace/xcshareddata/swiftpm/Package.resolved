@@ -2,12 +2,21 @@
   "object": {
     "pins": [
       {
-        "package": "Half",
-        "repositoryURL": "https://github.com/SomeRandomiOSDev/Half.git",
+        "package": "gyb",
+        "repositoryURL": "https://github.com/SomeRandomiOSDev/gyb",
         "state": {
           "branch": null,
-          "revision": "f40c243c767459426fdbbb5aad44f4a0d853542e",
-          "version": "1.2.0"
+          "revision": "13d20a2f1b319304bfa55a76252aa69794a0ab4e",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "Half",
+        "repositoryURL": "https://github.com/SomeRandomiOSDev/Half",
+        "state": {
+          "branch": null,
+          "revision": "9b6551b03546bd942bc498d9bcdc4ab2b11d87db",
+          "version": "1.2.1"
         }
       }
     ]

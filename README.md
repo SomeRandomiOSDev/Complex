@@ -1,15 +1,18 @@
 Complex
 ========
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d30d31c29f17449481b97a04610ff5b9)](https://app.codacy.com/app/SomeRandomiOSDev/Complex?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/Complex&utm_campaign=Badge_Grade_Dashboard)
 [![License MIT](https://img.shields.io/cocoapods/l/Complex.svg)](https://cocoapods.org/pods/Complex)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Complex.svg)](https://cocoapods.org/pods/Complex) 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 [![Platform](https://img.shields.io/cocoapods/p/Complex.svg)](https://cocoapods.org/pods/Complex)
 ![Linux](https://img.shields.io/badge/platform-linux-lightgrey)
-[![Build](https://travis-ci.com/SomeRandomiOSDev/Complex.svg?branch=master)](https://travis-ci.com/SomeRandomiOSDev/Complex)
-![Swift](https://github.com/SomeRandomiOSDev/Complex/workflows/Swift/badge.svg)
 [![Code Coverage](https://codecov.io/gh/SomeRandomiOSDev/Complex/branch/master/graph/badge.svg)](https://codecov.io/gh/SomeRandomiOSDev/Complex)
-[![Codacy](https://api.codacy.com/project/badge/Grade/8ad52c117e4a46d9aa4699d22fc0bf49)](https://app.codacy.com/app/SomeRandomiOSDev/Complex?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/Complex&utm_campaign=Badge_Grade_Dashboard)
+
+![Swift Package](https://github.com/SomeRandomiOSDev/Complex/workflows/Swift%20Package/badge.svg)
+![Xcode Project](https://github.com/SomeRandomiOSDev/Complex/workflows/Xcode%20Project/badge.svg)
+![Cocoapods](https://github.com/SomeRandomiOSDev/Complex/workflows/Cocoapods/badge.svg)
+![Carthage](https://github.com/SomeRandomiOSDev/Complex/workflows/Carthage/badge.svg)
 
 **Complex** is a lightweight framework designed for representing and working with complex numbers for iOS, macOS, tvOS, and watchOS.
 
@@ -82,7 +85,7 @@ If you have need for a specific feature or you encounter a bug, please open an i
 Author
 --------
 
-Joseph Newton, somerandomiosdev@gmail.com
+Joe Newton, somerandomiosdev@gmail.com
 
 License
 --------

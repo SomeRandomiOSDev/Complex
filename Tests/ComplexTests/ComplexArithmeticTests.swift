@@ -27,7 +27,16 @@ class ComplexArithmeticTests: XCTestCase {
         testAdditionWithZero(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testAdditionWithZero(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testAdditionWithZero(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testAdditionWithZero(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testAdditionWithZero(Complex(real: Float16(6.3), imaginary: Float16(1.7)))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testAdditionWithZero(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        #endif
     }
 
     func testSubtractionWithZero() {
@@ -44,7 +53,16 @@ class ComplexArithmeticTests: XCTestCase {
         testSubtractionWithZero(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testSubtractionWithZero(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testSubtractionWithZero(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testSubtractionWithZero(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testSubtractionWithZero(Complex(real: Float16(6.3), imaginary: Float16(1.7)))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testSubtractionWithZero(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        #endif
     }
 
     func testMultiplicationWithZero() {
@@ -61,7 +79,16 @@ class ComplexArithmeticTests: XCTestCase {
         testMultiplicationWithZero(Complex(real: Half(1.2), imaginary: Half(-7.4)))
         testMultiplicationWithZero(Complex(real: Float(-0.123), imaginary: Float(3.0)))
         testMultiplicationWithZero(Complex(real: Double(8.9), imaginary: Double(10.8)))
-        testMultiplicationWithZero(Complex(real: Complex.LargestFloatType(11.1), imaginary: Complex.LargestFloatType(-0.9)))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testMultiplicationWithZero(Complex(real: Float16(6.3), imaginary: Float16(1.7)))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testMultiplicationWithZero(Complex(real: Float80(11.1), imaginary: Float80(-0.9)))
+        #endif
     }
 
     func testAddition() {
@@ -78,7 +105,18 @@ class ComplexArithmeticTests: XCTestCase {
         testAddition(Complex<Half>(real: 1.0, imaginary: 2.0), Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 4.0, imaginary: 6.0))
         testAddition(Complex<Float>(real: 1.0, imaginary: 2.0), Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 4.0, imaginary: 6.0))
         testAddition(Complex<Double>(real: 1.0, imaginary: 2.0), Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 4.0, imaginary: 6.0))
-        testAddition(Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0), Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), Complex<Complex.LargestFloatType>(real: 4.0, imaginary: 6.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testAddition(Complex<Float16>(real: 1.0, imaginary: 2.0), Complex<Float16>(real: 3.0, imaginary: 4.0), Complex<Float16>(real: 4.0, imaginary: 6.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testAddition(Complex<Float80>(real: 1.0, imaginary: 2.0), Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 4.0, imaginary: 6.0))
+        #endif
+
+        //
 
         testAddition(Complex<Int8>(real: 1, imaginary: 2), 3, Complex<Int8>(real: 4, imaginary: 2))
         testAddition(Complex<Int16>(real: 1, imaginary: 2), 3, Complex<Int16>(real: 4, imaginary: 2))
@@ -93,7 +131,16 @@ class ComplexArithmeticTests: XCTestCase {
         testAddition(Complex<Half>(real: 1.0, imaginary: 2.0), 3.0, Complex<Half>(real: 4.0, imaginary: 2.0))
         testAddition(Complex<Float>(real: 1.0, imaginary: 2.0), 3.0, Complex<Float>(real: 4.0, imaginary: 2.0))
         testAddition(Complex<Double>(real: 1.0, imaginary: 2.0), 3.0, Complex<Double>(real: 4.0, imaginary: 2.0))
-        testAddition(Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0), 3.0, Complex<Complex.LargestFloatType>(real: 4.0, imaginary: 2.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testAddition(Complex<Float16>(real: 1.0, imaginary: 2.0), 3.0, Complex<Float16>(real: 4.0, imaginary: 2.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testAddition(Complex<Float80>(real: 1.0, imaginary: 2.0), 3.0, Complex<Float80>(real: 4.0, imaginary: 2.0))
+        #endif
     }
 
     func testAdditionIgnoringOverflow() {
@@ -123,7 +170,18 @@ class ComplexArithmeticTests: XCTestCase {
         testSubtraction(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0), Complex<Half>(real: 2.0, imaginary: 2.0))
         testSubtraction(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0), Complex<Float>(real: 2.0, imaginary: 2.0))
         testSubtraction(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0), Complex<Double>(real: 2.0, imaginary: 2.0))
-        testSubtraction(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0), Complex<Complex.LargestFloatType>(real: 2.0, imaginary: 2.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testSubtraction(Complex<Float16>(real: 3.0, imaginary: 4.0), Complex<Float16>(real: 1.0, imaginary: 2.0), Complex<Float16>(real: 2.0, imaginary: 2.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testSubtraction(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0), Complex<Float80>(real: 2.0, imaginary: 2.0))
+        #endif
+
+        //
 
         testSubtraction(Complex<Int8>(real: 3, imaginary: 4), 1, Complex<Int8>(real: 2, imaginary: 4))
         testSubtraction(Complex<Int16>(real: 3, imaginary: 4), 1, Complex<Int16>(real: 2, imaginary: 4))
@@ -138,7 +196,16 @@ class ComplexArithmeticTests: XCTestCase {
         testSubtraction(Complex<Half>(real: 3.0, imaginary: 4.0), 1.0, Complex<Half>(real: 2.0, imaginary: 4.0))
         testSubtraction(Complex<Float>(real: 3.0, imaginary: 4.0), 1.0, Complex<Float>(real: 2.0, imaginary: 4.0))
         testSubtraction(Complex<Double>(real: 3.0, imaginary: 4.0), 1.0, Complex<Double>(real: 2.0, imaginary: 4.0))
-        testSubtraction(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), 1.0, Complex<Complex.LargestFloatType>(real: 2.0, imaginary: 4.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testSubtraction(Complex<Float16>(real: 3.0, imaginary: 4.0), 1.0, Complex<Float16>(real: 2.0, imaginary: 4.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testSubtraction(Complex<Float80>(real: 3.0, imaginary: 4.0), 1.0, Complex<Float80>(real: 2.0, imaginary: 4.0))
+        #endif
     }
 
     func testSubtractionIgnoringOverflow() {
@@ -168,7 +235,18 @@ class ComplexArithmeticTests: XCTestCase {
         testMultiplication(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0), Complex<Half>(real: -5.0, imaginary: 10.0))
         testMultiplication(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0), Complex<Float>(real: -5.0, imaginary: 10.0))
         testMultiplication(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0), Complex<Double>(real: -5.0, imaginary: 10.0))
-        testMultiplication(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0), Complex<Complex.LargestFloatType>(real: -5.0, imaginary: 10.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testMultiplication(Complex<Float16>(real: 3.0, imaginary: 4.0), Complex<Float16>(real: 1.0, imaginary: 2.0), Complex<Float16>(real: -5.0, imaginary: 10.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0), Complex<Float80>(real: -5.0, imaginary: 10.0))
+        #endif
+
+        //
 
         testMultiplication(Complex<Int8>(real: 3, imaginary: 4), 2)
         testMultiplication(Complex<Int16>(real: 3, imaginary: 4), 2)
@@ -183,7 +261,16 @@ class ComplexArithmeticTests: XCTestCase {
         testMultiplication(Complex<Half>(real: 3.0, imaginary: 4.0), 2.0)
         testMultiplication(Complex<Float>(real: 3.0, imaginary: 4.0), 2.0)
         testMultiplication(Complex<Double>(real: 3.0, imaginary: 4.0), 2.0)
-        testMultiplication(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), 2.0)
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testMultiplication(Complex<Float16>(real: 3.0, imaginary: 4.0), 2.0)
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), 2.0)
+        #endif
     }
 
     func testMultiplicationIgnoringOverflow() {
@@ -213,7 +300,16 @@ class ComplexArithmeticTests: XCTestCase {
         testComponentwiseMultiplication(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0))
         testComponentwiseMultiplication(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0))
         testComponentwiseMultiplication(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0))
-        testComponentwiseMultiplication(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testComponentwiseMultiplication(Complex<Float16>(real: 3.0, imaginary: 4.0), Complex<Float16>(real: 1.0, imaginary: 2.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testComponentwiseMultiplication(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
+        #endif
     }
 
     func testDivision() {
@@ -230,7 +326,18 @@ class ComplexArithmeticTests: XCTestCase {
         testDivision(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0), Complex<Half>(real: 11.0 / 5.0, imaginary: -0.4))
         testDivision(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0), Complex<Float>(real: 11.0 / 5.0, imaginary: -0.4))
         testDivision(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0), Complex<Double>(real: 11.0 / 5.0, imaginary: -0.4))
-        testDivision(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0), Complex<Complex.LargestFloatType>(real: 11.0 / 5.0, imaginary: -0.4))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testDivision(Complex<Float16>(real: 3.0, imaginary: 4.0), Complex<Float16>(real: 1.0, imaginary: 2.0), Complex<Float16>(real: 11.0 / 5.0, imaginary: -0.4))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0), Complex<Float80>(real: 11.0 / 5.0, imaginary: -0.4))
+        #endif
+
+        //
 
         testDivision(Complex<Int8>(real: 3, imaginary: 4), 2)
         testDivision(Complex<Int16>(real: 3, imaginary: 4), 2)
@@ -245,7 +352,16 @@ class ComplexArithmeticTests: XCTestCase {
         testDivision(Complex<Half>(real: 3.0, imaginary: 4.0), 2.0)
         testDivision(Complex<Float>(real: 3.0, imaginary: 4.0), 2.0)
         testDivision(Complex<Double>(real: 3.0, imaginary: 4.0), 2.0)
-        testDivision(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), 2.0)
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testDivision(Complex<Float16>(real: 3.0, imaginary: 4.0), 2.0)
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), 2.0)
+        #endif
     }
 
     func testComponentwiseDivision() {
@@ -262,7 +378,16 @@ class ComplexArithmeticTests: XCTestCase {
         testComponentwiseDivision(Complex<Half>(real: 3.0, imaginary: 4.0), Complex<Half>(real: 1.0, imaginary: 2.0))
         testComponentwiseDivision(Complex<Float>(real: 3.0, imaginary: 4.0), Complex<Float>(real: 1.0, imaginary: 2.0))
         testComponentwiseDivision(Complex<Double>(real: 3.0, imaginary: 4.0), Complex<Double>(real: 1.0, imaginary: 2.0))
-        testComponentwiseDivision(Complex<Complex.LargestFloatType>(real: 3.0, imaginary: 4.0), Complex<Complex.LargestFloatType>(real: 1.0, imaginary: 2.0))
+
+        #if (swift(>=5.3) && !(os(macOS) || targetEnvironment(macCatalyst))) || (swift(>=5.4) && !arch(x86_64))
+        if #available(iOS 14.0, macOS 11.0, tvOS 14.0, watchOS 7.0, *) {
+            testComponentwiseDivision(Complex<Float16>(real: 3.0, imaginary: 4.0), Complex<Float16>(real: 1.0, imaginary: 2.0))
+        }
+        #endif
+
+        #if !(os(Windows) || os(Android)) && (arch(i386) || arch(x86_64))
+        testComponentwiseDivision(Complex<Float80>(real: 3.0, imaginary: 4.0), Complex<Float80>(real: 1.0, imaginary: 2.0))
+        #endif
     }
 
     // MARK: Private Methods

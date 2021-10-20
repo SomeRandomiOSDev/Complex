@@ -7,22 +7,33 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		DDB8127223FA5C0C0079FEB5 /* Generate Sources */ = {
+		DD2FBC27258BE8BB00DB3211 /* XCFramework */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = DDB8127323FA5C0C0079FEB5 /* Build configuration list for PBXAggregateTarget "Generate Sources" */;
+			buildConfigurationList = DD2FBC2A258BE8BB00DB3211 /* Build configuration list for PBXAggregateTarget "XCFramework" */;
 			buildPhases = (
-				DDB8127623FA5C160079FEB5 /* Generate Sources */,
+				DD2FBC33258BE8C600DB3211 /* Build XCFramework */,
+			);
+			dependencies = (
+			);
+			name = XCFramework;
+			productName = XCFramework;
+		};
+		DD7E913F27206B6A0092BB79 /* Generate Sources */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DD7E914027206B6A0092BB79 /* Build configuration list for PBXAggregateTarget "Generate Sources" */;
+			buildPhases = (
+				DD7E914327206B780092BB79 /* Generate Sources */,
 			);
 			dependencies = (
 			);
 			name = "Generate Sources";
 			productName = "Generate Sources";
 		};
-		DDFEECA423F1BA0B0096015C /* Run SwiftLint */ = {
+		DD86D56423D11C4B0046E63E /* Run SwiftLint */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = DDFEECA523F1BA0B0096015C /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */;
+			buildConfigurationList = DD86D56523D11C4B0046E63E /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */;
 			buildPhases = (
-				DDFEECA923F1BA160096015C /* Run SwiftLint */,
+				DD86D56823D11C550046E63E /* Run SwiftLint */,
 			);
 			dependencies = (
 			);
@@ -32,214 +43,240 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		DD0793442412F03000EF65B4 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD0793432412F03000EF65B4 /* Half */; };
-		DD0793462412F03400EF65B4 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD0793452412F03400EF65B4 /* Half */; };
-		DD0793482412F03700EF65B4 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD0793472412F03700EF65B4 /* Half */; };
-		DD6F08BE24001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
-		DD6F08BF24001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
-		DD6F08C024001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
-		DD6F08C124001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */; };
-		DD6F08C324001CD400749359 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08C224001CD400749359 /* ComplexOverflowingArithmeticTests.swift */; };
-		DD6F08C424001CD400749359 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08C224001CD400749359 /* ComplexOverflowingArithmeticTests.swift */; };
-		DD6F08C524001CD400749359 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08C224001CD400749359 /* ComplexOverflowingArithmeticTests.swift */; };
-		DD6F08CD240077C300749359 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08CC240077C300749359 /* TestingBase.swift */; };
-		DD6F08CE240077C300749359 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08CC240077C300749359 /* TestingBase.swift */; };
-		DD6F08CF240077C300749359 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6F08CC240077C300749359 /* TestingBase.swift */; };
-		DDB8120723F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
-		DDB8120823F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
-		DDB8120923F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
-		DDB8120A23F59B760079FEB5 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120623F59B760079FEB5 /* Complex.swift */; };
-		DDB8120C23F5A8E80079FEB5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120B23F5A8E80079FEB5 /* Functions.swift */; };
-		DDB8120D23F5A8E80079FEB5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120B23F5A8E80079FEB5 /* Functions.swift */; };
-		DDB8120E23F5A8E80079FEB5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120B23F5A8E80079FEB5 /* Functions.swift */; };
-		DDB8120F23F5A8E80079FEB5 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8120B23F5A8E80079FEB5 /* Functions.swift */; };
-		DDB8121123F5AEB10079FEB5 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */; };
-		DDB8121223F5AEB10079FEB5 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */; };
-		DDB8121323F5AEB10079FEB5 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */; };
-		DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
-		DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
-		DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */; };
-		DDB8125923F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
-		DDB8125A23F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
-		DDB8125B23F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
-		DDB8125C23F707EE0079FEB5 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8125823F707EE0079FEB5 /* Operators.swift */; };
-		DDB8126223F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
-		DDB8126323F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
-		DDB8126423F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
-		DDB8126523F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */; };
-		DDB8126723F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */; };
-		DDB8126823F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */; };
-		DDB8126923F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */; };
-		DDFEEC3D23EF13910096015C /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFEEC3323EF13900096015C /* Complex.framework */; };
-		DDFEECC723F2001A0096015C /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFEECBE23F2001A0096015C /* Complex.framework */; };
-		DDFEECE323F2003E0096015C /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDFEECDA23F2003E0096015C /* Complex.framework */; };
+		DD48BC98270E0DE800D842BC /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D5C423D11D140046E63E /* Complex.framework */; };
+		DD7E90D7271F68790092BB79 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D1271F68790092BB79 /* Complex.swift */; };
+		DD7E90D8271F68790092BB79 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D1271F68790092BB79 /* Complex.swift */; };
+		DD7E90D9271F68790092BB79 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D1271F68790092BB79 /* Complex.swift */; };
+		DD7E90DA271F68790092BB79 /* Complex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D1271F68790092BB79 /* Complex.swift */; };
+		DD7E90DB271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D2271F68790092BB79 /* ComplexOverflowingArithmetic.swift */; };
+		DD7E90DC271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D2271F68790092BB79 /* ComplexOverflowingArithmetic.swift */; };
+		DD7E90DD271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D2271F68790092BB79 /* ComplexOverflowingArithmetic.swift */; };
+		DD7E90DE271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D2271F68790092BB79 /* ComplexOverflowingArithmetic.swift */; };
+		DD7E90DF271F68790092BB79 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D3271F68790092BB79 /* ComplexArithmetic.swift */; };
+		DD7E90E0271F68790092BB79 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D3271F68790092BB79 /* ComplexArithmetic.swift */; };
+		DD7E90E1271F68790092BB79 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D3271F68790092BB79 /* ComplexArithmetic.swift */; };
+		DD7E90E2271F68790092BB79 /* ComplexArithmetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D3271F68790092BB79 /* ComplexArithmetic.swift */; };
+		DD7E90E7271F68790092BB79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D5271F68790092BB79 /* Operators.swift */; };
+		DD7E90E8271F68790092BB79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D5271F68790092BB79 /* Operators.swift */; };
+		DD7E90E9271F68790092BB79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D5271F68790092BB79 /* Operators.swift */; };
+		DD7E90EA271F68790092BB79 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D5271F68790092BB79 /* Operators.swift */; };
+		DD7E90EB271F68790092BB79 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D6271F68790092BB79 /* Functions.swift */; };
+		DD7E90EC271F68790092BB79 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D6271F68790092BB79 /* Functions.swift */; };
+		DD7E90ED271F68790092BB79 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D6271F68790092BB79 /* Functions.swift */; };
+		DD7E90EE271F68790092BB79 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90D6271F68790092BB79 /* Functions.swift */; };
+		DD7E90F6271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F0271F68C80092BB79 /* ComplexOverflowingArithmeticTests.swift */; };
+		DD7E90F7271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F0271F68C80092BB79 /* ComplexOverflowingArithmeticTests.swift */; };
+		DD7E90F8271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F0271F68C80092BB79 /* ComplexOverflowingArithmeticTests.swift */; };
+		DD7E90F9271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F0271F68C80092BB79 /* ComplexOverflowingArithmeticTests.swift */; };
+		DD7E90FA271F68C90092BB79 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F1271F68C80092BB79 /* FunctionsTests.swift */; };
+		DD7E90FB271F68C90092BB79 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F1271F68C80092BB79 /* FunctionsTests.swift */; };
+		DD7E90FC271F68C90092BB79 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F1271F68C80092BB79 /* FunctionsTests.swift */; };
+		DD7E90FD271F68C90092BB79 /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F1271F68C80092BB79 /* FunctionsTests.swift */; };
+		DD7E90FE271F68C90092BB79 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F2271F68C90092BB79 /* TestingBase.swift */; };
+		DD7E90FF271F68C90092BB79 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F2271F68C90092BB79 /* TestingBase.swift */; };
+		DD7E9100271F68C90092BB79 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F2271F68C90092BB79 /* TestingBase.swift */; };
+		DD7E9101271F68C90092BB79 /* TestingBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F2271F68C90092BB79 /* TestingBase.swift */; };
+		DD7E9102271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F3271F68C90092BB79 /* ComplexArithmeticTests.swift */; };
+		DD7E9103271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F3271F68C90092BB79 /* ComplexArithmeticTests.swift */; };
+		DD7E9104271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F3271F68C90092BB79 /* ComplexArithmeticTests.swift */; };
+		DD7E9105271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F3271F68C90092BB79 /* ComplexArithmeticTests.swift */; };
+		DD7E9106271F68C90092BB79 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F4271F68C90092BB79 /* ComplexTests.swift */; };
+		DD7E9107271F68C90092BB79 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F4271F68C90092BB79 /* ComplexTests.swift */; };
+		DD7E9108271F68C90092BB79 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F4271F68C90092BB79 /* ComplexTests.swift */; };
+		DD7E9109271F68C90092BB79 /* ComplexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E90F4271F68C90092BB79 /* ComplexTests.swift */; };
+		DD7E914D2720A0680092BB79 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E914C2720A0680092BB79 /* Half */; };
+		DD7E914F2720A06C0092BB79 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E914E2720A06C0092BB79 /* Half */; };
+		DD7E91512720A0700092BB79 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E91502720A0700092BB79 /* Half */; };
+		DD7E91532720A0730092BB79 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD7E91522720A0730092BB79 /* Half */; };
+		DD86D54723D11B3E0046E63E /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D53D23D11B3E0046E63E /* Complex.framework */; };
+		DD86D57923D11C860046E63E /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D57023D11C860046E63E /* Complex.framework */; };
+		DD86D59523D11CA00046E63E /* Complex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D58C23D11CA00046E63E /* Complex.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DD07933E2412E54500EF65B4 /* PBXContainerItemProxy */ = {
+		DD48BC99270E0DE800D842BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDB8127223FA5C0C0079FEB5;
+			remoteGlobalIDString = DD86D5C323D11D140046E63E;
+			remoteInfo = "Complex watchOS";
+		};
+		DD7E914427206BB20092BB79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD7E913F27206B6A0092BB79;
 			remoteInfo = "Generate Sources";
 		};
-		DDB8127923FA5C3E0079FEB5 /* PBXContainerItemProxy */ = {
+		DD7E914627206BBA0092BB79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDB8127223FA5C0C0079FEB5;
+			remoteGlobalIDString = DD7E913F27206B6A0092BB79;
 			remoteInfo = "Generate Sources";
 		};
-		DDB8127B23FA5C3E0079FEB5 /* PBXContainerItemProxy */ = {
+		DD7E914827206BBF0092BB79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
-			remoteInfo = "Run SwiftLint";
-		};
-		DDB8127D23FA5C430079FEB5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DDB8127223FA5C0C0079FEB5;
+			remoteGlobalIDString = DD7E913F27206B6A0092BB79;
 			remoteInfo = "Generate Sources";
 		};
-		DDB8127F23FA5C430079FEB5 /* PBXContainerItemProxy */ = {
+		DD7E914A27206BC30092BB79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
-			remoteInfo = "Run SwiftLint";
-		};
-		DDB8128123FA5C480079FEB5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DDB8127223FA5C0C0079FEB5;
+			remoteGlobalIDString = DD7E913F27206B6A0092BB79;
 			remoteInfo = "Generate Sources";
 		};
-		DDB8128323FA5C480079FEB5 /* PBXContainerItemProxy */ = {
+		DD86D54823D11B3E0046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
-			remoteInfo = "Run SwiftLint";
-		};
-		DDFEEC3E23EF13910096015C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DDFEEC3223EF13900096015C;
+			remoteGlobalIDString = DD86D53C23D11B3E0046E63E;
 			remoteInfo = Complex;
 		};
-		DDFEECB223F1BB5B0096015C /* PBXContainerItemProxy */ = {
+		DD86D56923D11C6C0046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDFEECA423F1BA0B0096015C;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
 			remoteInfo = "Run SwiftLint";
 		};
-		DDFEECC823F2001A0096015C /* PBXContainerItemProxy */ = {
+		DD86D57A23D11C860046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDFEECBD23F2001A0096015C;
+			remoteGlobalIDString = DD86D56F23D11C860046E63E;
 			remoteInfo = "Complex macOS";
 		};
-		DDFEECE423F2003E0096015C /* PBXContainerItemProxy */ = {
+		DD86D59623D11CA00046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DDFEEC2A23EF13900096015C /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DDFEECD923F2003E0096015C;
+			remoteGlobalIDString = DD86D58B23D11CA00046E63E;
 			remoteInfo = "Complex tvOS";
+		};
+		DD86D5D823D11DC60046E63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
+			remoteInfo = "Run SwiftLint";
+		};
+		DD86D5DA23D11DC90046E63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
+			remoteInfo = "Run SwiftLint";
+		};
+		DD86D5DC23D11DCC0046E63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
+			remoteInfo = "Run SwiftLint";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexOverflowingArithmetic.swift; sourceTree = "<group>"; };
-		DD6F08C224001CD400749359 /* ComplexOverflowingArithmeticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexOverflowingArithmeticTests.swift; sourceTree = "<group>"; };
-		DD6F08CC240077C300749359 /* TestingBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingBase.swift; sourceTree = "<group>"; };
-		DD6F08D02400808300749359 /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
-		DDB8120623F59B760079FEB5 /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
-		DDB8120B23F5A8E80079FEB5 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
-		DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
-		DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
-		DDB8125823F707EE0079FEB5 /* Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
-		DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexArithmetic.swift; sourceTree = "<group>"; };
-		DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArithmeticTests.swift; sourceTree = "<group>"; };
-		DDB8126B23FA2B950079FEB5 /* gyb.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = gyb.py; sourceTree = "<group>"; };
-		DDB8126C23FA2B950079FEB5 /* gyb */ = {isa = PBXFileReference; lastKnownFileType = text; path = gyb; sourceTree = "<group>"; };
-		DDB8126F23FA2C210079FEB5 /* Functions.swift.gyb */ = {isa = PBXFileReference; explicitFileType = text.script.python; path = Functions.swift.gyb; sourceTree = "<group>"; };
-		DDB8127123FA4DA50079FEB5 /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = "<group>"; };
-		DDB8128523FB1A430079FEB5 /* FunctionsTests.swift.gyb */ = {isa = PBXFileReference; explicitFileType = text.script.python; path = FunctionsTests.swift.gyb; sourceTree = "<group>"; };
-		DDC7FF972412922500A5832A /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
-		DDFEEC3323EF13900096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFEEC3723EF13900096015C /* Complex-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Complex-Info.plist"; path = "Info/Complex-Info.plist"; sourceTree = "<group>"; };
-		DDFEEC3C23EF13910096015C /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFEEC4323EF13910096015C /* ComplexTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ComplexTests-Info.plist"; path = "../../Info/ComplexTests-Info.plist"; sourceTree = "<group>"; };
-		DDFEECAB23F1BA550096015C /* Complex.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Complex.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DDFEECAC23F1BA550096015C /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
-		DDFEECAD23F1BA5E0096015C /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .travis.yml; sourceTree = SOURCE_ROOT; };
-		DDFEECAE23F1BA5E0096015C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		DDFEECAF23F1BA680096015C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		DDFEECB123F1BA730096015C /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		DDFEECBE23F2001A0096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFEECC623F2001A0096015C /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFEECDA23F2003E0096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFEECE223F2003E0096015C /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDFEECF623F2004D0096015C /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD17A9F9257744BC00D30599 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = scripts; sourceTree = "<group>"; };
+		DD48BC94270E0DE800D842BC /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD48BC9F270E0F4500D842BC /* ComplexTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ComplexTests.xctestplan; sourceTree = "<group>"; };
+		DD48BCA0270E0F9A00D842BC /* Complex macOS Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Complex macOS Tests.xctestplan"; sourceTree = "<group>"; };
+		DD48BCA1270E0FE200D842BC /* Complex tvOS Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Complex tvOS Tests.xctestplan"; sourceTree = "<group>"; };
+		DD48BCA2270E101D00D842BC /* Complex watchOS Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Complex watchOS Tests.xctestplan"; sourceTree = "<group>"; };
+		DD5D044A261FA56400BA0FC2 /* ComplexTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ComplexTests-Info.plist"; path = "Plists/ComplexTests-Info.plist"; sourceTree = "<group>"; };
+		DD7E90D0271F67820092BB79 /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
+		DD7E90D1271F68790092BB79 /* Complex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
+		DD7E90D2271F68790092BB79 /* ComplexOverflowingArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexOverflowingArithmetic.swift; sourceTree = "<group>"; };
+		DD7E90D3271F68790092BB79 /* ComplexArithmetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArithmetic.swift; sourceTree = "<group>"; };
+		DD7E90D4271F68790092BB79 /* Functions.swift.gyb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Functions.swift.gyb; sourceTree = "<group>"; };
+		DD7E90D5271F68790092BB79 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		DD7E90D6271F68790092BB79 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		DD7E90F0271F68C80092BB79 /* ComplexOverflowingArithmeticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexOverflowingArithmeticTests.swift; sourceTree = "<group>"; };
+		DD7E90F1271F68C80092BB79 /* FunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
+		DD7E90F2271F68C90092BB79 /* TestingBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestingBase.swift; sourceTree = "<group>"; };
+		DD7E90F3271F68C90092BB79 /* ComplexArithmeticTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexArithmeticTests.swift; sourceTree = "<group>"; };
+		DD7E90F4271F68C90092BB79 /* ComplexTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexTests.swift; sourceTree = "<group>"; };
+		DD7E90F5271F68C90092BB79 /* FunctionsTests.swift.gyb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FunctionsTests.swift.gyb; sourceTree = "<group>"; };
+		DD86D53D23D11B3E0046E63E /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D54123D11B3E0046E63E /* Complex-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Complex-Info.plist"; path = "Plists/Complex-Info.plist"; sourceTree = "<group>"; };
+		DD86D54623D11B3E0046E63E /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D57023D11C860046E63E /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D57823D11C860046E63E /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D58C23D11CA00046E63E /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D59423D11CA00046E63E /* ComplexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComplexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D5C423D11D140046E63E /* Complex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Complex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D5DE23D22DB90046E63E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		DD86D5DF23D22DB90046E63E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		DD86D5E023D22DB90046E63E /* Complex.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = Complex.podspec; sourceTree = SOURCE_ROOT; };
+		DD86D5E123D22DB90046E63E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		DD86D5E323D22DC30046E63E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		DDA26DBD256EA4D700E1C6D7 /* workflows */ = {isa = PBXFileReference; lastKnownFileType = folder; name = workflows; path = .github/workflows; sourceTree = "<group>"; };
+		DDB1DE5C2405EEE300C20FED /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DDFEEC3023EF13900096015C /* Frameworks */ = {
+		DD48BC91270E0DE800D842BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD48BC98270E0DE800D842BC /* Complex.framework in Frameworks */,
+				DD7E91532720A0730092BB79 /* Half in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D53A23D11B3E0046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEEC3923EF13910096015C /* Frameworks */ = {
+		DD86D54323D11B3E0046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDFEEC3D23EF13910096015C /* Complex.framework in Frameworks */,
-				DD0793442412F03000EF65B4 /* Half in Frameworks */,
+				DD86D54723D11B3E0046E63E /* Complex.framework in Frameworks */,
+				DD7E914D2720A0680092BB79 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECBB23F2001A0096015C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDFEECC323F2001A0096015C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DDFEECC723F2001A0096015C /* Complex.framework in Frameworks */,
-				DD0793462412F03400EF65B4 /* Half in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DDFEECD723F2003E0096015C /* Frameworks */ = {
+		DD86D56D23D11C860046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECDF23F2003E0096015C /* Frameworks */ = {
+		DD86D57523D11C860046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDFEECE323F2003E0096015C /* Complex.framework in Frameworks */,
-				DD0793482412F03700EF65B4 /* Half in Frameworks */,
+				DD86D57923D11C860046E63E /* Complex.framework in Frameworks */,
+				DD7E914F2720A06C0092BB79 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECF323F2004D0096015C /* Frameworks */ = {
+		DD86D58923D11CA00046E63E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D59123D11CA00046E63E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD86D59523D11CA00046E63E /* Complex.framework in Frameworks */,
+				DD7E91512720A0700092BB79 /* Half in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D5C123D11D140046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -249,133 +286,144 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD94FBF723F3C50E0041D4EC /* Tests */ = {
+		DD48BC9E270E0F1300D842BC /* Test Plans */ = {
 			isa = PBXGroup;
 			children = (
-				DDFEEC4023EF13910096015C /* ComplexTests */,
+				DD48BC9F270E0F4500D842BC /* ComplexTests.xctestplan */,
+				DD48BCA0270E0F9A00D842BC /* Complex macOS Tests.xctestplan */,
+				DD48BCA1270E0FE200D842BC /* Complex tvOS Tests.xctestplan */,
+				DD48BCA2270E101D00D842BC /* Complex watchOS Tests.xctestplan */,
 			);
-			path = Tests;
+			path = "Test Plans";
 			sourceTree = "<group>";
 		};
-		DDB8126A23FA2B810079FEB5 /* Utils */ = {
+		DD5D04E52621361600BA0FC2 /* Complex */ = {
 			isa = PBXGroup;
 			children = (
-				DDB8126C23FA2B950079FEB5 /* gyb */,
-				DDB8126B23FA2B950079FEB5 /* gyb.py */,
+				DD7E90D1271F68790092BB79 /* Complex.swift */,
+				DD7E90D3271F68790092BB79 /* ComplexArithmetic.swift */,
+				DD7E90D2271F68790092BB79 /* ComplexOverflowingArithmetic.swift */,
+				DD7E90D6271F68790092BB79 /* Functions.swift */,
+				DD7E90D4271F68790092BB79 /* Functions.swift.gyb */,
+				DD7E90D5271F68790092BB79 /* Operators.swift */,
 			);
-			path = Utils;
+			path = Complex;
 			sourceTree = "<group>";
 		};
-		DDFEEC2923EF13900096015C = {
+		DD5D04F22621362400BA0FC2 /* ComplexTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDFEEC3523EF13900096015C /* Complex */,
-				DDFEEC3423EF13900096015C /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		DDFEEC3423EF13900096015C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DDFEEC3323EF13900096015C /* Complex.framework */,
-				DDFEEC3C23EF13910096015C /* ComplexTests.xctest */,
-				DDFEECBE23F2001A0096015C /* Complex.framework */,
-				DDFEECC623F2001A0096015C /* ComplexTests.xctest */,
-				DDFEECDA23F2003E0096015C /* Complex.framework */,
-				DDFEECE223F2003E0096015C /* ComplexTests.xctest */,
-				DDFEECF623F2004D0096015C /* Complex.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DDFEEC3523EF13900096015C /* Complex */ = {
-			isa = PBXGroup;
-			children = (
-				DDFEEC8E23F0B9F90096015C /* Sources */,
-				DDFEECAA23F1BA280096015C /* Supporting Files */,
-				DD94FBF723F3C50E0041D4EC /* Tests */,
-				DDB8126A23FA2B810079FEB5 /* Utils */,
-			);
-			name = Complex;
-			sourceTree = "<group>";
-		};
-		DDFEEC4023EF13910096015C /* ComplexTests */ = {
-			isa = PBXGroup;
-			children = (
-				DD6F08CC240077C300749359 /* TestingBase.swift */,
-				DDB8121023F5AEB10079FEB5 /* ComplexTests.swift */,
-				DDB8126623F7B7F40079FEB5 /* ComplexArithmeticTests.swift */,
-				DD6F08C224001CD400749359 /* ComplexOverflowingArithmeticTests.swift */,
-				DDB8122023F656AC0079FEB5 /* FunctionsTests.swift */,
-				DDB8128523FB1A430079FEB5 /* FunctionsTests.swift.gyb */,
-				DDFEEC4323EF13910096015C /* ComplexTests-Info.plist */,
+				DD7E90F3271F68C90092BB79 /* ComplexArithmeticTests.swift */,
+				DD7E90F0271F68C80092BB79 /* ComplexOverflowingArithmeticTests.swift */,
+				DD7E90F4271F68C90092BB79 /* ComplexTests.swift */,
+				DD7E90F1271F68C80092BB79 /* FunctionsTests.swift */,
+				DD7E90F5271F68C90092BB79 /* FunctionsTests.swift.gyb */,
+				DD7E90F2271F68C90092BB79 /* TestingBase.swift */,
 			);
 			path = ComplexTests;
 			sourceTree = "<group>";
 		};
-		DDFEEC8E23F0B9F90096015C /* Sources */ = {
+		DD7E90C9271F67600092BB79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DDFEEDA723F359280096015C /* Complex */,
 			);
-			path = Sources;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DDFEECAA23F1BA280096015C /* Supporting Files */ = {
+		DD86D53323D11B3E0046E63E = {
 			isa = PBXGroup;
 			children = (
-				DDFEECAB23F1BA550096015C /* Complex.podspec */,
-				DDFEECAC23F1BA550096015C /* Package.swift */,
-				DDC7FF972412922500A5832A /* Package@swift-4.2.swift */,
-				DD6F08D02400808300749359 /* codecov.yml */,
-				DDFEECAE23F1BA5E0096015C /* .swiftlint.yml */,
-				DDFEECAD23F1BA5E0096015C /* .travis.yml */,
-				DDFEECAF23F1BA680096015C /* README.md */,
-				DDB8127123FA4DA50079FEB5 /* ATTRIBUTIONS */,
-				DDFEECB123F1BA730096015C /* LICENSE */,
-				DDFEEC3723EF13900096015C /* Complex-Info.plist */,
+				DD86D53F23D11B3E0046E63E /* Complex */,
+				DD86D53E23D11B3E0046E63E /* Products */,
+				DD7E90C9271F67600092BB79 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD86D53E23D11B3E0046E63E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD86D53D23D11B3E0046E63E /* Complex.framework */,
+				DD86D54623D11B3E0046E63E /* ComplexTests.xctest */,
+				DD86D57023D11C860046E63E /* Complex.framework */,
+				DD86D57823D11C860046E63E /* ComplexTests.xctest */,
+				DD86D58C23D11CA00046E63E /* Complex.framework */,
+				DD86D59423D11CA00046E63E /* ComplexTests.xctest */,
+				DD86D5C423D11D140046E63E /* Complex.framework */,
+				DD48BC94270E0DE800D842BC /* ComplexTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD86D53F23D11B3E0046E63E /* Complex */ = {
+			isa = PBXGroup;
+			children = (
+				DDB1DE252405EE5F00C20FED /* Sources */,
+				DDB1DE502405EE9900C20FED /* Tests */,
+				DD86D55B23D11BA80046E63E /* Supporting Files */,
+			);
+			name = Complex;
+			sourceTree = "<group>";
+		};
+		DD86D55B23D11BA80046E63E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD17A9F9257744BC00D30599 /* scripts */,
+				DDA26DBD256EA4D700E1C6D7 /* workflows */,
+				DD86D5E023D22DB90046E63E /* Complex.podspec */,
+				DD86D5DF23D22DB90046E63E /* Package.swift */,
+				DD7E90D0271F67820092BB79 /* Package@swift-4.2.swift */,
+				DDB1DE5C2405EEE300C20FED /* codecov.yml */,
+				DD86D5E323D22DC30046E63E /* .swiftlint.yml */,
+				DD86D5E123D22DB90046E63E /* README.md */,
+				DD86D5DE23D22DB90046E63E /* LICENSE */,
+				DD86D54123D11B3E0046E63E /* Complex-Info.plist */,
+				DD5D044A261FA56400BA0FC2 /* ComplexTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		DDFEEDA723F359280096015C /* Complex */ = {
+		DDB1DE252405EE5F00C20FED /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DDB8120623F59B760079FEB5 /* Complex.swift */,
-				DDB8126123F7B1C90079FEB5 /* ComplexArithmetic.swift */,
-				DD6F08BD24001B9A00749359 /* ComplexOverflowingArithmetic.swift */,
-				DDB8120B23F5A8E80079FEB5 /* Functions.swift */,
-				DDB8126F23FA2C210079FEB5 /* Functions.swift.gyb */,
-				DDB8125823F707EE0079FEB5 /* Operators.swift */,
+				DD5D04E52621361600BA0FC2 /* Complex */,
 			);
-			path = Complex;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DDB1DE502405EE9900C20FED /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DD5D04F22621362400BA0FC2 /* ComplexTests */,
+				DD48BC9E270E0F1300D842BC /* Test Plans */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DDFEEC2E23EF13900096015C /* Headers */ = {
+		DD86D53823D11B3E0046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECB923F2001A0096015C /* Headers */ = {
+		DD86D56B23D11C860046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECD523F2003E0096015C /* Headers */ = {
+		DD86D58723D11CA00046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECF123F2004D0096015C /* Headers */ = {
+		DD86D5BF23D11D140046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -385,201 +433,234 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DDFEEC3223EF13900096015C /* Complex */ = {
+		DD48BC93270E0DE800D842BC /* Complex watchOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEEC4723EF13910096015C /* Build configuration list for PBXNativeTarget "Complex" */;
+			buildConfigurationList = DD48BC9D270E0DE800D842BC /* Build configuration list for PBXNativeTarget "Complex watchOS Tests" */;
 			buildPhases = (
-				DDFEEC2E23EF13900096015C /* Headers */,
-				DDFEEC2F23EF13900096015C /* Sources */,
-				DDFEEC3023EF13900096015C /* Frameworks */,
-				DDFEEC3123EF13900096015C /* Resources */,
+				DD48BC90270E0DE800D842BC /* Sources */,
+				DD48BC91270E0DE800D842BC /* Frameworks */,
+				DD48BC92270E0DE800D842BC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DD07933F2412E54500EF65B4 /* PBXTargetDependency */,
-				DDFEECB323F1BB5B0096015C /* PBXTargetDependency */,
+				DD48BC9A270E0DE800D842BC /* PBXTargetDependency */,
+			);
+			name = "Complex watchOS Tests";
+			packageProductDependencies = (
+				DD7E91522720A0730092BB79 /* Half */,
+			);
+			productName = "Complex watchOS Tests";
+			productReference = DD48BC94270E0DE800D842BC /* ComplexTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD86D53C23D11B3E0046E63E /* Complex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD86D55123D11B3E0046E63E /* Build configuration list for PBXNativeTarget "Complex" */;
+			buildPhases = (
+				DD86D53823D11B3E0046E63E /* Headers */,
+				DD86D53923D11B3E0046E63E /* Sources */,
+				DD86D53A23D11B3E0046E63E /* Frameworks */,
+				DD86D53B23D11B3E0046E63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD7E914527206BB20092BB79 /* PBXTargetDependency */,
+				DD86D56A23D11C6C0046E63E /* PBXTargetDependency */,
 			);
 			name = Complex;
 			packageProductDependencies = (
 			);
 			productName = Complex;
-			productReference = DDFEEC3323EF13900096015C /* Complex.framework */;
+			productReference = DD86D53D23D11B3E0046E63E /* Complex.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DDFEEC3B23EF13910096015C /* ComplexTests */ = {
+		DD86D54523D11B3E0046E63E /* ComplexTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEEC4A23EF13910096015C /* Build configuration list for PBXNativeTarget "ComplexTests" */;
+			buildConfigurationList = DD86D55423D11B3E0046E63E /* Build configuration list for PBXNativeTarget "ComplexTests" */;
 			buildPhases = (
-				DDFEEC3823EF13910096015C /* Sources */,
-				DDFEEC3923EF13910096015C /* Frameworks */,
-				DDFEEC3A23EF13910096015C /* Resources */,
+				DD86D54223D11B3E0046E63E /* Sources */,
+				DD86D54323D11B3E0046E63E /* Frameworks */,
+				DD86D54423D11B3E0046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDB1DF8E240C520C00C20FED /* PBXTargetDependency */,
-				DDFEEC3F23EF13910096015C /* PBXTargetDependency */,
+				DD86D54923D11B3E0046E63E /* PBXTargetDependency */,
 			);
 			name = ComplexTests;
 			packageProductDependencies = (
-				DD0793432412F03000EF65B4 /* Half */,
+				DD7E914C2720A0680092BB79 /* Half */,
 			);
 			productName = ComplexTests;
-			productReference = DDFEEC3C23EF13910096015C /* ComplexTests.xctest */;
+			productReference = DD86D54623D11B3E0046E63E /* ComplexTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DDFEECBD23F2001A0096015C /* Complex macOS */ = {
+		DD86D56F23D11C860046E63E /* Complex macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEECCF23F2001A0096015C /* Build configuration list for PBXNativeTarget "Complex macOS" */;
+			buildConfigurationList = DD86D58123D11C870046E63E /* Build configuration list for PBXNativeTarget "Complex macOS" */;
 			buildPhases = (
-				DDFEECB923F2001A0096015C /* Headers */,
-				DDFEECBA23F2001A0096015C /* Sources */,
-				DDFEECBB23F2001A0096015C /* Frameworks */,
-				DDFEECBC23F2001A0096015C /* Resources */,
+				DD86D56B23D11C860046E63E /* Headers */,
+				DD86D56C23D11C860046E63E /* Sources */,
+				DD86D56D23D11C860046E63E /* Frameworks */,
+				DD86D56E23D11C860046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDB8127A23FA5C3E0079FEB5 /* PBXTargetDependency */,
-				DDB8127C23FA5C3E0079FEB5 /* PBXTargetDependency */,
+				DD7E914727206BBA0092BB79 /* PBXTargetDependency */,
+				DD86D5D923D11DC60046E63E /* PBXTargetDependency */,
 			);
 			name = "Complex macOS";
+			packageProductDependencies = (
+			);
 			productName = "Complex macOS";
-			productReference = DDFEECBE23F2001A0096015C /* Complex.framework */;
+			productReference = DD86D57023D11C860046E63E /* Complex.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DDFEECC523F2001A0096015C /* Complex macOS Tests */ = {
+		DD86D57723D11C860046E63E /* Complex macOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEECD223F2001A0096015C /* Build configuration list for PBXNativeTarget "Complex macOS Tests" */;
+			buildConfigurationList = DD86D58423D11C870046E63E /* Build configuration list for PBXNativeTarget "Complex macOS Tests" */;
 			buildPhases = (
-				DDFEECC223F2001A0096015C /* Sources */,
-				DDFEECC323F2001A0096015C /* Frameworks */,
-				DDFEECC423F2001A0096015C /* Resources */,
+				DD86D57423D11C860046E63E /* Sources */,
+				DD86D57523D11C860046E63E /* Frameworks */,
+				DD86D57623D11C860046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDB1DF90240C521000C20FED /* PBXTargetDependency */,
-				DDFEECC923F2001A0096015C /* PBXTargetDependency */,
+				DD86D57B23D11C860046E63E /* PBXTargetDependency */,
 			);
 			name = "Complex macOS Tests";
 			packageProductDependencies = (
-				DD0793452412F03400EF65B4 /* Half */,
+				DD7E914E2720A06C0092BB79 /* Half */,
 			);
 			productName = "Complex macOSTests";
-			productReference = DDFEECC623F2001A0096015C /* ComplexTests.xctest */;
+			productReference = DD86D57823D11C860046E63E /* ComplexTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DDFEECD923F2003E0096015C /* Complex tvOS */ = {
+		DD86D58B23D11CA00046E63E /* Complex tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEECEB23F2003E0096015C /* Build configuration list for PBXNativeTarget "Complex tvOS" */;
+			buildConfigurationList = DD86D59D23D11CA00046E63E /* Build configuration list for PBXNativeTarget "Complex tvOS" */;
 			buildPhases = (
-				DDFEECD523F2003E0096015C /* Headers */,
-				DDFEECD623F2003E0096015C /* Sources */,
-				DDFEECD723F2003E0096015C /* Frameworks */,
-				DDFEECD823F2003E0096015C /* Resources */,
+				DD86D58723D11CA00046E63E /* Headers */,
+				DD86D58823D11CA00046E63E /* Sources */,
+				DD86D58923D11CA00046E63E /* Frameworks */,
+				DD86D58A23D11CA00046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDB8127E23FA5C430079FEB5 /* PBXTargetDependency */,
-				DDB8128023FA5C430079FEB5 /* PBXTargetDependency */,
+				DD7E914927206BBF0092BB79 /* PBXTargetDependency */,
+				DD86D5DB23D11DC90046E63E /* PBXTargetDependency */,
 			);
 			name = "Complex tvOS";
+			packageProductDependencies = (
+			);
 			productName = "Complex tvOS";
-			productReference = DDFEECDA23F2003E0096015C /* Complex.framework */;
+			productReference = DD86D58C23D11CA00046E63E /* Complex.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DDFEECE123F2003E0096015C /* Complex tvOS Tests */ = {
+		DD86D59323D11CA00046E63E /* Complex tvOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEECEE23F2003E0096015C /* Build configuration list for PBXNativeTarget "Complex tvOS Tests" */;
+			buildConfigurationList = DD86D5A023D11CA00046E63E /* Build configuration list for PBXNativeTarget "Complex tvOS Tests" */;
 			buildPhases = (
-				DDFEECDE23F2003E0096015C /* Sources */,
-				DDFEECDF23F2003E0096015C /* Frameworks */,
-				DDFEECE023F2003E0096015C /* Resources */,
+				DD86D59023D11CA00046E63E /* Sources */,
+				DD86D59123D11CA00046E63E /* Frameworks */,
+				DD86D59223D11CA00046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDB1DF92240C521500C20FED /* PBXTargetDependency */,
-				DDFEECE523F2003E0096015C /* PBXTargetDependency */,
+				DD86D59723D11CA00046E63E /* PBXTargetDependency */,
 			);
 			name = "Complex tvOS Tests";
 			packageProductDependencies = (
-				DD0793472412F03700EF65B4 /* Half */,
+				DD7E91502720A0700092BB79 /* Half */,
 			);
 			productName = "Complex tvOSTests";
-			productReference = DDFEECE223F2003E0096015C /* ComplexTests.xctest */;
+			productReference = DD86D59423D11CA00046E63E /* ComplexTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DDFEECF523F2004D0096015C /* Complex watchOS */ = {
+		DD86D5C323D11D140046E63E /* Complex watchOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDFEECFB23F2004D0096015C /* Build configuration list for PBXNativeTarget "Complex watchOS" */;
+			buildConfigurationList = DD86D5C923D11D140046E63E /* Build configuration list for PBXNativeTarget "Complex watchOS" */;
 			buildPhases = (
-				DDFEECF123F2004D0096015C /* Headers */,
-				DDFEECF223F2004D0096015C /* Sources */,
-				DDFEECF323F2004D0096015C /* Frameworks */,
-				DDFEECF423F2004D0096015C /* Resources */,
+				DD86D5BF23D11D140046E63E /* Headers */,
+				DD86D5C023D11D140046E63E /* Sources */,
+				DD86D5C123D11D140046E63E /* Frameworks */,
+				DD86D5C223D11D140046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DDB8128223FA5C480079FEB5 /* PBXTargetDependency */,
-				DDB8128423FA5C480079FEB5 /* PBXTargetDependency */,
+				DD7E914B27206BC30092BB79 /* PBXTargetDependency */,
+				DD86D5DD23D11DCC0046E63E /* PBXTargetDependency */,
 			);
 			name = "Complex watchOS";
+			packageProductDependencies = (
+			);
 			productName = "Complex watchOS";
-			productReference = DDFEECF623F2004D0096015C /* Complex.framework */;
+			productReference = DD86D5C423D11D140046E63E /* Complex.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DDFEEC2A23EF13900096015C /* Project object */ = {
+		DD86D53423D11B3E0046E63E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
 				ORGANIZATIONNAME = SomeRandomiOSDev;
 				TargetAttributes = {
-					DDB8127223FA5C0C0079FEB5 = {
-						CreatedOnToolsVersion = 11.3.1;
+					DD2FBC27258BE8BB00DB3211 = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEEC3223EF13900096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD48BC93270E0DE800D842BC = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEEC3B23EF13910096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD7E913F27206B6A0092BB79 = {
+						CreatedOnToolsVersion = 13.0;
 					};
-					DDFEECA423F1BA0B0096015C = {
-						CreatedOnToolsVersion = 11.3.1;
+					DD86D53C23D11B3E0046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEECBD23F2001A0096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD86D54523D11B3E0046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEECC523F2001A0096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD86D56423D11C4B0046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEECD923F2003E0096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD86D56F23D11C860046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEECE123F2003E0096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD86D57723D11C860046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DDFEECF523F2004D0096015C = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1130;
+					DD86D58B23D11CA00046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
+					DD86D59323D11CA00046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
+					DD86D5C323D11D140046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
-			buildConfigurationList = DDFEEC2D23EF13900096015C /* Build configuration list for PBXProject "Complex" */;
+			buildConfigurationList = DD86D53723D11B3E0046E63E /* Build configuration list for PBXProject "Complex" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -587,71 +668,81 @@
 				en,
 				Base,
 			);
-			mainGroup = DDFEEC2923EF13900096015C;
+			mainGroup = DD86D53323D11B3E0046E63E;
 			packageReferences = (
-				DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */,
+				DD7E90C6271F67580092BB79 /* XCRemoteSwiftPackageReference "Half" */,
+				DD7E913E27206B530092BB79 /* XCRemoteSwiftPackageReference "gyb" */,
 			);
-			productRefGroup = DDFEEC3423EF13900096015C /* Products */;
+			productRefGroup = DD86D53E23D11B3E0046E63E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DDFEEC3223EF13900096015C /* Complex */,
-				DDFEEC3B23EF13910096015C /* ComplexTests */,
-				DDFEECBD23F2001A0096015C /* Complex macOS */,
-				DDFEECC523F2001A0096015C /* Complex macOS Tests */,
-				DDFEECD923F2003E0096015C /* Complex tvOS */,
-				DDFEECE123F2003E0096015C /* Complex tvOS Tests */,
-				DDFEECF523F2004D0096015C /* Complex watchOS */,
-				DDB8127223FA5C0C0079FEB5 /* Generate Sources */,
-				DDFEECA423F1BA0B0096015C /* Run SwiftLint */,
+				DD86D53C23D11B3E0046E63E /* Complex */,
+				DD86D54523D11B3E0046E63E /* ComplexTests */,
+				DD86D56F23D11C860046E63E /* Complex macOS */,
+				DD86D57723D11C860046E63E /* Complex macOS Tests */,
+				DD86D58B23D11CA00046E63E /* Complex tvOS */,
+				DD86D59323D11CA00046E63E /* Complex tvOS Tests */,
+				DD86D5C323D11D140046E63E /* Complex watchOS */,
+				DD48BC93270E0DE800D842BC /* Complex watchOS Tests */,
+				DD7E913F27206B6A0092BB79 /* Generate Sources */,
+				DD86D56423D11C4B0046E63E /* Run SwiftLint */,
+				DD2FBC27258BE8BB00DB3211 /* XCFramework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DDFEEC3123EF13900096015C /* Resources */ = {
+		DD48BC92270E0DE800D842BC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEEC3A23EF13910096015C /* Resources */ = {
+		DD86D53B23D11B3E0046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECBC23F2001A0096015C /* Resources */ = {
+		DD86D54423D11B3E0046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECC423F2001A0096015C /* Resources */ = {
+		DD86D56E23D11C860046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECD823F2003E0096015C /* Resources */ = {
+		DD86D57623D11C860046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECE023F2003E0096015C /* Resources */ = {
+		DD86D58A23D11CA00046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECF423F2004D0096015C /* Resources */ = {
+		DD86D59223D11CA00046E63E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D5C223D11D140046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -661,7 +752,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DDB8127623FA5C160079FEB5 /* Generate Sources */ = {
+		DD2FBC33258BE8C600DB3211 /* Build XCFramework */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -669,22 +760,35 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Sources/Complex/Functions.swift.gyb",
-				"$(SRCROOT)/Tests/ComplexTests/FunctionsTests.swift.gyb",
+			);
+			name = "Build XCFramework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/scripts/xcframework.sh -configuration ${CONFIGURATION} -output \"${BUILD_DIR}/${CONFIGURATION}-universal/Complex.xcframework\" \n";
+		};
+		DD7E914327206B780092BB79 /* Generate Sources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
 			);
 			name = "Generate Sources";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(SRCROOT)/Sources/Complex/Functions.swift",
-				"$(SRCROOT)/Tests/ComplexTests/FunctionsTests.swift",
-				"$(SRCROOT)/Sources/Complex/Complex.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./utils/gyb --line-directive '' -o ./Sources/Complex/Functions.swift ./Sources/Complex/Functions.swift.gyb\n./utils/gyb --line-directive '' -o ./Tests/ComplexTests/FunctionsTests.swift ./Tests/ComplexTests/FunctionsTests.swift.gyb\n";
+			shellScript = "DERIVED_DATA_DIR=\"$(dirname \"$(dirname \"$(xcodebuild -project \"$PROJECT_FILE_PATH\" -showBuildSettings | grep -m 1 \"BUILD_DIR\" | grep -oEi \"\\/.*\")\")\")\"\n\n\"$DERIVED_DATA_DIR/SourcePackages/checkouts/gyb/gyb\" --line-directive '' -o ./Sources/Complex/Functions.swift ./Sources/Complex/Functions.swift.gyb\n\"$DERIVED_DATA_DIR/SourcePackages/checkouts/gyb/gyb\" --line-directive '' -o ./Tests/ComplexTests/FunctionsTests.swift ./Tests/ComplexTests/FunctionsTests.swift.gyb\n";
 		};
-		DDFEECA923F1BA160096015C /* Run SwiftLint */ = {
+		DD86D56823D11C550046E63E /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -705,164 +809,169 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DDFEEC2F23EF13900096015C /* Sources */ = {
+		DD48BC90270E0DE800D842BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126223F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
-				DDB8125923F707EE0079FEB5 /* Operators.swift in Sources */,
-				DDB8120723F59B760079FEB5 /* Complex.swift in Sources */,
-				DDB8120C23F5A8E80079FEB5 /* Functions.swift in Sources */,
-				DD6F08BE24001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E9105271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */,
+				DD7E90F9271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */,
+				DD7E90FD271F68C90092BB79 /* FunctionsTests.swift in Sources */,
+				DD7E9101271F68C90092BB79 /* TestingBase.swift in Sources */,
+				DD7E9109271F68C90092BB79 /* ComplexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEEC3823EF13910096015C /* Sources */ = {
+		DD86D53923D11B3E0046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126723F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
-				DD6F08CD240077C300749359 /* TestingBase.swift in Sources */,
-				DD6F08C324001CD400749359 /* ComplexOverflowingArithmeticTests.swift in Sources */,
-				DDB8121123F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
-				DDB8122123F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
+				DD7E90D7271F68790092BB79 /* Complex.swift in Sources */,
+				DD7E90E7271F68790092BB79 /* Operators.swift in Sources */,
+				DD7E90DB271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E90EB271F68790092BB79 /* Functions.swift in Sources */,
+				DD7E90DF271F68790092BB79 /* ComplexArithmetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECBA23F2001A0096015C /* Sources */ = {
+		DD86D54223D11B3E0046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126323F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
-				DDB8125A23F707EE0079FEB5 /* Operators.swift in Sources */,
-				DDB8120823F59B760079FEB5 /* Complex.swift in Sources */,
-				DDB8120D23F5A8E80079FEB5 /* Functions.swift in Sources */,
-				DD6F08BF24001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E9102271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */,
+				DD7E90F6271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */,
+				DD7E90FA271F68C90092BB79 /* FunctionsTests.swift in Sources */,
+				DD7E90FE271F68C90092BB79 /* TestingBase.swift in Sources */,
+				DD7E9106271F68C90092BB79 /* ComplexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECC223F2001A0096015C /* Sources */ = {
+		DD86D56C23D11C860046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126823F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
-				DD6F08CE240077C300749359 /* TestingBase.swift in Sources */,
-				DD6F08C424001CD400749359 /* ComplexOverflowingArithmeticTests.swift in Sources */,
-				DDB8121223F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
-				DDB8122223F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
+				DD7E90D8271F68790092BB79 /* Complex.swift in Sources */,
+				DD7E90E8271F68790092BB79 /* Operators.swift in Sources */,
+				DD7E90DC271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E90EC271F68790092BB79 /* Functions.swift in Sources */,
+				DD7E90E0271F68790092BB79 /* ComplexArithmetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECD623F2003E0096015C /* Sources */ = {
+		DD86D57423D11C860046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126423F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
-				DDB8125B23F707EE0079FEB5 /* Operators.swift in Sources */,
-				DDB8120923F59B760079FEB5 /* Complex.swift in Sources */,
-				DDB8120E23F5A8E80079FEB5 /* Functions.swift in Sources */,
-				DD6F08C024001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E9103271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */,
+				DD7E90F7271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */,
+				DD7E90FB271F68C90092BB79 /* FunctionsTests.swift in Sources */,
+				DD7E90FF271F68C90092BB79 /* TestingBase.swift in Sources */,
+				DD7E9107271F68C90092BB79 /* ComplexTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECDE23F2003E0096015C /* Sources */ = {
+		DD86D58823D11CA00046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126923F7B7F40079FEB5 /* ComplexArithmeticTests.swift in Sources */,
-				DD6F08CF240077C300749359 /* TestingBase.swift in Sources */,
-				DD6F08C524001CD400749359 /* ComplexOverflowingArithmeticTests.swift in Sources */,
-				DDB8121323F5AEB10079FEB5 /* ComplexTests.swift in Sources */,
-				DDB8122323F656AC0079FEB5 /* FunctionsTests.swift in Sources */,
+				DD7E90D9271F68790092BB79 /* Complex.swift in Sources */,
+				DD7E90E9271F68790092BB79 /* Operators.swift in Sources */,
+				DD7E90DD271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E90ED271F68790092BB79 /* Functions.swift in Sources */,
+				DD7E90E1271F68790092BB79 /* ComplexArithmetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DDFEECF223F2004D0096015C /* Sources */ = {
+		DD86D59023D11CA00046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB8126523F7B1C90079FEB5 /* ComplexArithmetic.swift in Sources */,
-				DDB8125C23F707EE0079FEB5 /* Operators.swift in Sources */,
-				DDB8120A23F59B760079FEB5 /* Complex.swift in Sources */,
-				DDB8120F23F5A8E80079FEB5 /* Functions.swift in Sources */,
-				DD6F08C124001B9A00749359 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E9104271F68C90092BB79 /* ComplexArithmeticTests.swift in Sources */,
+				DD7E90F8271F68C90092BB79 /* ComplexOverflowingArithmeticTests.swift in Sources */,
+				DD7E90FC271F68C90092BB79 /* FunctionsTests.swift in Sources */,
+				DD7E9100271F68C90092BB79 /* TestingBase.swift in Sources */,
+				DD7E9108271F68C90092BB79 /* ComplexTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D5C023D11D140046E63E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD7E90DA271F68790092BB79 /* Complex.swift in Sources */,
+				DD7E90EA271F68790092BB79 /* Operators.swift in Sources */,
+				DD7E90DE271F68790092BB79 /* ComplexOverflowingArithmetic.swift in Sources */,
+				DD7E90EE271F68790092BB79 /* Functions.swift in Sources */,
+				DD7E90E2271F68790092BB79 /* ComplexArithmetic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DD07933F2412E54500EF65B4 /* PBXTargetDependency */ = {
+		DD48BC9A270E0DE800D842BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDB8127223FA5C0C0079FEB5 /* Generate Sources */;
-			targetProxy = DD07933E2412E54500EF65B4 /* PBXContainerItemProxy */;
+			target = DD86D5C323D11D140046E63E /* Complex watchOS */;
+			targetProxy = DD48BC99270E0DE800D842BC /* PBXContainerItemProxy */;
 		};
-		DDB1DF8E240C520C00C20FED /* PBXTargetDependency */ = {
+		DD7E914527206BB20092BB79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DDB1DF8D240C520C00C20FED /* Half */;
+			target = DD7E913F27206B6A0092BB79 /* Generate Sources */;
+			targetProxy = DD7E914427206BB20092BB79 /* PBXContainerItemProxy */;
 		};
-		DDB1DF90240C521000C20FED /* PBXTargetDependency */ = {
+		DD7E914727206BBA0092BB79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DDB1DF8F240C521000C20FED /* Half */;
+			target = DD7E913F27206B6A0092BB79 /* Generate Sources */;
+			targetProxy = DD7E914627206BBA0092BB79 /* PBXContainerItemProxy */;
 		};
-		DDB1DF92240C521500C20FED /* PBXTargetDependency */ = {
+		DD7E914927206BBF0092BB79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DDB1DF91240C521500C20FED /* Half */;
+			target = DD7E913F27206B6A0092BB79 /* Generate Sources */;
+			targetProxy = DD7E914827206BBF0092BB79 /* PBXContainerItemProxy */;
 		};
-		DDB8127A23FA5C3E0079FEB5 /* PBXTargetDependency */ = {
+		DD7E914B27206BC30092BB79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDB8127223FA5C0C0079FEB5 /* Generate Sources */;
-			targetProxy = DDB8127923FA5C3E0079FEB5 /* PBXContainerItemProxy */;
+			target = DD7E913F27206B6A0092BB79 /* Generate Sources */;
+			targetProxy = DD7E914A27206BC30092BB79 /* PBXContainerItemProxy */;
 		};
-		DDB8127C23FA5C3E0079FEB5 /* PBXTargetDependency */ = {
+		DD86D54923D11B3E0046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
-			targetProxy = DDB8127B23FA5C3E0079FEB5 /* PBXContainerItemProxy */;
+			target = DD86D53C23D11B3E0046E63E /* Complex */;
+			targetProxy = DD86D54823D11B3E0046E63E /* PBXContainerItemProxy */;
 		};
-		DDB8127E23FA5C430079FEB5 /* PBXTargetDependency */ = {
+		DD86D56A23D11C6C0046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDB8127223FA5C0C0079FEB5 /* Generate Sources */;
-			targetProxy = DDB8127D23FA5C430079FEB5 /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D56923D11C6C0046E63E /* PBXContainerItemProxy */;
 		};
-		DDB8128023FA5C430079FEB5 /* PBXTargetDependency */ = {
+		DD86D57B23D11C860046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
-			targetProxy = DDB8127F23FA5C430079FEB5 /* PBXContainerItemProxy */;
+			target = DD86D56F23D11C860046E63E /* Complex macOS */;
+			targetProxy = DD86D57A23D11C860046E63E /* PBXContainerItemProxy */;
 		};
-		DDB8128223FA5C480079FEB5 /* PBXTargetDependency */ = {
+		DD86D59723D11CA00046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDB8127223FA5C0C0079FEB5 /* Generate Sources */;
-			targetProxy = DDB8128123FA5C480079FEB5 /* PBXContainerItemProxy */;
+			target = DD86D58B23D11CA00046E63E /* Complex tvOS */;
+			targetProxy = DD86D59623D11CA00046E63E /* PBXContainerItemProxy */;
 		};
-		DDB8128423FA5C480079FEB5 /* PBXTargetDependency */ = {
+		DD86D5D923D11DC60046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
-			targetProxy = DDB8128323FA5C480079FEB5 /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D5D823D11DC60046E63E /* PBXContainerItemProxy */;
 		};
-		DDFEEC3F23EF13910096015C /* PBXTargetDependency */ = {
+		DD86D5DB23D11DC90046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDFEEC3223EF13900096015C /* Complex */;
-			targetProxy = DDFEEC3E23EF13910096015C /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D5DA23D11DC90046E63E /* PBXContainerItemProxy */;
 		};
-		DDFEECB323F1BB5B0096015C /* PBXTargetDependency */ = {
+		DD86D5DD23D11DCC0046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDFEECA423F1BA0B0096015C /* Run SwiftLint */;
-			targetProxy = DDFEECB223F1BB5B0096015C /* PBXContainerItemProxy */;
-		};
-		DDFEECC923F2001A0096015C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DDFEECBD23F2001A0096015C /* Complex macOS */;
-			targetProxy = DDFEECC823F2001A0096015C /* PBXContainerItemProxy */;
-		};
-		DDFEECE523F2003E0096015C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DDFEECD923F2003E0096015C /* Complex tvOS */;
-			targetProxy = DDFEECE423F2003E0096015C /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D5DC23D11DCC0046E63E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		DDB8127423FA5C0C0079FEB5 /* Debug */ = {
+		DD2FBC28258BE8BB00DB3211 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -870,7 +979,7 @@
 			};
 			name = Debug;
 		};
-		DDB8127523FA5C0C0079FEB5 /* Release */ = {
+		DD2FBC29258BE8BB00DB3211 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -878,7 +987,72 @@
 			};
 			name = Release;
 		};
-		DDFEEC4523EF13910096015C /* Debug */ = {
+		DD48BC9B270E0DE800D842BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
+				PRODUCT_NAME = ComplexTests;
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		DD48BC9C270E0DE800D842BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Plists/TestProjectTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.testprojecttests;
+				PRODUCT_NAME = TestProjectTests;
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		DD7E914127206B6A0092BB79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PH26G7KHX9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DD7E914227206B6A0092BB79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PH26G7KHX9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DD86D54F23D11B3E0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -904,12 +1078,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -920,9 +1096,8 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
 					"DEBUG=1",
-					"SUPPRESS_Complex_NATIVE_HEADER_ERROR=1",
+					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -930,7 +1105,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -939,14 +1114,14 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		DDFEEC4623EF13910096015C /* Release */ = {
+		DD86D55023D11B3E0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -972,12 +1147,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -985,14 +1162,13 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "SUPPRESS_Complex_NATIVE_HEADER_ERROR=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1000,7 +1176,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1008,93 +1184,99 @@
 			};
 			name = Release;
 		};
-		DDFEEC4823EF13910096015C /* Debug */ = {
+		DD86D55223D11B3E0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
-		DDFEEC4923EF13910096015C /* Release */ = {
+		DD86D55323D11B3E0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
-		DDFEEC4B23EF13910096015C /* Debug */ = {
+		DD86D55523D11B3E0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
 				PRODUCT_NAME = ComplexTests;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
-		DDFEEC4C23EF13910096015C /* Release */ = {
+		DD86D55623D11B3E0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
 				PRODUCT_NAME = ComplexTests;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
-		DDFEECA623F1BA0B0096015C /* Debug */ = {
+		DD86D56623D11C4B0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -1102,7 +1284,7 @@
 			};
 			name = Debug;
 		};
-		DDFEECA723F1BA0B0096015C /* Release */ = {
+		DD86D56723D11C4B0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -1110,235 +1292,249 @@
 			};
 			name = Release;
 		};
-		DDFEECD023F2001A0096015C /* Debug */ = {
+		DD86D58223D11C870046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
-		DDFEECD123F2001A0096015C /* Release */ = {
+		DD86D58323D11C870046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		DDFEECD323F2001A0096015C /* Debug */ = {
+		DD86D58523D11C870046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
-				PRODUCT_NAME = ComplexTests;
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		DDFEECD423F2001A0096015C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
 				PRODUCT_NAME = ComplexTests;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DD86D58623D11C870046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
+				PRODUCT_NAME = ComplexTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
-		DDFEECEC23F2003E0096015C /* Debug */ = {
+		DD86D59E23D11CA00046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
 		};
-		DDFEECED23F2003E0096015C /* Release */ = {
+		DD86D59F23D11CA00046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
 		};
-		DDFEECEF23F2003E0096015C /* Debug */ = {
+		DD86D5A123D11CA00046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
 				PRODUCT_NAME = ComplexTests;
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
 		};
-		DDFEECF023F2003E0096015C /* Release */ = {
+		DD86D5A223D11CA00046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Info/ComplexTests-Info.plist";
+				INFOPLIST_FILE = "Plists/ComplexTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complextests;
 				PRODUCT_NAME = ComplexTests;
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
 		};
-		DDFEECFC23F2004D0096015C /* Debug */ = {
+		DD86D5CA23D11D140046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
 		};
-		DDFEECFD23F2004D0096015C /* Release */ = {
+		DD86D5CB23D11D140046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Info/Complex-Info.plist";
+				INFOPLIST_FILE = "Plists/Complex-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = mh_dylib;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.Complex;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.complex;
 				PRODUCT_NAME = Complex;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
@@ -1346,92 +1542,110 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DDB8127323FA5C0C0079FEB5 /* Build configuration list for PBXAggregateTarget "Generate Sources" */ = {
+		DD2FBC2A258BE8BB00DB3211 /* Build configuration list for PBXAggregateTarget "XCFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDB8127423FA5C0C0079FEB5 /* Debug */,
-				DDB8127523FA5C0C0079FEB5 /* Release */,
+				DD2FBC28258BE8BB00DB3211 /* Debug */,
+				DD2FBC29258BE8BB00DB3211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEEC2D23EF13900096015C /* Build configuration list for PBXProject "Complex" */ = {
+		DD48BC9D270E0DE800D842BC /* Build configuration list for PBXNativeTarget "Complex watchOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEEC4523EF13910096015C /* Debug */,
-				DDFEEC4623EF13910096015C /* Release */,
+				DD48BC9B270E0DE800D842BC /* Debug */,
+				DD48BC9C270E0DE800D842BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEEC4723EF13910096015C /* Build configuration list for PBXNativeTarget "Complex" */ = {
+		DD7E914027206B6A0092BB79 /* Build configuration list for PBXAggregateTarget "Generate Sources" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEEC4823EF13910096015C /* Debug */,
-				DDFEEC4923EF13910096015C /* Release */,
+				DD7E914127206B6A0092BB79 /* Debug */,
+				DD7E914227206B6A0092BB79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEEC4A23EF13910096015C /* Build configuration list for PBXNativeTarget "ComplexTests" */ = {
+		DD86D53723D11B3E0046E63E /* Build configuration list for PBXProject "Complex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEEC4B23EF13910096015C /* Debug */,
-				DDFEEC4C23EF13910096015C /* Release */,
+				DD86D54F23D11B3E0046E63E /* Debug */,
+				DD86D55023D11B3E0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEECA523F1BA0B0096015C /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */ = {
+		DD86D55123D11B3E0046E63E /* Build configuration list for PBXNativeTarget "Complex" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEECA623F1BA0B0096015C /* Debug */,
-				DDFEECA723F1BA0B0096015C /* Release */,
+				DD86D55223D11B3E0046E63E /* Debug */,
+				DD86D55323D11B3E0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEECCF23F2001A0096015C /* Build configuration list for PBXNativeTarget "Complex macOS" */ = {
+		DD86D55423D11B3E0046E63E /* Build configuration list for PBXNativeTarget "ComplexTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEECD023F2001A0096015C /* Debug */,
-				DDFEECD123F2001A0096015C /* Release */,
+				DD86D55523D11B3E0046E63E /* Debug */,
+				DD86D55623D11B3E0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEECD223F2001A0096015C /* Build configuration list for PBXNativeTarget "Complex macOS Tests" */ = {
+		DD86D56523D11C4B0046E63E /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEECD323F2001A0096015C /* Debug */,
-				DDFEECD423F2001A0096015C /* Release */,
+				DD86D56623D11C4B0046E63E /* Debug */,
+				DD86D56723D11C4B0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEECEB23F2003E0096015C /* Build configuration list for PBXNativeTarget "Complex tvOS" */ = {
+		DD86D58123D11C870046E63E /* Build configuration list for PBXNativeTarget "Complex macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEECEC23F2003E0096015C /* Debug */,
-				DDFEECED23F2003E0096015C /* Release */,
+				DD86D58223D11C870046E63E /* Debug */,
+				DD86D58323D11C870046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEECEE23F2003E0096015C /* Build configuration list for PBXNativeTarget "Complex tvOS Tests" */ = {
+		DD86D58423D11C870046E63E /* Build configuration list for PBXNativeTarget "Complex macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEECEF23F2003E0096015C /* Debug */,
-				DDFEECF023F2003E0096015C /* Release */,
+				DD86D58523D11C870046E63E /* Debug */,
+				DD86D58623D11C870046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDFEECFB23F2004D0096015C /* Build configuration list for PBXNativeTarget "Complex watchOS" */ = {
+		DD86D59D23D11CA00046E63E /* Build configuration list for PBXNativeTarget "Complex tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDFEECFC23F2004D0096015C /* Debug */,
-				DDFEECFD23F2004D0096015C /* Release */,
+				DD86D59E23D11CA00046E63E /* Debug */,
+				DD86D59F23D11CA00046E63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD86D5A023D11CA00046E63E /* Build configuration list for PBXNativeTarget "Complex tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD86D5A123D11CA00046E63E /* Debug */,
+				DD86D5A223D11CA00046E63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD86D5C923D11D140046E63E /* Build configuration list for PBXNativeTarget "Complex watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD86D5CA23D11D140046E63E /* Debug */,
+				DD86D5CB23D11D140046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1439,48 +1653,46 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */ = {
+		DD7E90C6271F67580092BB79 /* XCRemoteSwiftPackageReference "Half" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SomeRandomiOSDev/Half.git";
+			repositoryURL = "https://github.com/SomeRandomiOSDev/Half";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.0.0;
+			};
+		};
+		DD7E913E27206B530092BB79 /* XCRemoteSwiftPackageReference "gyb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SomeRandomiOSDev/gyb";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DD0793432412F03000EF65B4 /* Half */ = {
+		DD7E914C2720A0680092BB79 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD7E90C6271F67580092BB79 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
-		DD0793452412F03400EF65B4 /* Half */ = {
+		DD7E914E2720A06C0092BB79 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD7E90C6271F67580092BB79 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
-		DD0793472412F03700EF65B4 /* Half */ = {
+		DD7E91502720A0700092BB79 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD7E90C6271F67580092BB79 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
-		DDB1DF8D240C520C00C20FED /* Half */ = {
+		DD7E91522720A0730092BB79 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
-			productName = Half;
-		};
-		DDB1DF8F240C521000C20FED /* Half */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
-			productName = Half;
-		};
-		DDB1DF91240C521500C20FED /* Half */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF8A240C51F900C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD7E90C6271F67580092BB79 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = DDFEEC2A23EF13900096015C /* Project object */;
+	rootObject = DD86D53423D11B3E0046E63E /* Project object */;
 }

@@ -742,11 +742,17 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         result = Complex<Scalar>.add(extendedLHS, extendedRHS)
         CTAssertEqual(result, (high: (high: 0, low: Scalar.isSigned ? 0 : 1), low: (high: 0, low: 0)))
 
+        //
+
+        testAdditionalAddExtendedScalars(forType: Scalar.self)
+    }
+
+    private func testAdditionalAddExtendedScalars<Scalar>(forType: Scalar.Type) where Scalar: FixedWidthInteger {
         // Test overflow of `high.low`
         //
-        extendedLHS = (high: (high: 0, low: 1), (high: 1, low: 1))
-        extendedRHS = (high: (high: 0, low: Scalar.Magnitude.max), (high: 0, low: 0))
-        result = Complex<Scalar>.add(extendedLHS, extendedRHS)
+        var extendedLHS: Complex<Scalar>.ExtendedScalar = (high: (high: 0, low: 1), (high: 1, low: 1))
+        var extendedRHS: Complex<Scalar>.ExtendedScalar = (high: (high: 0, low: Scalar.Magnitude.max), (high: 0, low: 0))
+        var result = Complex<Scalar>.add(extendedLHS, extendedRHS)
         CTAssertEqual(result, (high: (high: 1, low: 0), low: (high: 1, low: 1)))
 
         // Test non-overflow of `high.low`
@@ -1186,86 +1192,90 @@ class ComplexOverflowingArithmeticTests: XCTestCase {
         CTAssertEqual(result.remainder, ((0, 0), (0, ~0)))
 
         if Scalar.isSigned {
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 100))), ((0, 0), (0, 10))) // -100 / 10 = -10 r0
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 100))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // -100 / -10 = 10 r0
-            CTAssertEqual(result.quotient, ((0, 0), (0, 10)))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 100)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // 100 / -10 = -10 r0
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
-
-            //
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), ((0, 0), (0, 10))) // -101 / 10 = -10 r-1
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
-            CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // -101 / -10 = 10 r-1
-            CTAssertEqual(result.quotient, ((0, 0), (0, 10)))
-            CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 101)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // 101 / -10 = -10 r1
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 1)))
-
-            //
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 109))), ((0, 0), (0, 10))) // -109 / 10 = -10 r-9
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
-            CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 9))))
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 109))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // -109 / -10 = 10 r-9
-            CTAssertEqual(result.quotient, ((0, 0), (0, 10)))
-            CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 9))))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 109)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // 109 / -10 = -10 r9
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 9)))
-
-            //
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 100))), ((0, 0), (0, 2))) // -100 / 2 = -50 r0
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 100)), ((0, 0), (0, 2))) // -100 / -2 = 50 r0
-            CTAssertEqual(result.quotient, ((0, 0), (0, 50)))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 100)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 2)))) // 100 / -2 = -50 r0
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
-
-            //
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), ((0, 0), (0, 2))) // -101 / 2 = -50 r-1
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
-            CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 2)))) // -101 / -2 = 50 r-1
-            CTAssertEqual(result.quotient, ((0, 0), (0, 50)))
-            CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 101)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 2)))) // 101 / -2 = -50 r1
-            CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
-            CTAssertEqual(result.remainder, ((0, 0), (0, 1)))
-
-            //
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))), ((0, 0), (~0, ~0)))
-            CTAssertEqual(result.quotient, ((0, 0), (0, 0)))
-            CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))))
-
-            result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))), Complex<Scalar>.twosComplement(of: ((0, 0), (~0, ~0))))
-            CTAssertEqual(result.quotient, ((0, 0), (0, 0)))
-            CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))))
-
-            result = Complex<Scalar>.slowpathDivide(((0, 0), (0, ~0)), Complex<Scalar>.twosComplement(of: ((0, 0), (~0, ~0))))
-            CTAssertEqual(result.quotient, ((0, 0), (0, 0)))
-            CTAssertEqual(result.remainder, ((0, 0), (0, ~0)))
+            testSlowpathDivideSigned(forType: Scalar.self)
         }
+    }
+
+    private func testSlowpathDivideSigned<Scalar>(forType: Scalar.Type) where Scalar: FixedWidthInteger {
+        var result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 100))), ((0, 0), (0, 10))) // -100 / 10 = -10 r0
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 100))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // -100 / -10 = 10 r0
+        CTAssertEqual(result.quotient, ((0, 0), (0, 10)))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 100)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // 100 / -10 = -10 r0
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
+
+        //
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), ((0, 0), (0, 10))) // -101 / 10 = -10 r-1
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
+        CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // -101 / -10 = 10 r-1
+        CTAssertEqual(result.quotient, ((0, 0), (0, 10)))
+        CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 101)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // 101 / -10 = -10 r1
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 1)))
+
+        //
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 109))), ((0, 0), (0, 10))) // -109 / 10 = -10 r-9
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
+        CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 9))))
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 109))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // -109 / -10 = 10 r-9
+        CTAssertEqual(result.quotient, ((0, 0), (0, 10)))
+        CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 9))))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 109)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10)))) // 109 / -10 = -10 r9
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 10))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 9)))
+
+        //
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 100))), ((0, 0), (0, 2))) // -100 / 2 = -50 r0
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 100)), ((0, 0), (0, 2))) // -100 / -2 = 50 r0
+        CTAssertEqual(result.quotient, ((0, 0), (0, 50)))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 100)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 2)))) // 100 / -2 = -50 r0
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 0)))
+
+        //
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), ((0, 0), (0, 2))) // -101 / 2 = -50 r-1
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
+        CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, 101))), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 2)))) // -101 / -2 = 50 r-1
+        CTAssertEqual(result.quotient, ((0, 0), (0, 50)))
+        CTAssertEqual(result.remainder, ((~0, ~0), (~0, ~0)))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, 101)), Complex<Scalar>.twosComplement(of: ((0, 0), (0, 2)))) // 101 / -2 = -50 r1
+        CTAssertEqual(result.quotient, Complex<Scalar>.twosComplement(of: ((0, 0), (0, 50))))
+        CTAssertEqual(result.remainder, ((0, 0), (0, 1)))
+
+        //
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))), ((0, 0), (~0, ~0)))
+        CTAssertEqual(result.quotient, ((0, 0), (0, 0)))
+        CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))))
+
+        result = Complex<Scalar>.slowpathDivide(Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))), Complex<Scalar>.twosComplement(of: ((0, 0), (~0, ~0))))
+        CTAssertEqual(result.quotient, ((0, 0), (0, 0)))
+        CTAssertEqual(result.remainder, Complex<Scalar>.twosComplement(of: ((0, 0), (0, ~0))))
+
+        result = Complex<Scalar>.slowpathDivide(((0, 0), (0, ~0)), Complex<Scalar>.twosComplement(of: ((0, 0), (~0, ~0))))
+        CTAssertEqual(result.quotient, ((0, 0), (0, 0)))
+        CTAssertEqual(result.remainder, ((0, 0), (0, ~0)))
     }
 }

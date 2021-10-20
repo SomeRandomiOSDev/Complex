@@ -207,7 +207,7 @@ extension Complex: Hashable where Scalar: Hashable {
 
 // MARK: - Equatable Protocol Conformance
 
-extension Complex: Equatable where Scalar: Equatable {
+extension Complex: Equatable {
 
     @_transparent
     public static func == (lhs: Complex, rhs: Complex) -> Bool {
@@ -215,16 +215,43 @@ extension Complex: Equatable where Scalar: Equatable {
     }
 }
 
+// MARK: - Complex Extension
+
+extension Complex {
+
+    // MARK: Complex.CodingKeys Definition
+
+    fileprivate enum CodingKeys: String, CodingKey {
+
+        // MARK: Cases
+
+        case real
+        case imaginary
+    }
+}
+
 // MARK: - Encodable Protocol Conformance
 
 extension Complex: Encodable where Scalar: Encodable {
 
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+
+        try container.encode(real, forKey: .real)
+        try container.encode(imaginary, forKey: .imaginary)
+    }
 }
 
 // MARK: - Decodable Protocol Conformance
 
 extension Complex: Decodable where Scalar: Decodable {
 
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.real = try container.decode(Scalar.self, forKey: .real)
+        self.imaginary = try container.decode(Scalar.self, forKey: .imaginary)
+    }
 }
 
 // MARK: - Complex BinaryInteger Extensions
